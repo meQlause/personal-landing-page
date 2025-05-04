@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isDarkMode, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -20,22 +19,6 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
-  ];
-
-  const scrollToSection = (sectionId: string) => {
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <header
@@ -44,10 +27,10 @@ const Header: React.FC = () => {
         : 'bg-transparent'
         }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16 md:h-20">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
+        <div className="flex justify-between items-center h-12 mt-4 pb-3 md:pb-0 md:mt-0 md:h-20">
           <div className="flex-shrink-0 flex items-center">
-            <span className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+            <span className="text-2xl ml-4 md:ml-0 md:text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
               Ard<span className="text-primary-500">ial</span>
             </span>
           </div>
@@ -78,7 +61,7 @@ const Header: React.FC = () => {
           <div className="flex md:hidden">
             <button
               onClick={toggleTheme}
-              className="mr-2 rounded-full p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
+              className="rounded-full ml-6 p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
               aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
