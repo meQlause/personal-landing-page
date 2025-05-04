@@ -38,23 +38,22 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 backdrop-blur-sm shadow-sm' 
-          : 'bg-transparent'
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${isScrolled
+        ? 'bg-white bg-opacity-90 dark:bg-gray-900 dark:bg-opacity-90 backdrop-blur-sm shadow-sm'
+        : 'bg-transparent'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex-shrink-0 flex items-center">
             <span className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
-              John<span className="text-primary-500">Doe</span>
+              Ard<span className="text-primary-500">ial</span>
             </span>
           </div>
-          
+
           <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
+            {/* {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -66,7 +65,7 @@ const Header: React.FC = () => {
               >
                 {link.name}
               </a>
-            ))}
+            ))} */}
             <button
               onClick={toggleTheme}
               className="rounded-full p-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
@@ -75,7 +74,7 @@ const Header: React.FC = () => {
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
           </div>
-          
+
           <div className="flex md:hidden">
             <button
               onClick={toggleTheme}
@@ -84,20 +83,20 @@ const Header: React.FC = () => {
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
-            <button
+            {/* <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
               aria-expanded={isMobileMenuOpen}
             >
               <span className="sr-only">Open main menu</span>
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
-      
+
       {/* Mobile menu */}
-      <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
+      {/* <div className={`md:hidden ${isMobileMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 shadow-lg">
           {navLinks.map((link) => (
             <a
@@ -113,7 +112,7 @@ const Header: React.FC = () => {
             </a>
           ))}
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };

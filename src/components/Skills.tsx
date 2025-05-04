@@ -9,36 +9,40 @@ const Skills: React.FC = () => {
 
   const categories = [
     {
-      name: 'Frontend',
+      name: 'Programming Languages',
       skills: [
-        { name: 'React', proficiency: 95 },
+        { name: 'Python', proficiency: 90 },
         { name: 'JavaScript', proficiency: 90 },
         { name: 'TypeScript', proficiency: 85 },
-        { name: 'HTML/CSS', proficiency: 95 },
-        { name: 'Tailwind CSS', proficiency: 90 },
-        { name: 'Next.js', proficiency: 80 },
+        { name: 'PHP', proficiency: 85 },
+        { name: 'Solidity', proficiency: 85 },
+        { name: 'Scrypto', proficiency: 85 },
+        { name: 'Rust', proficiency: 80 },
+        { name: 'C#', proficiency: 80 },
       ],
     },
     {
-      name: 'Backend',
+      name: 'Technologies',
       skills: [
-        { name: 'Node.js', proficiency: 85 },
-        { name: 'Express', proficiency: 80 },
-        { name: 'MongoDB', proficiency: 75 },
-        { name: 'PostgreSQL', proficiency: 70 },
-        { name: 'GraphQL', proficiency: 65 },
-        { name: 'Firebase', proficiency: 80 },
+        { name: 'Next.js', proficiency: 85 },
+        { name: 'Reach', proficiency: 85 },
+        { name: 'Nest.js', proficiency: 85 },
+        { name: 'PostgreSQL', proficiency: 85 },
+        { name: 'MongoDB', proficiency: 85 },
+        { name: 'Laravel', proficiency: 85 },
+        { name: 'Supabase', proficiency: 80 },
       ],
     },
     {
       name: 'Other',
       skills: [
         { name: 'Git', proficiency: 90 },
-        { name: 'Docker', proficiency: 70 },
-        { name: 'AWS', proficiency: 65 },
-        { name: 'CI/CD', proficiency: 75 },
-        { name: 'Testing', proficiency: 80 },
-        { name: 'UI/UX Design', proficiency: 70 },
+        { name: 'Docker', proficiency: 90 },
+        { name: 'Azure', proficiency: 80 },
+        { name: 'CI/CD', proficiency: 80 },
+        { name: 'Tailwind CSS', proficiency: 80 },
+        { name: 'Bootstrap CSS', proficiency: 80 },
+        { name: 'Kubernetes', proficiency: 80 },
       ],
     },
   ];
@@ -53,23 +57,23 @@ const Skills: React.FC = () => {
             A comprehensive overview of my technical skills and expertise
           </p>
         </div>
-        
+
         <div className={`transition-all duration-700 transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {categories.map((category, categoryIndex) => (
-              <div 
+              <div
                 key={categoryIndex}
                 className="bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm p-6"
               >
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
-                  {category.name} Technologies
+                  {category.name}
                 </h3>
-                
+
                 <div className="space-y-6">
                   {category.skills.map((skill, skillIndex) => {
                     // Create a delay effect for the skill bars
                     const delay = `${(categoryIndex * 6 + skillIndex) * 100}ms`;
-                    
+
                     return (
                       <div key={skillIndex}>
                         <div className="flex justify-between mb-1">
@@ -77,9 +81,9 @@ const Skills: React.FC = () => {
                           <span className="text-gray-500 dark:text-gray-400 text-sm">{skill.proficiency}%</span>
                         </div>
                         <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
-                          <div 
+                          <div
                             className="bg-gradient-to-r from-primary-500 to-secondary-500 h-2.5 rounded-full transition-all duration-1000 ease-out"
-                            style={{ 
+                            style={{
                               width: inView ? `${skill.proficiency}%` : '0%',
                               transitionDelay: delay
                             }}
@@ -92,17 +96,19 @@ const Skills: React.FC = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-            {['JavaScript', 'TypeScript', 'React', 'Node.js', 'HTML5', 'CSS3', 'Git', 'SQL'].map((tech, index) => (
-              <div 
+            {/* {['JavaScript', 'TypeScript', 'React', 'Node.js', 'HTML5', 'CSS3', 'Git', 'SQL'].map((tech, index) => (
+              <div
                 key={index}
                 className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow duration-300"
               >
                 <div className="text-lg font-medium text-gray-900 dark:text-white">{tech}</div>
               </div>
-            ))}
+            ))} */}
           </div>
+          <div className='mb-10'></div>
+          <div className=" h-1 bg-primary-500 mx-auto mt-4 mb-10"></div>
         </div>
       </div>
     </section>

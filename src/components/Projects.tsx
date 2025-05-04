@@ -16,64 +16,37 @@ const Projects: React.FC = () => {
   const projects = [
     {
       id: 1,
-      title: 'E-commerce Platform',
-      description: 'A full-featured e-commerce platform with product management, cart functionality, and payment processing.',
+      title: 'Arcane Labyrinth',
+      description: '#P2E Game project build on #Radix, have unique 4567 #NFT character with 5 different characters.',
       link: '#',
       github: '#',
       category: 'fullstack',
-      tags: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+      tags: ['Next.js', 'nest.js', 'Radix Network', 'PostgreSQl', 'Tailwind CSS'],
       color: 'from-blue-500 to-purple-500',
+      image: 'https://pbs.twimg.com/profile_banners/1637834929156546560/1679474543/1080x360',
     },
     {
       id: 2,
-      title: 'Task Management App',
-      description: 'A Kanban-style task management application with real-time updates and team collaboration features.',
+      title: 'Noteboard',
+      description: 'Noteboard is a modern web application built with Next.js and React. It provides a platform for managing notes and tasks in an organized manner.',
       link: '#',
       github: '#',
-      category: 'frontend',
-      tags: ['React', 'TypeScript', 'Firebase'],
+      category: 'Infrastructure',
+      tags: ['Next.js', 'NeonDB', 'Drizzle ORM', 'Tailwind CSS', 'Zod', 'Shadcn UI'],
       color: 'from-green-500 to-teal-500',
+      image: 'https://i.ibb.co.com/8Ds2W0Nx/note.png',
     },
     {
       id: 3,
-      title: 'Finance Dashboard',
-      description: 'An interactive dashboard for tracking financial data with charts, graphs, and data visualization.',
+      title: 'Qswap',
+      description: 'A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.',
       link: '#',
       github: '#',
-      category: 'frontend',
-      tags: ['React', 'D3.js', 'Tailwind CSS'],
+      category: 'Fullstack',
+      tags: ['React', 'Solidity', 'Scrypto', 'Tailwind CSS', 'Ethers.js'],
       color: 'from-purple-500 to-pink-500',
-    },
-    {
-      id: 4,
-      title: 'Content Management System',
-      description: 'A modern CMS with customizable content types, user roles, and a responsive admin interface.',
-      link: '#',
-      github: '#',
-      category: 'backend',
-      tags: ['Node.js', 'Express', 'PostgreSQL'],
-      color: 'from-yellow-500 to-red-500',
-    },
-    {
-      id: 5,
-      title: 'Real-time Chat Application',
-      description: 'A messaging platform with real-time communication, read receipts, and media sharing.',
-      link: '#',
-      github: '#',
-      category: 'fullstack',
-      tags: ['React', 'Socket.io', 'Node.js'],
-      color: 'from-indigo-500 to-purple-500',
-    },
-    {
-      id: 6,
-      title: 'API Gateway Service',
-      description: 'A microservice for handling API requests with authentication, rate limiting, and caching.',
-      link: '#',
-      github: '#',
-      category: 'backend',
-      tags: ['Node.js', 'Express', 'Redis'],
-      color: 'from-red-500 to-orange-500',
-    },
+      image: 'https://i.ibb.co.com/23fCC3Y5/Qswap.png',
+    }
   ];
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -119,8 +92,8 @@ const Projects: React.FC = () => {
             A selection of my recent work and personal projects
           </p>
         </div>
-        
-        <div 
+
+        <div
           className={`transition-all duration-700 transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
         >
           <div
@@ -136,10 +109,17 @@ const Projects: React.FC = () => {
               {projects.map((project, index) => (
                 <div
                   key={project.id}
-                  className="w-[400px] flex-shrink-0 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  className="w-[400px] flex-shrink-0 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className={`h-3 bg-gradient-to-r ${project.color}`} />
+                  <div className="relative w-full h-[200px] overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
                   <div className="p-6">
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, tagIndex) => (
@@ -151,27 +131,27 @@ const Projects: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                    
+
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">{project.description}</p>
-                    
-                    <div className="flex justify-between items-center">
-                      <a 
+
+                    {/* <div className="flex justify-between items-center">
+                      <a
                         href={project.link}
                         className="text-primary-600 dark:text-primary-400 font-medium flex items-center hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
                       >
                         View project <ArrowUpRight size={16} className="ml-1" />
                       </a>
-                      
+
                       <div className="flex space-x-3">
-                        <a 
+                        <a
                           href={project.github}
                           className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                         >
                           <Github size={20} />
                           <span className="sr-only">GitHub repository</span>
                         </a>
-                        <a 
+                        <a
                           href="#"
                           className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                         >
@@ -179,15 +159,15 @@ const Projects: React.FC = () => {
                           <span className="sr-only">Project details</span>
                         </a>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               ))}
             </div>
           </div>
-          
-          <div className="text-center mt-12">
-            <a 
+
+          {/* <div className="text-center mt-12">
+            <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -195,7 +175,7 @@ const Projects: React.FC = () => {
             >
               View More on GitHub <Github size={20} className="ml-2" />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>

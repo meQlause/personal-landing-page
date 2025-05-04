@@ -3,7 +3,7 @@ import { Github, Linkedin, Twitter, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -25,31 +25,31 @@ const Footer: React.FC = () => {
               Full-stack developer specializing in creating beautiful and functional digital experiences.
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+              <a href="https://github.com/meQlause" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
                 <Github size={20} />
                 <span className="sr-only">GitHub</span>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+              {/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
                 <Linkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
               </a>
               <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
                 <Twitter size={20} />
                 <span className="sr-only">Twitter</span>
-              </a>
-              <a href="mailto:john.doe@example.com" className="text-gray-400 hover:text-white transition-colors duration-200">
+              </a> */}
+              <a href="mailto:me@ardial.tech" className="text-gray-400 hover:text-white transition-colors duration-200">
                 <Mail size={20} />
                 <span className="sr-only">Email</span>
               </a>
             </div>
           </div>
-          
+
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <a 
-                  href="#home" 
+                <a
+                  href="#home"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#home')?.scrollIntoView({ behavior: 'smooth' });
@@ -60,8 +60,8 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#about" 
+                <a
+                  href="#about"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' });
@@ -72,8 +72,8 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#skills" 
+                <a
+                  href="#skills"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#skills')?.scrollIntoView({ behavior: 'smooth' });
@@ -84,8 +84,8 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#projects" 
+                <a
+                  href="#projects"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -96,8 +96,8 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -109,23 +109,23 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           <div className="col-span-1">
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
               <li className="flex items-center text-gray-400">
                 <Mail size={16} className="mr-2" />
-                <a href="mailto:john.doe@example.com" className="hover:text-white transition-colors duration-200">
-                  john.doe@example.com
+                <a href="mailto:me@ardial.tech" className="hover:text-white transition-colors duration-200">
+                  me@ardial.tech
                 </a>
               </li>
               <li className="flex items-center text-gray-400">
                 <span className="font-medium">Location:</span>
-                <span className="ml-2">San Francisco, CA</span>
+                <span className="ml-2">Semarang, Indonesia</span>
               </li>
               <li className="flex items-center text-gray-400 mt-6">
-                <a 
-                  href="/resume.pdf" 
+                <a
+                  href="https://filebin.net/vzzaij30fxksx2fy/Resume.pdf"
                   className="inline-flex items-center px-4 py-2 border border-primary-500 text-sm font-medium rounded-md text-primary-400 hover:bg-primary-500 hover:text-white transition-colors duration-200"
                 >
                   Download Resume
@@ -134,7 +134,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
             &copy; {currentYear} John Doe. All rights reserved.

@@ -26,8 +26,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile.dev
+          file: ./Dockerfile.prod
           push: true
-          tags: ${{ env.DOCKER_IMAGE }}:dev
+          tags: ${{ env.DOCKER_IMAGE }}:prod
           cache-from: type=gha
           cache-to: type=gha,mode=max
