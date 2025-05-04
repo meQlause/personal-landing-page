@@ -18,11 +18,11 @@ const Footer: React.FC = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-4">
               <span className="text-2xl font-bold text-white tracking-tight">
-                John<span className="text-primary-400">Doe</span>
+                Ard<span className="text-primary-400">ial</span>
               </span>
             </div>
             <p className="text-gray-400 mb-4 max-w-xs">
-              Full-stack developer specializing in creating beautiful and functional digital experiences.
+              Software Engineer specializing in creating beautiful and functional digital experiences.
             </p>
             <div className="flex space-x-4">
               <a href="https://github.com/meQlause" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
@@ -137,7 +137,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            &copy; {currentYear} John Doe. All rights reserved.
+            &copy; {currentYear} Ardial. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}

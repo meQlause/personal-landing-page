@@ -34,3 +34,28 @@ jobs:
           tags: ${{ env.DOCKER_IMAGE }}:prod
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 92.113.145.8 >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: |
+          ssh ardial@92.113.145.8 '
+            # Pull the latest image
+            docker pull ${{ env.DOCKER_IMAGE }}:prod
+            
+            # Stop and remove existing container if it exists
+            docker stop personal-landing-page || true
+            docker rm personal-landing-page || true
+            
+            # Run the new container
+            docker run -d \
+              --name personal-landing-page \
+              --restart unless-stopped \
+              -p 80:80 \
+              ${{ env.DOCKER_IMAGE }}:prod
+          '
