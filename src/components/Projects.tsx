@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
       id: 2,
       title: 'Noteboard',
       description: 'Noteboard is a modern web application built with Next.js and React. It provides a platform for managing notes and tasks in an organized manner.',
-      link: '#',
+      link: 'https://noteboard.ardial.tech/',
       github: '#',
       category: 'Infrastructure',
       tags: ['Next.js', 'NeonDB', 'Drizzle ORM', 'Tailwind CSS', 'Zod', 'Shadcn UI'],
@@ -40,7 +40,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: 'Qswap',
       description: 'A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.',
-      link: '#',
+      link: 'https://qswap.ardial.tech/',
       github: '#',
       category: 'Fullstack',
       tags: ['React', 'Solidity', 'Scrypto', 'Tailwind CSS', 'Ethers.js'],
@@ -134,15 +134,19 @@ const Projects: React.FC = () => {
 
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">{project.description}</p>
-
-                    {/* <div className="flex justify-between items-center">
-                      <a
-                        href={project.link}
-                        className="text-primary-600 dark:text-primary-400 font-medium flex items-center hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                      >
-                        View project <ArrowUpRight size={16} className="ml-1" />
-                      </a>
-
+                    {project.link !== '#' ? (
+                      <div className="flex justify-between items-center">
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-primary-600 dark:text-primary-400 font-medium flex items-center hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
+                        >
+                          {project.link}  <ArrowUpRight size={16} className="ml-1" />
+                        </a>
+                      </div>
+                    ) : ''}
+                    {/*
                       <div className="flex space-x-3">
                         <a
                           href={project.github}
