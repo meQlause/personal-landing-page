@@ -7,28 +7,22 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { ThemeProvider } from './context/ThemeContext';
+import Loading from './components/Loading';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay
+    // Set a timeout of 2 seconds
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 800);
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
 
   if (isLoading) {
-    return (
-      <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center">
-        <div className="animate-pulse flex flex-col items-center">
-          <div className="w-16 h-16 bg-primary-500 rounded-full mb-4"></div>
-          <div className="h-4 w-32 bg-gray-300 dark:bg-gray-700 rounded"></div>
-        </div>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
