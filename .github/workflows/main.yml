@@ -50,13 +50,12 @@ jobs:
               # Pull the latest image
               docker pull ${{ env.DOCKER_IMAGE }}:prod
               
-              # Stop and remove existing container if it exists
-              docker stop personal-landing-page || true
-              docker rm personal-landing-page || true
+              # Stop and remove all containers
+              docker stop $(docker ps -aq) || true
+              docker rm $(docker ps -aq) || true
               
               # Run the new container
               docker run -d \
-                --name personal-landing-page \
                 --restart unless-stopped \
                 -p 127.0.0.1:3000:3000 \
                 ${{ env.DOCKER_IMAGE }}:prod
