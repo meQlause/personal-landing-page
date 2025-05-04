@@ -27,7 +27,7 @@ const About: React.FC = () => {
         </div>
 
         <div className={`transition-all duration-700 transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="mx-36 items-center">
+          <div className="mx-4 sm:mx-8 md:mx-16 lg:mx-24 xl:mx-36 items-center">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                 Hi,  I am Ardial
@@ -48,7 +48,7 @@ const About: React.FC = () => {
                 I'm a fast leaner and have a strong work ethic,
                 which I bring to every challenge I take on.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-11 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                 When I'm not coding, I'm usually focused on upskilling by taking online courses to deepen my knowledge and stay ahead in the tech world.
                 I'm also passionate about music and enjoy exploring its creative side.
                 Above all,
