@@ -56,6 +56,8 @@ jobs:
                 docker rm \$(docker ps -aq)
               fi
               
+              # Kill any process using port 3001
+              lsof -ti:3001 | xargs kill -9 2>/dev/null || true
               # Kill any process using port 3000
               lsof -ti:3000 | xargs kill -9 2>/dev/null || true
               
@@ -64,5 +66,10 @@ jobs:
                 --restart unless-stopped \
                 -p 127.0.0.1:3000:3000 \
                 ${{ env.DOCKER_IMAGE }}:prod
+            
+              docker run -d \
+                --restart unless-stopped \
+                -p 127.0.0.1:3001:3001 \
+                ardialqlause/qswap:prod
             "
           '
