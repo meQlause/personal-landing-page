@@ -2,11 +2,15 @@ name: Docker Development Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   workflow_dispatch:
 
 env:
   DOCKER_IMAGE: ardialqlause/personal-landing-page
+  VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+  VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+  VITE_EMAILJS_TEMPLATE_ID_1: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_1 }}
+  VITE_EMAILJS_TEMPLATE_ID_2: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_2 }}
 
 jobs:
   build-and-push:

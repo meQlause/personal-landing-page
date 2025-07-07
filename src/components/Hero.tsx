@@ -1,102 +1,88 @@
-import React from 'react';
-import { ArrowDown, Github, Linkedin, Twitter } from 'lucide-react';
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import { Github, Linkedin, Download, ArrowRight } from "lucide-react";
 
-const Hero: React.FC = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  const scrollToAbout = () => {
-    const aboutSection = document.querySelector('#about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+export const Hero: React.FC = () => {
   return (
-    <section
-      id="home"
-      className="relative min-h-screen flex items-center pt-16 overflow-hidden"
-      ref={ref}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-900 dark:to-gray-950 -z-10"></div>
+    <section className="min-h-screen py-10 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-300 dark:bg-purple-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-300 dark:bg-blue-700 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-blue-200 to-purple-200 dark:from-blue-800 dark:to-purple-800 rounded-full mix-blend-multiply dark:mix-blend-normal filter blur-3xl opacity-10 animate-pulse"></div>
+      </div>
 
-      <div className="absolute -top-10 -right-10 w-72 h-72 bg-primary-200 dark:bg-primary-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30 animate-pulse"></div>
-      <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-secondary-200 dark:bg-secondary-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-3xl opacity-30 animate-pulse delay-1000"></div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className={`transition-all duration-700 transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex flex-col items-center text-center">
-            <div className="space-y-6 py-12">
-              <div className="inline-block px-3 py-1 rounded-full bg-primary-100 dark:bg-gray-800 text-primary-800 dark:text-primary-300 text-sm font-medium animate-fade-in">
-                <span>Software Engineer</span>
-              </div>
-
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight">
-                Creating digital<br />
-                <span className="text-gradient bg-gradient-to-r from-primary-500 to-secondary-500">experiences</span> that<br />
-                matter
-              </h1>
-
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-xl mx-auto">
-                I'm a passionate Software Engineer specialized in building exceptional digital experiences that are both functional and beautiful.
-              </p>
-
-              <div className="flex flex-wrap gap-4 justify-center pt-4">
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
-                >
-                  Get in touch
-                </a>
-                <a
-                  href="#projects"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-700 text-base font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
-                >
-                  View my work
-                </a>
-              </div>
-
-              <div className="pt-8 flex items-center justify-center space-x-6">
-                <a href="https://github.com/meQlause" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200">
-                  <Github size={24} />
-                  <span className="sr-only">GitHub</span>
-                </a>
-                {/* <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200">
-                  <Linkedin size={24} />
-                  <span className="sr-only">LinkedIn</span>
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-200">
-                  <Twitter size={24} />
-                  <span className="sr-only">Twitter</span>
-                </a> */}
-              </div>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Profile Picture */}
+          <div className="mb-8 relative inline-block">
+            <div className="h-[192px] w-[192px] mx-auto rounded-full overflow-hidden shadow-2xl ring-8 ring-white dark:ring-gray-700 transform hover:scale-105 transition-transform duration-500">
+              <img
+                src="/assets/hero.png"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-500 to-purple-500 opacity-0 hover:opacity-20 transition-opacity duration-500"></div>
+            <div className="absolute -bottom-2 -right-2 w-12 h-12 bg-green-500 rounded-full border-4 border-white dark:border-gray-700 flex items-center justify-center">
+              <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
             </div>
           </div>
-        </div>
 
-        <div className="absolute bottom-10 transform -translate-x-1/2 animate-bounce">
-          <button
-            onClick={scrollToAbout}
-            className="text-gray-500 hover:text-primary-500 dark:text-gray-400 dark:hover:text-primary-400 transition-colors duration-200 focus:outline-none"
-            aria-label="Scroll to About section"
-          >
-            <ArrowDown size={24} />
-          </button>
+          {/* Main Content */}
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-8xl font-bold text-gray-800 dark:text-white leading-tight">
+                Hello, I'm{" "}
+                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  Ardial
+                </span>
+              </h1>
+
+              <div className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 font-light pt-4">
+                <span className="inline-block animate-pulse">
+                  Full Stack Developer
+                </span>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold hover:from-blue-700 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                onClick={() =>
+                  window.open(
+                    "https://drive.google.com/file/d/1AqlvllE3yqHVxLXbAaiKr7Dk6HtHUXI3/view?usp=drive_link",
+                    "_blank"
+                  )
+                }
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download CV
+              </button>
+              <button className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-600 flex items-center justify-center">
+                View Work
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </button>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex justify-center space-x-6 pt-8">
+              <a
+                href="https://github.com/meQlause"
+                className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700 group"
+              >
+                <Github className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ardial-brian-8a85372b6/"
+                className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700 group"
+              >
+                <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
-
-export default Hero;

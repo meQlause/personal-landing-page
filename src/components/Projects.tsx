@@ -1,189 +1,145 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ArrowUpRight, Github, Folder } from 'lucide-react';
-import { useInView } from 'react-intersection-observer';
+import React from "react";
+import { ExternalLink, Github, ArrowRight, Star } from "lucide-react";
 
-const Projects: React.FC = () => {
-  const { ref, inView } = useInView({
-    threshold: 0.1,
-    triggerOnce: true,
-  });
-
-  const [isDragging, setIsDragging] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
+export const Projects: React.FC = () => {
   const projects = [
     {
-      id: 1,
-      title: 'Arcane Labyrinth',
-      description: '#P2E Game project build on #Radix, have unique 4567 #NFT character with 5 different characters.',
-      link: '#',
-      github: '#',
-      category: 'fullstack',
-      tags: ['Next.js', 'nest.js', 'Radix Network', 'PostgreSQl', 'Tailwind CSS'],
-      color: 'from-blue-500 to-purple-500',
-      image: 'https://pbs.twimg.com/profile_banners/1637834929156546560/1679474543/1080x360',
+      title: "Arcane Labyrinth",
+      description:
+        " Arcane Labyrinth is an immersive Play-to-Earn (P2E) game project built on the Radix blockchain. Dive into a mysterious world where players can explore, battle, and earn rewards using a collection of 4,567 uniquely crafted NFT characters, each belonging to one of five distinct character classes. With a focus on strategy, rarity, and progression, Arcane Labyrinth combines engaging gameplay with real digital asset ownership, offering a next-gen Web3 gaming experience.",
+      image:
+        "https://pbs.twimg.com/profile_banners/1637834929156546560/1679474543/1080x360",
+      tags: [
+        "Next.js",
+        "nest.js",
+        "Radix Network",
+        "PostgreSQl",
+        "Tailwind CSS",
+      ],
+      github: "#",
+      demo: "#",
+      featured: true,
+      rating: 5,
     },
     {
-      id: 2,
-      title: 'Noteboard',
-      description: 'Noteboard is a modern web application built with Next.js and React. It provides a platform for managing notes and tasks in an organized manner.',
-      link: 'https://noteboard.ardial.tech/',
-      github: '#',
-      category: 'Infrastructure',
-      tags: ['Next.js', 'NeonDB', 'Drizzle ORM', 'Tailwind CSS', 'Zod', 'Shadcn UI'],
-      color: 'from-green-500 to-teal-500',
-      image: 'https://i.ibb.co.com/8Ds2W0Nx/note.png',
+      title: "Noteboard",
+      description:
+        "Noteboard is a modern web application built with Next.js and React. It provides a platform for managing notes and tasks in an organized manner.",
+      image: "https://i.ibb.co.com/8Ds2W0Nx/note.png",
+      tags: [
+        "Next.js",
+        "NeonDB",
+        "Drizzle ORM",
+        "Tailwind CSS",
+        "Zod",
+        "Shadcn UI",
+      ],
+      github: "#",
+      demo: "https://noteboard.ardial.tech/",
+      featured: true,
+      rating: 5,
     },
     {
-      id: 3,
-      title: 'Qswap',
-      description: 'A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.',
-      link: 'https://qswap.ardial.tech/',
-      github: '#',
-      category: 'Fullstack',
-      tags: ['React', 'Solidity', 'Scrypto', 'Tailwind CSS', 'Ethers.js'],
-      color: 'from-purple-500 to-pink-500',
-      image: 'https://i.ibb.co.com/23fCC3Y5/Qswap.png',
-    }
+      title: "Qswap",
+      description:
+        "A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.",
+      image: "https://i.ibb.co.com/23fCC3Y5/Qswap.png",
+      tags: ["Python", "Django", "TensorFlow", "D3.js"],
+      github: "#",
+      demo: "https://qswap.ardial.tech/",
+      featured: false,
+      rating: 4,
+    },
   ];
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    setIsDragging(true);
-    setStartX(e.pageX - (containerRef.current?.offsetLeft || 0));
-    setScrollLeft(containerRef.current?.scrollLeft || 0);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - (containerRef.current?.offsetLeft || 0);
-    const walk = (x - startX) * 2;
-    if (containerRef.current) {
-      containerRef.current.scrollLeft = scrollLeft - walk;
-    }
-  };
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
-      container.scrollLeft += e.deltaY;
-    };
-
-    container.addEventListener('wheel', handleWheel, { passive: false });
-    return () => container.removeEventListener('wheel', handleWheel);
-  }, []);
+  const featuredProjects = projects;
 
   return (
-    <section id="projects" className="py-24 bg-gray-50 dark:bg-gray-800" ref={ref}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white">My Projects</h2>
-          <div className="w-16 h-1 bg-primary-500 mx-auto mt-4 mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            A selection of my recent work and personal projects
-          </p>
-        </div>
+    <section className="min-h-screen bg-white dark:bg-gray-900 py-20">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-gray-800 dark:text-white mb-6">
+              Featured Projects
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              A showcase of my recent work spanning web applications, mobile
+              apps, and enterprise solutions.
+            </p>
+          </div>
 
-        <div
-          className={`transition-all duration-700 transform ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-        >
-          <div
-            ref={containerRef}
-            className="overflow-x-auto hide-scrollbar"
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            style={{ cursor: isDragging ? 'grabbing' : 'grab' }}
-          >
-            <div className="inline-flex gap-6 p-4">
-              {projects.map((project, index) => (
+          {/* Featured Projects */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-8">
+              ⭐ Featured Work
+            </h3>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {featuredProjects.map((project, index) => (
                 <div
-                  key={project.id}
-                  className="w-[400px] flex-shrink-0 bg-white dark:bg-gray-900 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 dark:border-gray-700 group"
-                  style={{ animationDelay: `${index * 100}ms` }}
+                  key={index}
+                  className="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-500 group"
                 >
-                  <div className={`h-3 bg-gradient-to-r ${project.color}`} />
-                  <div className="relative w-full h-[200px] overflow-hidden">
+                  <div className="relative overflow-hidden h-64">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="absolute top-4 right-4 flex space-x-2">
+                      <a
+                        href={project.github}
+                        className="p-3 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110"
+                      >
+                        <Github className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                      </a>
+                      <a
+                        href={project.demo}
+                        className="p-3 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110"
+                      >
+                        <ExternalLink className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                      </a>
+                    </div>
+                    <div className="absolute bottom-4 left-4 flex">
+                      {[...Array(project.rating)].map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-5 h-5 text-yellow-400 fill-current"
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div className="p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
+
+                  <div className="p-8">
+                    <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-4">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                      {project.description}
+                    </p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-200 text-xs font-medium rounded"
+                          className="px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 text-blue-800 dark:text-blue-200 text-sm rounded-full font-medium"
                         >
                           {tag}
                         </span>
                       ))}
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">{project.description}</p>
-                    {project.link !== '#' ? (
-                      <div className="flex justify-between items-center">
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary-600 dark:text-primary-400 font-medium flex items-center hover:text-primary-700 dark:hover:text-primary-300 transition-colors"
-                        >
-                          {project.link}  <ArrowUpRight size={16} className="ml-1" />
-                        </a>
-                      </div>
-                    ) : ''}
-                    {/*
-                      <div className="flex space-x-3">
-                        <a
-                          href={project.github}
-                          className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                        >
-                          <Github size={20} />
-                          <span className="sr-only">GitHub repository</span>
-                        </a>
-                        <a
-                          href="#"
-                          className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
-                        >
-                          <Folder size={20} />
-                          <span className="sr-only">Project details</span>
-                        </a>
-                      </div>
-                    </div> */}
+                    <div className="flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-200 group cursor-pointer">
+                      <span className="font-semibold">View Project</span>
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-200" />
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-
-          {/* <div className="text-center mt-12">
-            <a
-              href="https://github.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors duration-200"
-            >
-              View More on GitHub <Github size={20} className="ml-2" />
-            </a>
-          </div> */}
         </div>
       </div>
     </section>
   );
 };
-
-export default Projects;
