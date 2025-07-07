@@ -37,7 +37,7 @@ export const About: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex flex-col mx-16 gap-16">
+          <div className="flex flex-col md:mx-16 mx-5 gap-16">
             <div className="space-y-8">
               <div>
                 <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
@@ -76,11 +76,11 @@ export const About: React.FC = () => {
               <h3 className="text-3xl font-bold text-gray-800 dark:text-white mb-6">
                 What I Could Bring To You
               </h3>
-              <div className="flex flex-row justify-between px-20">
+              <div className="flex md:flex-row flex-col justify-between md:px-20 mx-5 gap-3">
                 {features.map((feature, index) => (
                   <div
                     key={index}
-                    className="text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 group max-w-64"
+                    className="text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-2xl hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 group "
                   >
                     <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-2xl text-white mb-6 group-hover:scale-110 transition-transform duration-300">
                       {feature.icon}

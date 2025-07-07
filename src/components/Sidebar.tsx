@@ -72,7 +72,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div className="relative inline-block mb-4">
               <div className="w-24 h-24 mx-auto rounded-full overflow-hidden shadow-xl ring-4 ring-blue-500/20 dark:ring-blue-400/30 transform hover:scale-105 transition-all duration-500">
                 <img
-                  src="/assets/profile.svg"
+                  src="/assets/hero.png"
                   alt="Profile"
                   className="w-full h-full object-cover"
                 />
