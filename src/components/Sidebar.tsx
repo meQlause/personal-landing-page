@@ -40,28 +40,24 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         <div className="relative w-6 h-6">
           <span
-            className={`absolute block w-6 h-0.5 bg-gray-600 dark:bg-gray-300 transform transition-all duration-300 ${
-              isOpen ? "rotate-45 top-3" : "top-1"
-            }`}
+            className={`absolute block w-6 h-0.5 bg-gray-600 dark:bg-gray-300 transform transition-all duration-300 ${isOpen ? "rotate-45 top-3" : "top-1"
+              }`}
           />
           <span
-            className={`absolute block w-6 h-0.5 bg-gray-600 dark:bg-gray-300 transform transition-all duration-300 ${
-              isOpen ? "opacity-0" : "top-3"
-            }`}
+            className={`absolute block w-6 h-0.5 bg-gray-600 dark:bg-gray-300 transform transition-all duration-300 ${isOpen ? "opacity-0" : "top-3"
+              }`}
           />
           <span
-            className={`absolute block w-6 h-0.5 bg-gray-600 dark:bg-gray-300 transform transition-all duration-300 ${
-              isOpen ? "-rotate-45 top-3" : "top-5"
-            }`}
+            className={`absolute block w-6 h-0.5 bg-gray-600 dark:bg-gray-300 transform transition-all duration-300 ${isOpen ? "-rotate-45 top-3" : "top-5"
+              }`}
           />
         </div>
       </button>
 
       {/* Sidebar */}
       <div
-        className={`fixed left-0 top-0 h-full w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl z-40 transform transition-all duration-500 ease-out ${
-          isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 border-r border-gray-200/50 dark:border-gray-700/50`}
+        className={`fixed left-0 top-0 h-full w-80 bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl shadow-2xl z-40 transform transition-all duration-500 ease-out ${isOpen ? "translate-x-0" : "-translate-x-full"
+          } md:translate-x-0 border-r border-gray-200/50 dark:border-gray-700/50`}
       >
         <div className="flex flex-col h-full p-8 relative overflow-hidden">
           {/* Background Gradient */}
@@ -107,26 +103,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
                     onClick={() => handleNavClick(item.id)}
                     onMouseEnter={() => setHoveredItem(item.id)}
                     onMouseLeave={() => setHoveredItem(null)}
-                    className={`w-full flex items-center px-4 py-4 rounded-xl transition-all duration-500 ease-out group relative overflow-hidden ${
-                      activeSection === item.id
+                    className={`w-full flex items-center px-4 py-4 rounded-xl transition-all duration-500 ease-out group relative overflow-hidden ${activeSection === item.id
                         ? "bg-gradient-to-r from-blue-500 to-purple-500 text-white shadow-lg shadow-blue-500/25 transform scale-105"
                         : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:transform hover:scale-105"
-                    }`}
+                      }`}
                   >
                     {/* Background Animation */}
                     <div
-                      className={`absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 transform transition-transform duration-500 ${
-                        hoveredItem === item.id ? "scale-100" : "scale-0"
-                      } rounded-xl`}
+                      className={`absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 transform transition-transform duration-500 ${hoveredItem === item.id ? "scale-100" : "scale-0"
+                        } rounded-xl`}
                     />
 
                     {/* Icon */}
                     <div
-                      className={`relative z-10 transform transition-all duration-300 ${
-                        activeSection === item.id
+                      className={`relative z-10 transform transition-all duration-300 ${activeSection === item.id
                           ? "scale-110"
                           : "group-hover:scale-110"
-                      }`}
+                        }`}
                     >
                       {item.icon}
                     </div>
@@ -143,11 +136,10 @@ export const Sidebar: React.FC<SidebarProps> = ({
 
                     {/* Hover Effect */}
                     <div
-                      className={`absolute inset-0 border-2 border-blue-400/30 rounded-xl transform transition-all duration-300 ${
-                        hoveredItem === item.id
+                      className={`absolute inset-0 border-2 border-blue-400/30 rounded-xl transform transition-all duration-300 ${hoveredItem === item.id
                           ? "scale-100 opacity-100"
                           : "scale-95 opacity-0"
-                      }`}
+                        }`}
                     />
                   </button>
                 </li>

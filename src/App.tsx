@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { Sidebar } from "./components/Sidebar";
 import { MainContent } from "./components/MainContent";
@@ -13,7 +13,7 @@ function App() {
           activeSection={activeSection}
           setActiveSection={setActiveSection}
         />
-        <MainContent activeSection={activeSection} />
+        <MainContent activeSection={activeSection} setActiveSection={setActiveSection} />
       </div>
     </ThemeProvider>
   );

@@ -4,6 +4,17 @@ import { ExternalLink, Github, ArrowRight, Star } from "lucide-react";
 export const Projects: React.FC = () => {
   const projects = [
     {
+      title: "Qswap",
+      description:
+        "A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.",
+      image: "https://i.ibb.co.com/23fCC3Y5/Qswap.png",
+      tags: ["Python", "Django", "TensorFlow", "D3.js"],
+      github: "https://github.com/meQlause/Qswap",
+      demo: "https://qswap.ardial.tech/",
+      featured: false,
+      rating: 5,
+    },
+    {
       title: "Arcane Labyrinth",
       description:
         " Arcane Labyrinth is an immersive Play-to-Earn (P2E) game project built on the Radix blockchain. Dive into a mysterious world where players can explore, battle, and earn rewards using a collection of 4,567 uniquely crafted NFT characters, each belonging to one of five distinct character classes. With a focus on strategy, rarity, and progression, Arcane Labyrinth combines engaging gameplay with real digital asset ownership, offering a next-gen Web3 gaming experience.",
@@ -16,8 +27,6 @@ export const Projects: React.FC = () => {
         "PostgreSQl",
         "Tailwind CSS",
       ],
-      github: "#",
-      demo: "#",
       featured: true,
       rating: 5,
     },
@@ -34,20 +43,7 @@ export const Projects: React.FC = () => {
         "Zod",
         "Shadcn UI",
       ],
-      github: "#",
-      demo: "https://noteboard.ardial.tech/",
       featured: true,
-      rating: 5,
-    },
-    {
-      title: "Qswap",
-      description:
-        "A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.",
-      image: "https://i.ibb.co.com/23fCC3Y5/Qswap.png",
-      tags: ["Python", "Django", "TensorFlow", "D3.js"],
-      github: "#",
-      demo: "https://qswap.ardial.tech/",
-      featured: false,
       rating: 4,
     },
   ];
@@ -87,18 +83,22 @@ export const Projects: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                     <div className="absolute top-4 right-4 flex space-x-2">
-                      <a
-                        href={project.github}
-                        className="p-3 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110"
-                      >
-                        <Github className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                      </a>
-                      <a
-                        href={project.demo}
-                        className="p-3 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110"
-                      >
-                        <ExternalLink className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-                      </a>
+                      {project.github &&
+                        <a
+                          href={project.github}
+                          className="p-3 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110"
+                        >
+                          <Github className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                        </a>
+                      }
+                      {project.demo &&
+                        <a
+                          href={project.demo}
+                          className="p-3 bg-white/90 dark:bg-gray-800/90 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all duration-200 transform hover:scale-110"
+                        >
+                          <ExternalLink className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+                        </a>
+                      }
                     </div>
                     <div className="absolute bottom-4 left-4 flex">
                       {[...Array(project.rating)].map((_, i) => (

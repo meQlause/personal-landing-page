@@ -1,7 +1,15 @@
 import React from "react";
 import { Github, Linkedin, Download, ArrowRight } from "lucide-react";
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  setActiveSection: (section: string) => void;
+}
+
+export const Hero: React.FC<HeroProps> = ({ setActiveSection }) => {
+  const handleNavClick = (itemId: string) => {
+    setActiveSection(itemId);
+  };
+
   return (
     <section className="min-h-screen py-10 flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-900">
       {/* Animated Background Elements */}
@@ -59,7 +67,7 @@ export const Hero: React.FC = () => {
                 <Download className="w-5 h-5 mr-2" />
                 Download CV
               </button>
-              <button className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-600 flex items-center justify-center">
+              <button onClick={() => handleNavClick("projects")} className="px-8 py-4 bg-white dark:bg-gray-800 text-gray-800 dark:text-white rounded-full font-semibold hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200 dark:border-gray-600 flex items-center justify-center">
                 View Work
                 <ArrowRight className="w-5 h-5 ml-2" />
               </button>
@@ -74,7 +82,7 @@ export const Hero: React.FC = () => {
                 <Github className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
               </a>
               <a
-                href="https://www.linkedin.com/in/ardial-brian-8a85372b6/"
+                href="https://www.linkedin.com/in/ardial-8a85372b6/"
                 className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:bg-blue-50 dark:hover:bg-gray-700 group"
               >
                 <Linkedin className="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400" />

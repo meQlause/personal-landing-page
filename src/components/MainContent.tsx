@@ -7,9 +7,10 @@ import { Contact } from "./Contact";
 
 interface MainContentProps {
   activeSection: string;
+  setActiveSection: (section: string) => void;
 }
 
-export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
+export const MainContent: React.FC<MainContentProps> = ({ activeSection, setActiveSection }) => {
   const [currentSection, setCurrentSection] = useState(activeSection);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [nextSection, setNextSection] = useState("");
@@ -32,7 +33,7 @@ export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
   const renderSection = (section: string) => {
     switch (section) {
       case "home":
-        return <Hero />;
+        return <Hero setActiveSection={setActiveSection} />;
       case "about":
         return <About />;
       case "skills":
@@ -42,7 +43,7 @@ export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
       case "contact":
         return <Contact />;
       default:
-        return <Hero />;
+        return <Hero setActiveSection={setActiveSection} />;
     }
   };
 
@@ -50,17 +51,15 @@ export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
     <div className="flex-1 md:ml-80 relative overflow-hidden">
       {/* Transition Overlay */}
       <div
-        className={`absolute inset-0 z-50 transition-all duration-700 ease-in-out ${
-          isTransitioning
-            ? "bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 opacity-100"
-            : "bg-transparent opacity-0 pointer-events-none"
-        }`}
+        className={`absolute inset-0 z-50 transition-all duration-700 ease-in-out ${isTransitioning
+          ? "bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 opacity-100"
+          : "bg-transparent opacity-0 pointer-events-none"
+          }`}
       >
         <div className="flex items-center justify-center h-full">
           <div
-            className={`transition-all duration-500 ${
-              isTransitioning ? "scale-100 opacity-100" : "scale-50 opacity-0"
-            }`}
+            className={`transition-all duration-500 ${isTransitioning ? "scale-100 opacity-100" : "scale-50 opacity-0"
+              }`}
           >
             <div className="relative">
               {/* Animated Loading Rings */}
@@ -80,11 +79,10 @@ export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
 
       {/* Current Section */}
       <div
-        className={`h-screen transition-all duration-700 ease-out ${
-          isTransitioning
-            ? "transform scale-95 opacity-0 blur-sm"
-            : "transform scale-100 opacity-100 blur-0"
-        }`}
+        className={`h-screen transition-all duration-700 ease-out ${isTransitioning
+          ? "transform scale-95 opacity-0 blur-sm"
+          : "transform scale-100 opacity-100 blur-0"
+          }`}
       >
         <div className="h-full overflow-y-auto scrollbar-hide">
           <div className="transition-transform duration-700 ease-out">
@@ -96,11 +94,10 @@ export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
       {/* Next Section (Pre-loading) */}
       {nextSection && (
         <div
-          className={`absolute inset-0 h-screen transition-all duration-700 ease-out ${
-            isTransitioning
-              ? "transform scale-100 opacity-100 blur-0 z-10"
-              : "transform scale-105 opacity-0 blur-sm z-0"
-          }`}
+          className={`absolute inset-0 h-screen transition-all duration-700 ease-out ${isTransitioning
+            ? "transform scale-100 opacity-100 blur-0 z-10"
+            : "transform scale-105 opacity-0 blur-sm z-0"
+            }`}
         >
           <div className="h-full overflow-y-auto scrollbar-hide">
             <div className="transition-transform duration-700 ease-out">
@@ -115,9 +112,8 @@ export const MainContent: React.FC<MainContentProps> = ({ activeSection }) => {
         {[...Array(6)].map((_, i) => (
           <div
             key={i}
-            className={`absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-1000 ${
-              isTransitioning ? "opacity-100 animate-float" : "opacity-0"
-            }`}
+            className={`absolute w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full transition-all duration-1000 ${isTransitioning ? "opacity-100 animate-float" : "opacity-0"
+              }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
