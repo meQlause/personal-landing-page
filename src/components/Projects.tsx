@@ -8,7 +8,7 @@ export const Projects: React.FC = () => {
       description:
         "A web3 application for token swaps, Smart Order Routing(SOR), and liquidity pool creation on the Radix and Ethereum blockchain.",
       image: "https://i.ibb.co.com/23fCC3Y5/Qswap.png",
-      tags: ["Python", "Django", "TensorFlow", "D3.js"],
+      tags: ["react", "solidity", "typescript", "ethers.js", "motionframe"],
       github: "https://github.com/meQlause/Qswap",
       demo: "https://qswap.ardial.tech/",
       featured: false,
