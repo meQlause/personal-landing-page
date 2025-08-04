@@ -49,31 +49,30 @@ jobs:
       - name: Deploy to server
         run: |
           ssh ardial@92.113.145.8 '
-            # Switch to root user and execute commands
             sudo bash -c "
               # Pull the latest image
               docker pull ${{ env.DOCKER_IMAGE }}:prod
               
-              # Stop and remove all containers if any exist
-              if [ \$(docker ps -aq | wc -l) -gt 0 ]; then
-                docker stop \$(docker ps -aq)
-                docker rm \$(docker ps -aq)
+              docker stop personal 2>/dev/null || true
+              docker rm personal  2>/dev/null || true
+              
+              port_containers=$(docker ps -q --filter "publish=3001")
+              if [ -n "$port_containers" ]; then
+                docker stop $port_containers
+                docker rm $port_containers
               fi
               
-              # Kill any process using port 3001
               lsof -ti:3001 | xargs kill -9 2>/dev/null || true
-              # Kill any process using port 3000
-              lsof -ti:3000 | xargs kill -9 2>/dev/null || true
               
-              # Run the new container
+              sleep 2
+              
+              docker container prune -f
+              docker image prune -f
+              
               docker run -d \
-                --restart unless-stopped \
-                -p 127.0.0.1:3000:3000 \
-                ${{ env.DOCKER_IMAGE }}:prod
-            
-              docker run -d \
+                --name personal \
                 --restart unless-stopped \
                 -p 127.0.0.1:3001:3001 \
-                ardialqlause/qswap:prod
+                ${{ env.DOCKER_IMAGE }}:prod
             "
           '
