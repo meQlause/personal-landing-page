@@ -7,10 +7,6 @@ on:
 
 env:
   DOCKER_IMAGE: ardialqlause/personal-landing-page
-  VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
-  VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
-  VITE_EMAILJS_TEMPLATE_ID_1: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_1 }}
-  VITE_EMAILJS_TEMPLATE_ID_2: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID_2 }}
 
 jobs:
   build-and-push:
@@ -33,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile.prod
+          file: ./Dockerfile
           push: true
           tags: ${{ env.DOCKER_IMAGE }}:prod
           cache-from: type=gha
@@ -44,11 +40,11 @@ jobs:
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 92.113.145.8 >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to server
         run: |
-          ssh ardial@92.113.145.8 '
+          ssh ${{ secrets.USER }}@${{ secrets.HOST }} '
             sudo bash -c "
               # Pull the latest image
               docker pull ${{ env.DOCKER_IMAGE }}:prod

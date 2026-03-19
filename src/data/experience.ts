@@ -1,0 +1,128 @@
+import type { Experience } from '../types'
+
+export const EXPERIENCES: Experience[] = [
+  {
+    role: 'Blockchain / Backend Engineer',
+    company: 'PT. Tekno Agri Karya',
+    period: 'Aug 2025 — Present',
+    type: 'Full-time',
+    location: 'Indonesia (Hybrid)',
+    logo: 'TAK',
+    color: '#b8ff57',
+    summary:
+      'Working on cutting-edge decentralized identity infrastructure, zero-knowledge proof systems, and blockchain smart contract development. Leading SDK implementation and database security architecture for a production-grade blockchain platform.',
+    highlights: [
+      'Compiled Rust modules to WebAssembly (WASM) to optimize client-side zero-knowledge proof generation and reduce backend load',
+      'Developed decentralized identity smart contracts using ERC-4337, ERC-735, and ERC-734 standards — contributing ~90% of contract code and 100% of the SDK',
+      'Developed SDKs for smart contract interaction using Golang, TypeScript, and partially Rust for performance-critical components',
+      'Ensured database security by implementing a hybrid cryptographic approach combining symmetric and asymmetric encryption using ECIES for secure key exchange',
+      'Implemented Zero-Knowledge (ZK) circuits for Decentralized Identity (DID) verification, enabling privacy-preserving proof of identity without exposing sensitive data',
+    ],
+    stack: ['Rust', 'WASM', 'Golang', 'TypeScript', 'Solidity', 'ZK Circuits', 'ECIES', 'ERC-4337'],
+    impact: ['~90% contract code', '100% SDK ownership', 'ZK proof system', 'WASM optimization'],
+  },
+  {
+    role: 'Fullstack Developer (FSD) Mentor Assistant',
+    company: 'PT. Karya Kaya Bahagia',
+    period: 'Jul 2025 — Present',
+    type: 'Freelance',
+    location: 'Remote',
+    logo: 'KKB',
+    color: '#00d4ff',
+    summary:
+      'Mentoring and guiding 100+ students through a fullstack developer bootcamp. Responsible for teaching core technical concepts, reviewing student work, and providing continuous academic and technical support to help students complete their assignments and projects successfully.',
+    highlights: [
+      'Assisted and guided 100+ students through their learning missions and project tasks',
+      'Taught students core technical concepts and best practices across frontend and backend development',
+      'Provided continuous academic and technical support to help students complete assignments successfully',
+    ],
+    stack: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'NestJS', 'Docker'],
+    impact: ['100+ students mentored', 'Fullstack curriculum', 'Frontend & backend'],
+  },
+  {
+    role: 'Software / Fullstack Developer / Smart Contract Engineer',
+    company: 'PT. Gilang Maju Jaya',
+    period: 'Jul 2023 — Feb 2024',
+    type: 'Part-time',
+    location: 'Remote',
+    logo: 'GMJ',
+    color: '#ff4d00',
+    summary:
+      "Led the development of ArcaneLabyrinth's governance web project on the Radix blockchain. Solely responsible for all smart contract development and backend architecture, while contributing to frontend development. The project secured a Radix Grant of 5,000 USD in XRD tokens.",
+    highlights: [
+      "Led development of ArcaneLabyrinth's governance platform — 100% of smart contracts, 100% of backend, 50% of frontend",
+      'Designed and implemented Radix smart contract blueprints using Scrypto (Rust-based framework)',
+      'Architected backend services including event listeners to synchronize on-chain contract state with the backend platform',
+      'Played a key role in securing a Radix Grant of 5,000 USD in XRD tokens to support project growth',
+    ],
+    stack: [
+      'Scrypto',
+      'Rust',
+      'Node.js',
+      'TypeScript',
+      'Radix SDK',
+      'PostgreSQL',
+      'Event Listeners',
+    ],
+    impact: ['$5,000 USD Radix Grant', '100% contract ownership', '100% backend ownership'],
+  },
+  {
+    role: 'Machine Operator',
+    company: '(Ju) Boyoung',
+    period: 'Mar 2020 — Jan 2025',
+    type: 'G2G',
+    location: 'South Korea',
+    logo: 'JB',
+    color: '#b8ff57',
+    summary:
+      'Worked as a Machine Operator under the Government-to-Government (G2G) program in South Korea for nearly five years. Responsible for operating and monitoring production machines, maintaining equipment integrity, and consistently meeting quality standards and production targets.',
+    highlights: [
+      'Operated and monitored production machines to ensure consistent output quality across shifts',
+      'Maintained machinery in proper working condition to minimize downtime and production interruptions',
+      'Ensured products met quality standards and production targets throughout the engagement',
+    ],
+    stack: [
+      'Machine Operation',
+      'Quality Control',
+      'Production Monitoring',
+      'Equipment Maintenance',
+    ],
+    impact: ['~5 years tenure', 'G2G South Korea', 'Consistent quality output'],
+  },
+  {
+    role: 'Jr. Network Engineer',
+    company: 'PT. Java Digital Nusantara',
+    period: 'Feb 2019 — Aug 2019',
+    type: 'Part-time',
+    location: 'On-site',
+    logo: 'JDN',
+    color: '#9b59b6',
+    summary:
+      'Performed end-to-end network installation and configuration for client sites. Responsible for configuring MikroTik routers, managing PPPoE setups, bandwidth management, and ensuring stable connectivity through troubleshooting and maintenance.',
+    highlights: [
+      'Performed end-to-end network installation on client sites from physical cabling to logical configuration',
+      'Configured MikroTik routers for each client, including PPPoE setup and bandwidth management',
+      'Handled troubleshooting and network maintenance to ensure clients consistently had stable and reliable connectivity',
+    ],
+    stack: ['MikroTik', 'PPPoE', 'TCP/IP', 'Bandwidth Management', 'Network Troubleshooting'],
+    impact: ['End-to-end installs', 'Client network stability', 'PPPoE configuration'],
+  },
+  {
+    role: 'IT Support Intern',
+    company: 'Universitas Padjadjaran',
+    period: 'Jan 2017 — Jul 2017',
+    type: 'Internship',
+    location: 'On-site, Bandung',
+    logo: 'UPJ',
+    color: '#f39c12',
+    summary:
+      'IT support internship covering network troubleshooting from Layer 1 (physical) to Layer 4 (TCP/IP). Resolved connectivity issues, managed DHCP/DNS/subnetting, and assisted college students with hardware and software problems.',
+    highlights: [
+      'Assisted troubleshooting network issues covering Layer 1 (physical) to Layer 4 (TCP/IP)',
+      'Resolved connectivity issues by reconfiguring network settings including DHCP, DNS, and IP subnetting',
+      'Supported college students with laptop software issues such as reinstalling Windows OS and fixing driver-related problems',
+    ],
+    stack: ['TCP/IP', 'DHCP', 'DNS', 'Subnetting', 'Windows OS', 'Network Diagnostics'],
+    impact: ['L1–L4 support', 'Campus network coverage', 'Student tech support'],
+  },
+]
