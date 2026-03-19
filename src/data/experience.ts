@@ -1,5 +1,12 @@
 import type { Experience } from '../types'
 
+import logo1 from '../assets/experiences/1.hara.webp'
+import logo2 from '../assets/experiences/2.harisenin.webp'
+import logo3 from '../assets/experiences/3.gilangmajujaya.webp'
+import logo4 from '../assets/experiences/4.boyoung.webp'
+import logo5 from '../assets/experiences/5.javadigitalnusantara.webp'
+import logo6 from '../assets/experiences/6.unpad.webp'
+
 export const EXPERIENCES: Experience[] = [
   {
     role: 'Blockchain / Backend Engineer',
@@ -7,7 +14,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Aug 2025 — Present',
     type: 'Full-time',
     location: 'Indonesia (Hybrid)',
-    logo: 'TAK',
+    logo: logo1,
     color: '#b8ff57',
     summary:
       'Working on cutting-edge decentralized identity infrastructure, zero-knowledge proof systems, and blockchain smart contract development. Leading SDK implementation and database security architecture for a production-grade blockchain platform.',
@@ -27,7 +34,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Jul 2025 — Present',
     type: 'Freelance',
     location: 'Remote',
-    logo: 'KKB',
+    logo: logo2,
     color: '#00d4ff',
     summary:
       'Mentoring and guiding 100+ students through a fullstack developer bootcamp. Responsible for teaching core technical concepts, reviewing student work, and providing continuous academic and technical support to help students complete their assignments and projects successfully.',
@@ -45,7 +52,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Jul 2023 — Feb 2024',
     type: 'Part-time',
     location: 'Remote',
-    logo: 'GMJ',
+    logo: logo3,
     color: '#ff4d00',
     summary:
       "Led the development of ArcaneLabyrinth's governance web project on the Radix blockchain. Solely responsible for all smart contract development and backend architecture, while contributing to frontend development. The project secured a Radix Grant of 5,000 USD in XRD tokens.",
@@ -72,7 +79,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Mar 2020 — Jan 2025',
     type: 'G2G',
     location: 'South Korea',
-    logo: 'JB',
+    logo: logo4,
     color: '#b8ff57',
     summary:
       'Worked as a Machine Operator under the Government-to-Government (G2G) program in South Korea for nearly five years. Responsible for operating and monitoring production machines, maintaining equipment integrity, and consistently meeting quality standards and production targets.',
@@ -95,7 +102,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Feb 2019 — Aug 2019',
     type: 'Part-time',
     location: 'On-site',
-    logo: 'JDN',
+    logo: logo5,
     color: '#9b59b6',
     summary:
       'Performed end-to-end network installation and configuration for client sites. Responsible for configuring MikroTik routers, managing PPPoE setups, bandwidth management, and ensuring stable connectivity through troubleshooting and maintenance.',
@@ -113,7 +120,7 @@ export const EXPERIENCES: Experience[] = [
     period: 'Jan 2017 — Jul 2017',
     type: 'Internship',
     location: 'On-site, Bandung',
-    logo: 'UPJ',
+    logo: logo6,
     color: '#f39c12',
     summary:
       'IT support internship covering network troubleshooting from Layer 1 (physical) to Layer 4 (TCP/IP). Resolved connectivity issues, managed DHCP/DNS/subnetting, and assisted college students with hardware and software problems.',

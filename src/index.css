@@ -2416,6 +2416,10 @@ section {
 /* ══════════════════════════════════════
    SCROLL REVEAL ANIMATIONS
 ══════════════════════════════════════ */
+.about-phone {
+  display: none;
+}
+
 .reveal-up {
   opacity: 0;
   transform: translateY(40px);
@@ -2440,6 +2444,14 @@ section {
     transform 0.7s var(--ease);
 }
 
+.reveal-phone {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.7s var(--ease),
+    transform 0.7s var(--ease);
+}
+
 .reveal-card {
   opacity: 0;
   transform: translateY(30px);
@@ -2451,6 +2463,7 @@ section {
 .reveal-up.in-view,
 .reveal-left.in-view,
 .reveal-right.in-view,
+.reveal-phone.in-view,
 .reveal-card.in-view {
   opacity: 1;
   transform: translate(0, 0);
@@ -2467,6 +2480,10 @@ section {
   .about-right {
     display: none;
   }
+  .about-phone {
+    display: block;
+    margin: 64px 0;
+  }
   .contact-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2475,6 +2492,16 @@ section {
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+  }
+  .avatar-placeholder {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-3);
+    border: 1px solid var(--border);
   }
   .hamburger {
     display: flex;

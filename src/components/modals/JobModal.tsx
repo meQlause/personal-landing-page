@@ -20,7 +20,13 @@ export default function JobModal({ job, onClose }: JobModalProps) {
           className="job-modal-header"
           style={{ '--job-color': job.color } as React.CSSProperties}
         >
-          <div className="job-modal-logo">{job.logo}</div>
+          <div className="job-modal-logo">
+            <img 
+              src={job.logo} 
+              alt={`${job.company} logo`} 
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }} 
+            />
+          </div>
           <div className="job-modal-header-text">
             <div className="job-modal-type-badge">{job.type}</div>
             <h2 className="job-modal-title" id="jobModalTitle">
