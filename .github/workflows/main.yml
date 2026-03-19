@@ -2,7 +2,7 @@ name: Docker Development Build
 
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
   workflow_dispatch:
 
 env:
@@ -68,7 +68,7 @@ jobs:
               docker run -d \
                 --name personal \
                 --restart unless-stopped \
-                -p 127.0.0.1:3001:3001 \
+                -p 127.0.0.1:3001:80 \
                 ${{ env.DOCKER_IMAGE }}:prod
             "
           '
