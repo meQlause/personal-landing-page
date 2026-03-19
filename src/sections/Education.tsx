@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { EDUCATION } from '../data/education'
 import { useReveal } from '../hooks/useReveal'
 import type { Education } from '../types'
@@ -61,6 +62,13 @@ function EduCard({
 
 export default function Education({ onOpenModal }: EducationProps) {
   const header = useReveal<HTMLDivElement>()
+
+  useEffect(() => {
+    EDUCATION.forEach((edu) => {
+      const img = new Image()
+      img.src = edu.icon
+    })
+  }, [])
 
   const formal = EDUCATION.filter((e) => e.category === 'formal')
   const informal = EDUCATION.filter((e) => e.category === 'informal')

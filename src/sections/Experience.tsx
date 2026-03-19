@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
 import { EXPERIENCES } from '../data/experience'
 import type { Experience } from '../types'
@@ -63,6 +64,13 @@ function TimelineItem({
 
 export default function Experience({ onOpenModal }: ExperienceProps) {
   const header = useReveal<HTMLDivElement>()
+
+  useEffect(() => {
+    EXPERIENCES.forEach((job) => {
+      const img = new Image()
+      img.src = job.logo
+    })
+  }, [])
 
   return (
     <section id="experience">
