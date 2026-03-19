@@ -1,5 +1,5 @@
-import { useReveal } from '../hooks/useReveal'
 import { EDUCATION } from '../data/education'
+import { useReveal } from '../hooks/useReveal'
 import type { Education } from '../types'
 
 interface EducationProps {
@@ -33,8 +33,8 @@ function EduCard({
       }}
       style={{ '--edu-color': edu.color } as React.CSSProperties}
     >
-      <div className="edu-card-icon" style={{ color: edu.color, borderColor: edu.color }}>
-        {edu.icon}
+      <div className="edu-icon">
+        <img src={edu.icon} style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
       </div>
       <div className="edu-card-content">
         <div className="edu-card-meta">
@@ -68,7 +68,10 @@ export default function Education({ onOpenModal }: EducationProps) {
   return (
     <section id="education">
       <div className="section-inner">
-        <div ref={header.ref} className={`section-header reveal-up${header.inView ? ' in-view' : ''}`}>
+        <div
+          ref={header.ref}
+          className={`section-header reveal-up${header.inView ? ' in-view' : ''}`}
+        >
           <span className="section-tag">[ 04 / EDUCATION ]</span>
           <h2 className="section-title">Background</h2>
           <p className="section-sub">

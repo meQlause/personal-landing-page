@@ -1,5 +1,10 @@
 import type { Education } from '../types'
 
+// Icons
+import baktiilhamIcon from '../assets/backgrounds/baktiilham.webp'
+import hariseninIcon from '../assets/backgrounds/harisenin.webp'
+import utIcon from '../assets/backgrounds/ut.webp'
+
 export const EDUCATION: Education[] = [
   {
     id: 0,
@@ -14,7 +19,7 @@ export const EDUCATION: Education[] = [
       'First-year student with a focus on applied mathematics relevant to cryptography and computation',
       'Strong interest in linear algebra, discrete mathematics, and probability theory as applied to software systems',
     ],
-    icon: '∑',
+    icon: utIcon,
     color: '#b8ff57',
   },
   {
@@ -33,7 +38,7 @@ export const EDUCATION: Education[] = [
       'Placed 5th in West Java at the MikroTik Olympiad for vocational high schools (SMK)',
       'Promoted to teach MikroTik MTCNA (introduction level) to fellow students',
     ],
-    icon: '⬡',
+    icon: baktiilhamIcon,
     color: '#00d4ff',
   },
   {
@@ -43,6 +48,7 @@ export const EDUCATION: Education[] = [
     degree: 'Full Stack Developer Bootcamp',
     period: 'Jun 2025 — Jul 2025',
     location: 'Remote, Indonesia',
+    score: '4.00',
     description:
       'Intensive full-stack developer bootcamp covering modern frontend and backend development. Completed with a perfect technical score and the fastest graduation time in the cohort, which led to being promoted as an Assistant Mentor.',
     achievements: [
@@ -50,7 +56,7 @@ export const EDUCATION: Education[] = [
       'Graduated in the fastest time of the cohort',
       'Promoted as an Assistant Mentor — helping students complete frontend and backend missions',
     ],
-    icon: '▣',
+    icon: hariseninIcon,
     color: '#ff4d00',
   },
 ]

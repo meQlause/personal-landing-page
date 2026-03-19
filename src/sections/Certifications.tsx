@@ -1,5 +1,5 @@
-import { useReveal } from '../hooks/useReveal'
 import { CERTIFICATIONS } from '../data/certifications'
+import { useReveal } from '../hooks/useReveal'
 import type { Certification } from '../types'
 
 interface CertificationsProps {
@@ -32,13 +32,17 @@ function CertCard({
         }
       }}
     >
-      <div className="cert-icon">{cert.icon}</div>
+      <div className="cert-icon">
+        <img
+          src={cert.icon}
+          alt={`${cert.issuer} icon`}
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+        />
+      </div>
       <div className="cert-body">
         <h4 className="cert-title">{cert.title}</h4>
         <span className="cert-issuer">{cert.issuer}</span>
-        <span className="cert-year">{cert.year}</span>
       </div>
-      <div className="cert-badge">{cert.badge}</div>
       <span className="cert-view-hint">View ↗</span>
     </div>
   )
@@ -50,11 +54,15 @@ export default function Certifications({ onOpenModal }: CertificationsProps) {
   return (
     <section id="certifications">
       <div className="section-inner">
-        <div ref={header.ref} className={`section-header reveal-up${header.inView ? ' in-view' : ''}`}>
+        <div
+          ref={header.ref}
+          className={`section-header reveal-up${header.inView ? ' in-view' : ''}`}
+        >
           <span className="section-tag">[ 03 / CERTIFICATIONS ]</span>
           <h2 className="section-title">Credentials</h2>
           <p className="section-sub">
-            Verified certifications spanning blockchain, security, mathematics, and fullstack development.
+            Verified certifications spanning blockchain, security, mathematics, and fullstack
+            development.
           </p>
         </div>
 

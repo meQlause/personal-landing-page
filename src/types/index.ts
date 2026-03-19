@@ -51,13 +51,9 @@ export interface Certification {
   icon: string
   title: string
   issuer: string
-  year: string
-  badge: string
-  credentialId: string
-  expires: string
-  desc: string
   skills: string[]
   color: string
+  certificationImage: string
 }
 
 // ── Skill Group ──────────────────────────────────────────────

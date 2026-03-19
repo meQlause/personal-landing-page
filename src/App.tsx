@@ -1,4 +1,3 @@
-import DevelopmentHeader from './components/DevelopmentHeader'
 import Navbar from './components/Navbar'
 import About from './sections/About'
 import Certifications from './sections/Certifications'
@@ -30,7 +29,7 @@ export default function App() {
       <div className="noise-overlay" aria-hidden="true" />
       <div className="scanlines" aria-hidden="true" />
 
-      <DevelopmentHeader />
+      {/* <DevelopmentHeader /> */}
       <Navbar />
 
       <main>
