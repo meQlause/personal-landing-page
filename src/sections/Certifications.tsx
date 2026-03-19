@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { CERTIFICATIONS } from '../data/certifications'
 import { useReveal } from '../hooks/useReveal'
 import type { Certification } from '../types'
@@ -50,6 +51,13 @@ function CertCard({
 
 export default function Certifications({ onOpenModal }: CertificationsProps) {
   const header = useReveal<HTMLDivElement>()
+
+  useEffect(() => {
+    CERTIFICATIONS.forEach((cert) => {
+      const img = new Image()
+      img.src = cert.certificationImage
+    })
+  }, [])
 
   return (
     <section id="certifications">
