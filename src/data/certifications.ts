@@ -8,9 +8,9 @@ import radixIcon from '../assets/credentials/radix.webp'
 import udemyIcon from '../assets/credentials/udemy.webp'
 
 // Certificates
+import certCSharp from '../assets/credentials/certificates/Csharp.webp'
 import certFSD from '../assets/credentials/certificates/FSD.webp'
 import certAlgebra from '../assets/credentials/certificates/algebra.webp'
-import certCSharp from '../assets/credentials/certificates/csharp.webp'
 import certEthicalHacking from '../assets/credentials/certificates/ethicalhacking.webp'
 import certGeometry from '../assets/credentials/certificates/geometry.webp'
 import certHTMLCSS from '../assets/credentials/certificates/htmlcss.webp'
