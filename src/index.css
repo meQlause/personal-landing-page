@@ -30,6 +30,7 @@
 
   /* Sizing */
   --nav-h: 64px;
+  --header-h: 32px;
   --radius: 2px;
   --radius-lg: 4px;
 
@@ -128,7 +129,7 @@ ul {
 ══════════════════════════════════════ */
 #navbar {
   position: fixed;
-  top: 0;
+  top: var(--header-h);
   left: 0;
   right: 0;
   z-index: 1000;
@@ -299,7 +300,7 @@ ul {
   display: flex;
   align-items: center;
   overflow: hidden;
-  padding-top: var(--nav-h);
+  padding-top: calc(var(--nav-h) + var(--header-h));
 }
 
 .hero-grid {

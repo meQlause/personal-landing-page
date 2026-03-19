@@ -1,19 +1,25 @@
+import DevelopmentHeader from './components/DevelopmentHeader'
 import Navbar from './components/Navbar'
+import About from './sections/About'
+import Certifications from './sections/Certifications'
+import Contact from './sections/Contact'
+import Education from './sections/Education'
+import Experience from './sections/Experience'
 import Hero from './sections/Hero'
 import Projects from './sections/Projects'
-import Experience from './sections/Experience'
-import Certifications from './sections/Certifications'
-import Education from './sections/Education'
-import About from './sections/About'
-import Contact from './sections/Contact'
 
-import ProjectModal from './components/modals/ProjectModal'
-import JobModal from './components/modals/JobModal'
 import CertModal from './components/modals/CertModal'
 import EducationModal from './components/modals/EducationModal'
+import JobModal from './components/modals/JobModal'
+import ProjectModal from './components/modals/ProjectModal'
 
 import { useModal } from './hooks/useModal'
-import type { Project, Experience as ExperienceType, Certification, Education as EducationType } from './types'
+import type {
+  Certification,
+  Education as EducationType,
+  Experience as ExperienceType,
+  Project,
+} from './types'
 
 export default function App() {
   const { modal, openModal, closeModal } = useModal()
@@ -24,6 +30,7 @@ export default function App() {
       <div className="noise-overlay" aria-hidden="true" />
       <div className="scanlines" aria-hidden="true" />
 
+      <DevelopmentHeader />
       <Navbar />
 
       <main>
@@ -39,7 +46,9 @@ export default function App() {
       <footer id="footer">
         <div className="footer-inner">
           <span className="footer-logo">[ARDIAL]</span>
-          <span className="footer-copy">© {new Date().getFullYear()} Ardial. Designed &amp; built with intent.</span>
+          <span className="footer-copy">
+            © {new Date().getFullYear()} Ardial. Designed &amp; built with intent.
+          </span>
           <span className="footer-tech">React · TypeScript · Vite · Bun</span>
         </div>
       </footer>
