@@ -18,7 +18,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
         <div className="modal-video-wrap">
           <video controls loop muted playsInline className="modal-video">
-            <source src={project.video} type="video/mp4" />
+            <source src={project.video} />
           </video>
         </div>
 
@@ -32,11 +32,18 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </h2>
           <p className="modal-desc">{project.desc}</p>
 
-          {project.github && (
-            <a href={project.github} target="_blank" rel="noopener noreferrer" className="modal-link">
-              ⌥ View on GitHub →
-            </a>
-          )}
+          <div className="modal-links-row">
+            {project.github && (
+              <a href={project.github} target="_blank" rel="noopener noreferrer" className="modal-link">
+                ⌥ View on GitHub →
+              </a>
+            )}
+            {project.live && (
+              <a href={project.live} target="_blank" rel="noopener noreferrer" className="modal-link">
+                ⌥ Visit Website →
+              </a>
+            )}
+          </div>
 
           <div className="modal-stack-label">Tech Stack</div>
           <div className="modal-stack">

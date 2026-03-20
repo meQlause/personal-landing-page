@@ -12,6 +12,8 @@ export const PROJECTS: Project[] = [
     role: 'Sole Engineer',
     stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'react-parallax'],
     video: lifetimeArtVideo,
+    github: 'https://github.com/meQlause/lifetimeArt',
+    live: 'https://lifetimeart.ardial.my.id',
   },
   {
     id: 1,

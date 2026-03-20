@@ -279,6 +279,25 @@ ul {
 .mobile-menu li {
   margin-bottom: 1rem;
 }
+.modal-links-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.modal-link {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--acid);
+  transition:
+    color 0.2s,
+    transform 0.2s;
+  display: inline-block;
+}
+
 .mobile-link {
   font-family: var(--font-mono);
   font-size: 0.9rem;
@@ -1705,7 +1724,6 @@ section:last-of-type::after {
   color: var(--acid);
   border: 1px solid rgba(184, 255, 87, 0.2);
   padding: 0.4rem 0.9rem;
-  margin-bottom: 1.5rem;
   transition: all 0.2s;
 }
 
