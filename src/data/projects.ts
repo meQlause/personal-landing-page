@@ -1,3 +1,4 @@
+import agaroVideo from '../assets/projects/agaro.mp4'
 import lifetimeArtVideo from '../assets/projects/lifetimeart.webm'
 import qswapVideo from '../assets/projects/qswap.mp4'
 import type { Project } from '../types'
@@ -71,7 +72,8 @@ export const PROJECTS: Project[] = [
     year: 'Team Project',
     role: 'Smart Contract & Rust Engineer',
     stack: ['Solidity', 'Rust', 'Node.js', 'PostgreSQL', 'Private Blockchain', 'Event Listeners'],
-    video: 'https://www.w3schools.com/html/movie.mp4',
+    video: agaroVideo,
+    github: 'https://github.com/Agaro-Team/AgaroVote',
   },
   {
     id: 5,
