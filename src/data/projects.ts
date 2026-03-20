@@ -1,6 +1,7 @@
 import agaroVideo from '../assets/projects/agaro.mp4'
 import arcaneVideo from '../assets/projects/arcane.mp4'
 import lifetimeArtVideo from '../assets/projects/lifetimeart.webm'
+import novamailVideo from '../assets/projects/novamail.mp4'
 import qswapVideo from '../assets/projects/qswap.mp4'
 import type { Project } from '../types'
 
@@ -86,6 +87,7 @@ export const PROJECTS: Project[] = [
     year: 'Team Project (Harisenin)',
     role: 'Fullstack Developer & Infra Lead',
     stack: ['Node.js', 'TypeScript', 'NestJS', 'React', 'PostgreSQL', 'Redis', 'SMTP', 'Docker'],
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    video: novamailVideo,
+    github: 'https://github.com/meQlause/NovaMail',
   },
 ]
