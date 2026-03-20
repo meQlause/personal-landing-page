@@ -1,8 +1,20 @@
+import lifetimeArtVideo from '../assets/projects/lifetimeart.mp4'
 import type { Project } from '../types'
 
 export const PROJECTS: Project[] = [
   {
     id: 0,
+    title: 'LifetimeArt — Pixel-Perfect Web Experience',
+    short: 'Figma-to-code responsive website with smooth animations across all devices',
+    desc: 'LifetimeArt is a self-initiated project focused on translating high-fidelity Figma designs into a fully responsive, pixel-perfect web experience. The project emphasizes precision in layout, typography, and spacing while ensuring seamless adaptability across desktop, tablet, and mobile devices. It incorporates smooth animations and parallax effects to enhance user interaction and visual storytelling, leveraging modern frontend tools and performance optimization techniques.',
+    tag: 'Frontend / UI Engineering',
+    year: 'Self Project',
+    role: 'Sole Engineer',
+    stack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'react-parallax'],
+    video: lifetimeArtVideo,
+  },
+  {
+    id: 1,
     title: 'QSwap — DeFi Exchange Platform',
     short: 'Personal DeFi platform with token swaps, SOR, and liquidity pools on Radix & Ethereum',
     desc: 'QSwap is a personal project built from the ground up, starting as a productivity tool and evolving into a DeFi platform that supports token swaps, Smart Order Routing (SOR), and liquidity pool creation on both the Radix and Ethereum blockchains. It integrates the ERC-20 token standard for Ethereum compatibility and implements liquidity mechanics based on the Uniswap V2 constant product (x·y=k) model to enable efficient decentralized trading.',
@@ -13,7 +25,7 @@ export const PROJECTS: Project[] = [
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
   },
   {
-    id: 1,
+    id: 2,
     title: 'Systems Programming Toolchain',
     short: 'Assembler, VM translator, and compiler written in Rust from scratch',
     desc: 'A collection of systems-level programming projects fully written in Rust, focused on compiler and virtual machine implementation. This includes building an assembler that translates assembly language into machine code, developing a virtual machine translator that compiles VM language into assembly, and implementing a compiler that compiles a high-level language into VM code. The projects cover parsing, lexical analysis, AST construction, and code generation, with strong emphasis on low-level memory handling, instruction mapping, and deterministic compilation flow.',
@@ -25,20 +37,30 @@ export const PROJECTS: Project[] = [
     github: 'https://github.com/meQlause/HackAssembler',
   },
   {
-    id: 2,
+    id: 3,
     title: 'ArcaneLabyrinth — Radix Governance',
-    short: 'Web3 governance platform on the Radix blockchain with smart contracts and event listeners',
-    desc: 'Led the development of ArcaneLabyrinth\'s governance web project on the Radix blockchain. Contributed 100% of smart contract development, 100% of backend development, and 50% of frontend development. Designed and implemented Radix smart contract blueprints using Scrypto (a Rust-based framework). Architected backend services including event listeners to synchronize on-chain contract state with the platform. The project successfully secured a Radix Grant of 5,000 USD in XRD tokens.',
+    short:
+      'Web3 governance platform on the Radix blockchain with smart contracts and event listeners',
+    desc: "Led the development of ArcaneLabyrinth's governance web project on the Radix blockchain. Contributed 100% of smart contract development, 100% of backend development, and 50% of frontend development. Designed and implemented Radix smart contract blueprints using Scrypto (a Rust-based framework). Architected backend services including event listeners to synchronize on-chain contract state with the platform. The project successfully secured a Radix Grant of 5,000 USD in XRD tokens.",
     tag: 'Blockchain',
     year: 'PT. Gilang Maju Jaya',
     role: 'Smart Contract & Backend Engineer',
-    stack: ['Scrypto', 'Rust', 'Radix SDK', 'Node.js', 'TypeScript', 'PostgreSQL', 'Event Listeners'],
+    stack: [
+      'Scrypto',
+      'Rust',
+      'Radix SDK',
+      'Node.js',
+      'TypeScript',
+      'PostgreSQL',
+      'Event Listeners',
+    ],
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
   },
   {
-    id: 3,
+    id: 4,
     title: 'Agaro-Vote — Blockchain Voting System',
-    short: 'Full-stack digital voting with private blockchain and synthetic staking reward mechanism',
+    short:
+      'Full-stack digital voting with private blockchain and synthetic staking reward mechanism',
     desc: 'Agaro-Vote is a full-stack digital voting system built on a hybrid architecture that combines centralized services with a private blockchain. The system integrates a complete private blockchain infrastructure and supports a synthetic staking reward mechanism, allowing each vote to carry weighted voting power while maintaining transparency, verifiability, and efficient off-chain processing. Responsible for developing the event listener service in Rust to sync on-chain events with the backend system, and 100% of the smart contract development in Solidity.',
     tag: 'Blockchain / Voting',
     year: 'Team Project',
@@ -47,7 +69,7 @@ export const PROJECTS: Project[] = [
     video: 'https://www.w3schools.com/html/movie.mp4',
   },
   {
-    id: 4,
+    id: 5,
     title: 'EmailProvider — Gmail-Like Clone',
     short: 'Full-featured email platform with complete mail infrastructure configuration',
     desc: 'EmailProvider is a full-featured Gmail-like clone currently in active development. This is a collaborative team project at Harisenin.com where full ownership was taken on email infrastructure configuration while actively contributing across the fullstack backend and frontend. Covers SMTP/IMAP/POP3 server setup, authentication flows, inbox management, real-time notifications, and full REST API for email operations.',
