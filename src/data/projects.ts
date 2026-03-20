@@ -1,4 +1,5 @@
 import agaroVideo from '../assets/projects/agaro.mp4'
+import arcaneVideo from '../assets/projects/arcane.mp4'
 import lifetimeArtVideo from '../assets/projects/lifetimeart.webm'
 import qswapVideo from '../assets/projects/qswap.mp4'
 import type { Project } from '../types'
@@ -60,7 +61,8 @@ export const PROJECTS: Project[] = [
       'PostgreSQL',
       'Event Listeners',
     ],
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    video: arcaneVideo,
+    github: 'https://github.com/orgs/ArcaneLabyrinth/repositories',
   },
   {
     id: 4,
@@ -77,9 +79,9 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 5,
-    title: 'EmailProvider — Gmail-Like Clone',
+    title: 'Novamail — Gmail-Like Clone',
     short: 'Full-featured email platform with complete mail infrastructure configuration',
-    desc: 'EmailProvider is a full-featured Gmail-like clone currently in active development. This is a collaborative team project at Harisenin.com where full ownership was taken on email infrastructure configuration while actively contributing across the fullstack backend and frontend. Covers SMTP/IMAP/POP3 server setup, authentication flows, inbox management, real-time notifications, and full REST API for email operations.',
+    desc: 'Novamail is a full-featured Gmail-like clone currently in active development. This is a collaborative team project at Harisenin.com where full ownership was taken on email infrastructure configuration while actively contributing across the fullstack backend and frontend. Covers SMTP/IMAP/POP3 server setup, authentication flows, inbox management, real-time notifications, and full REST API for email operations.',
     tag: 'Fullstack',
     year: 'Team Project (Harisenin)',
     role: 'Fullstack Developer & Infra Lead',

@@ -187,9 +187,9 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     id: 10,
-    icon: hariseninIcon,
+    icon: udemyIcon,
     title: 'Advanced HTML5 & CSS3',
-    issuer: 'Harisenin.com',
+    issuer: 'Udemy — Jonas Schmedtmann',
     skills: ['HTML5', 'CSS3', 'Flexbox', 'Grid', 'SASS', 'Responsive Design', 'Web Accessibility'],
     color: '#00d4ff',
     certificationImage: certHTMLCSS,
