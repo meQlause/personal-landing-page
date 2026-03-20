@@ -23,8 +23,7 @@ import type {
   Project,
 } from './types'
 
-// Import video path for preloading
-import lifetimeArtVideo from './assets/projects/lifetimeart.mp4'
+import lifetimeArtVideo from './assets/projects/lifetimeart.webm'
 
 export default function App() {
   const { modal, openModal, closeModal } = useModal()

@@ -1,4 +1,4 @@
-import lifetimeArtVideo from '../assets/projects/lifetimeart.mp4'
+import lifetimeArtVideo from '../assets/projects/lifetimeart.webm'
 import type { Project } from '../types'
 
 export const PROJECTS: Project[] = [
