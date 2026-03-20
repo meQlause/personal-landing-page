@@ -1,4 +1,5 @@
 import lifetimeArtVideo from '../assets/projects/lifetimeart.webm'
+import qswapVideo from '../assets/projects/qswap.mp4'
 import type { Project } from '../types'
 
 export const PROJECTS: Project[] = [
@@ -24,7 +25,9 @@ export const PROJECTS: Project[] = [
     year: 'Self Project',
     role: 'Sole Engineer',
     stack: ['Solidity', 'Scrypto', 'Rust', 'TypeScript', 'React', 'Ethers.js', 'Radix SDK'],
-    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
+    video: qswapVideo,
+    github: 'https://github.com/meQlause/QSwap',
+    live: 'https://qswap.ardial.my.id',
   },
   {
     id: 2,
