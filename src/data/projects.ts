@@ -1,5 +1,6 @@
 import agaroVideo from '../assets/projects/agaro.mp4'
 import arcaneVideo from '../assets/projects/arcane.mp4'
+import haraVideo from '../assets/projects/didhara.mp4'
 import lifetimeArtVideo from '../assets/projects/lifetimeart.webm'
 import novamailVideo from '../assets/projects/novamail.mp4'
 import qswapVideo from '../assets/projects/qswap.mp4'
@@ -63,7 +64,6 @@ export const PROJECTS: Project[] = [
       'Event Listeners',
     ],
     video: arcaneVideo,
-    github: 'https://github.com/orgs/ArcaneLabyrinth/repositories',
   },
   {
     id: 4,
@@ -89,5 +89,25 @@ export const PROJECTS: Project[] = [
     stack: ['Node.js', 'TypeScript', 'NestJS', 'React', 'PostgreSQL', 'Redis', 'SMTP', 'Docker'],
     video: novamailVideo,
     github: 'https://github.com/meQlause/NovaMail',
+  },
+  {
+    id: 6,
+    title: 'HARA — Decentralized Identity (DID) System',
+    short: 'Scalable DID system with blockchain, ZK, and secure identity infrastructure',
+    desc: 'At HARA, contributed as a Fullstack & Blockchain Engineer in building a decentralized identity (DID) system. Worked on backend architecture integrated with a private blockchain, designed CI/CD pipelines for reliable release workflows, and implemented secure database models using combined symmetric and asymmetric cryptography. Developed smart contracts based on ERC-725/734/735 standards, delivered most of the contract logic and full SDK implementation (Golang & TypeScript), and built ZK circuits (circom) for privacy-preserving authentication. Also contributed to biometric-based authentication and system design trade-offs for scalability and cost efficiency.',
+    tag: 'Fullstack / Blockchain',
+    year: 'Professional Experience (HARA)',
+    role: 'Fullstack & Blockchain Engineer',
+    stack: [
+      'Golang',
+      'TypeScript',
+      'Solidity',
+      'Circom',
+      'Node.js',
+      'PostgreSQL',
+      'Docker',
+      'CI/CD',
+    ],
+    video: haraVideo,
   },
 ]
