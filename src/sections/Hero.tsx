@@ -98,8 +98,10 @@ export default function Hero() {
       </div>
 
       <div className="scroll-indicator" aria-label="Scroll down">
-        <span className="scroll-line" />
-        <span className="scroll-label">SCROLL</span>
+        <div className="mouse-wheel-wrap">
+          <div className="mouse-wheel-dot" />
+        </div>
+        <span className="scroll-label">EXPLORE</span>
       </div>
     </section>
   )
