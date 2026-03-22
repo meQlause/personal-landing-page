@@ -15,8 +15,7 @@ export default function Navbar() {
     <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
       <div className="nav-inner">
         <a href="#hero" className="nav-logo">
-          <span className="logo-bracket">[</span>ARD<span className="logo-accent">IAL</span>
-          <span className="logo-bracket">]</span>
+          ARD<span className="logo-accent">IAL</span>
         </a>
 
         <ul className="nav-links">

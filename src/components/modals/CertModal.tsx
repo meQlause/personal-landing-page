@@ -34,11 +34,6 @@ export default function CertModal({ cert, onClose }: CertModalProps) {
         </button>
 
         <div className="cert-doc" style={{ '--cert-color': cert.color } as React.CSSProperties}>
-          <div className="cert-corner cert-corner--tl" aria-hidden="true" />
-          <div className="cert-corner cert-corner--tr" aria-hidden="true" />
-          <div className="cert-corner cert-corner--bl" aria-hidden="true" />
-          <div className="cert-corner cert-corner--br" aria-hidden="true" />
-
           <div className="cert-doc-topbar">
             <span className="cert-doc-issued-label">CERTIFICATE OF ACHIEVEMENT</span>
           </div>

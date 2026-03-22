@@ -7,21 +7,22 @@
 
 /* ── CSS Variables ── */
 :root {
-  --bg: #080808;
-  --bg-2: #111111;
-  --bg-3: #1a1a1a;
-  --border: #2a2a2a;
-  --border-light: #333333;
-  --text: #e8e8e8;
-  --text-muted: #666666;
-  --text-dim: #444444;
+  --bg: #05070a;
+  --bg-2: #0a0d14;
+  --bg-3: #111827;
+  --border: #1e293b;
+  --border-light: #334155;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
 
   /* Accent colors */
-  --acid: #b8ff57;
-  --acid-dim: #7abf2a;
-  --burn: #ff4d00;
-  --burn-dim: #cc3d00;
-  --ice: #00d4ff;
+  --acid: #3b82f6;
+  --acid-dim: #1d4ed8;
+  --burn: #06b6d4;
+  --burn-dim: #0891b2;
+  --ice: #7dd3fc;
+
 
   /* Typography */
   --font-display: 'Bebas Neue', sans-serif;
@@ -168,12 +169,7 @@ ul {
 .logo-accent {
   color: var(--acid);
 }
-.logo-bracket {
-  color: var(--text-dim);
-}
-.nav-logo:hover .logo-bracket {
-  color: var(--acid-dim);
-}
+
 
 .nav-links {
   display: flex;
@@ -337,8 +333,8 @@ ul {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(184, 255, 87, 0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(255, 77, 0, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 80% 20%, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
 }
 
 #hero::after {
@@ -2020,8 +2016,8 @@ section:last-of-type::after {
 
 .cert-modal-close {
   position: absolute;
-  top: -0.5rem;
-  right: -0.5rem;
+  top: 1rem;
+  right: 1rem;
   z-index: 100;
 }
 
@@ -2035,36 +2031,7 @@ section:last-of-type::after {
     inset 0 0 60px rgba(0, 0, 0, 0.3);
 }
 
-/* Corner decorations */
-.cert-corner {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  border-color: var(--cert-color, var(--acid));
-  border-style: solid;
-  opacity: 0.5;
-}
-
-.cert-corner--tl {
-  top: 0.75rem;
-  left: 0.75rem;
-  border-width: 1px 0 0 1px;
-}
-.cert-corner--tr {
-  top: 0.75rem;
-  right: 0.75rem;
-  border-width: 1px 1px 0 0;
-}
-.cert-corner--bl {
-  bottom: 0.75rem;
-  left: 0.75rem;
-  border-width: 0 0 1px 1px;
-}
-.cert-corner--br {
-  bottom: 0.75rem;
-  right: 0.75rem;
-  border-width: 0 1px 1px 0;
-}
+/* Removed corner decorations per request */
 
 .cert-doc-topbar {
   display: flex;
