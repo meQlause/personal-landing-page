@@ -1,0 +1,34 @@
+@import './scrollbar.css';
+@import './cursor.css';
+@import './nav-character.css';
+
+@font-face {
+  font-family: Manrope;
+  src: url('../assets/fonts/manrope-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Manrope;
+  src: url('../assets/fonts/manrope-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  background: #353bc8;
+}
+
+/* InlineSvg wraps a decorative SVG without adding a box: the SVG lays out as if it were in its parent. */
+.svg-host {
+  display: contents;
+}
+
+/* The journey before the visitor's first input: the sections below the hero skip their rendering until they come near
+   the screen (their motion waits too, see motion/gate.ts). The attribute is removed on wake, before any pin is measured. */
+#journey[data-asleep] > section:not(:first-child) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 100svh;
+}

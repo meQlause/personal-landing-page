@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Ardial — CV</title>
+    <!-- Source of src/assets/cv/Ardial-CV.pdf. Print with: npm run cv
+     Content follows ARDIAL-CV-TRANSCRIPT.md, updated to match the website (October 2026). -->
+    <style>
+      @page {
+        size: Letter;
+        margin: 0.42in 0.62in 0.45in;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font:
+          10pt/1.25 'Times New Roman',
+          Times,
+          serif;
+        color: #1d1d1d;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      header {
+        text-align: center;
+      }
+      .name {
+        margin: 0;
+        font-size: 26pt;
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        color: #1f3a68;
+      }
+      .tag {
+        margin: 2pt 0 0;
+        font-size: 11pt;
+        color: #6b6b6b;
+      }
+      .contact {
+        margin: 2pt 0 0;
+        font-size: 9.5pt;
+        color: #6b6b6b;
+      }
+      .summary {
+        margin: 10pt 0 0;
+        font:
+          9.6pt/1.38 'Segoe UI',
+          Arial,
+          sans-serif;
+        color: #1d1d1d;
+      }
+      h2 {
+        margin: 11pt 0 5pt;
+        padding-bottom: 2.5pt;
+        break-after: avoid;
+        border-bottom: 0.8pt solid #3a3a3a;
+        font-size: 13pt;
+        color: #1f3a68;
+        letter-spacing: 0.01em;
+      }
+      .item {
+        margin: 0 0 5pt;
+        break-inside: avoid;
+      }
+      .head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12pt;
+      }
+      .org {
+        font-size: 11.5pt;
+        font-weight: 700;
+      }
+      .when {
+        font-style: italic;
+        font-size: 10pt;
+        color: #6b6b6b;
+        white-space: nowrap;
+      }
+      .role {
+        font-style: italic;
+        color: #2c4a80;
+      }
+      .tagline {
+        font-style: italic;
+        color: #6b6b6b;
+        font-weight: 400;
+        font-size: 10pt;
+      }
+      ul {
+        margin: 3pt 0 0;
+        padding-left: 16pt;
+      }
+      li {
+        margin: 0 0 1.2pt;
+      }
+      p.text {
+        margin: 3pt 0 0 16pt;
+      }
+      .item > p.text:first-of-type {
+        margin-top: 2pt;
+      }
+      .plain {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .plain li {
+        margin: 0 0 1.5pt;
+      }
+      .langs {
+        margin: 0;
+      }
+      .skills {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+        gap: 1.5pt 12pt;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="name">ARDIAL</h1>
+      <p class="tag">Software Engineer · TypeScript · Node.js · Go · Blockchain</p>
+      <p class="contact">
+        085291938316 | <a href="mailto:contact@ardial.my.id">contact@ardial.my.id</a> |
+        <a href="https://ardial.my.id">ardial.my.id</a> |
+        <a href="https://www.linkedin.com/in/ardial">linkedin.com/in/ardial</a> |
+        <a href="https://github.com/meQlause">github.com/meQlause</a>
+      </p>
+    </header>
+
+    <p class="summary">
+      A lifelong learner, driven by curiosity long before the rise of AI, I have continuously
+      expanded my knowledge across software engineering and emerging technologies. This mindset has
+      shaped me into a <b>T-shaped Software Engineer</b>. My experience spans the
+      <b>entire product lifecycle</b>, from system design and development to deployment, production
+      operations, and continuous improvement. This end-to-end perspective allows me to understand
+      not only how to build software, but also how engineering decisions impact reliability, cost,
+      and the business.
+    </p>
+
+    <h2>EXPERIENCE</h2>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">PT. Polaris Web</span
+        ><span class="when">Jun 2026 – Present | Full-time · On-site</span>
+      </div>
+      <div class="role">Software Developer</div>
+      <ul>
+        <li>
+          Defined how the team builds software, setting a development pipeline of spec-driven
+          development, test-driven development, AI-assisted workflows, automated deployment and
+          security checks that is now followed by the entire division.
+        </li>
+        <li>
+          Increased marketing team productivity by 30% by integrating AI-powered content generation
+          into their article-writing workflow, reducing repetitive manual work and accelerating
+          content production.
+        </li>
+        <li>
+          Designed the Identity Provider (IdP) architecture for the CRM ecosystem, standardizing
+          authentication and communication between modules while strengthening application-layer
+          security and enabling secure cross-module interaction.
+        </li>
+        <li>
+          Architected a Payment Orchestration Layer that abstracts integrations between applications
+          and multiple Payment Service Providers (PSPs), providing a unified interface for payment
+          operations, reducing integration complexity, and minimizing the engineering effort
+          required to onboard and maintain payment providers.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Universitas IVET Semarang</span
+        ><span class="when">Aug 2026 – Present | Part-time · WFA</span>
+      </div>
+      <div class="role">Full-stack Engineer</div>
+      <p class="text">
+        Rebuilding Siveta end to end, working closely with stakeholders to define requirements and
+        development specifications, designing the system architecture and UI/UX, and building the
+        application across frontend and backend. Responsible for core academic features such as KRS
+        and LMS, as well as database design, deployment, and CI/CD pipelines.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">PT. Tekno Agri Karya</span
+        ><span class="when">Aug 2025 – Jun 2026 | Hybrid</span>
+      </div>
+      <div class="role">Full-Stack &amp; Blockchain Engineer</div>
+      <ul>
+        <li>
+          Developed and integrated multi-language SDKs (Golang, TypeScript, Rust) for web and
+          backend service consumption, enabling seamless interaction with smart contract
+          infrastructure.
+        </li>
+        <li>
+          Built backend services and REST APIs supporting a Decentralized Identity (DID) platform,
+          implementing a hybrid cryptographic data exchange layer (ECIES + symmetric encryption) for
+          secure identity data handling.
+        </li>
+        <li>
+          Optimized frontend performance by compiling Rust modules to WebAssembly (WASM), reducing
+          client-side processing time by 50% without backend changes.
+        </li>
+        <li>
+          Reduced storage usage by 90% and computation costs by 80% by designing a custom
+          encoding/decoding layer for the internal HNS (Hara Name System).
+        </li>
+        <li>
+          Contributed to smart contract development (ERC-4337 account abstraction with social
+          recovery and gasless transactions) alongside the full web integration layer.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">PT. Karya Kaya Bahagia</span
+        ><span class="when">Jul 2025 – Present | Remote</span>
+      </div>
+      <div class="role">Fullstack Developer Mentor Assistant</div>
+      <ul>
+        <li>
+          Mentored 200+ students across 8 months (10–20 active students per week) through fullstack
+          web development missions covering HTML/CSS, Node.js/Express, REST API design, ERD
+          modeling, and layered architecture patterns.
+        </li>
+        <li>
+          Assisted in assessing and refining the curriculum to align with industry best practices,
+          and provided hands-on technical support that helped students meet deadlines and pass
+          assessments.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">PT. Gilang Maju Jaya</span
+        ><span class="when">Jul 2023 – Feb 2024 | Remote · Part-time</span>
+      </div>
+      <div class="role">Fullstack Blockchain Engineer</div>
+      <ul>
+        <li>
+          Led fullstack development of ArcaneLabyrinth's game governance system, where players set
+          the rules through on-chain proposals and voting, delivering 100% of the backend (NestJS),
+          50% of the frontend (Next.js), and the full smart contract implementation in Scrypto on
+          the Radix blockchain.
+        </li>
+        <li>
+          Played a key role in securing a Radix Foundation grant of $5,000 USD through technical
+          delivery and proposal involvement.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">(Ju) Boyoung</span
+        ><span class="when">Mar 2020 – Jan 2025 | South Korea · Full-time</span>
+      </div>
+      <div class="role">Machine Operator</div>
+      <p class="text">
+        Worked as a blue-collar machine operator in South Korea on demanding 12-hour shifts, six
+        days a week. Despite the intensive schedule, continuously pursued technical certifications
+        through Udemy, Coursera, and Radix while taking on domestic and international freelance
+        blockchain projects on Radix.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">PT. Java Digital Nusantara</span
+        ><span class="when">Feb 2019 – Aug 2019 | On-site · Part-time</span>
+      </div>
+      <div class="role">Jr. Network Engineer</div>
+      <ul>
+        <li>
+          Deployed and configured network infrastructure for 50+ mid-to-large enterprise clients,
+          including MikroTik routers with PPPoE, bandwidth management, and firewall policies,
+          achieving a 100% client problem resolution rate.
+        </li>
+        <li>
+          Managed IP addressing, subnetting, DHCP, and DNS, performed point-to-point link alignment,
+          and carried out ongoing network security monitoring.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">PT. Indosat</span><span class="when">Jan 2019 – Feb 2019 | On-site</span>
+      </div>
+      <div class="role">Tower Technician (Freelance)</div>
+      <ul>
+        <li>
+          Installed and aligned antennas and radio equipment across 3 telecommunication towers.
+        </li>
+        <li>
+          Configured IP addressing/subnetting and verified signal quality for stable connectivity.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Universitas Padjadjaran</span
+        ><span class="when">Jan 2017 – Jul 2017 | On-site</span>
+      </div>
+      <div class="role">IT Support Intern</div>
+      <ul>
+        <li>
+          Troubleshot network and software issues across OSI Layers 1–4, including DHCP, DNS, IP
+          subnetting, and physical infrastructure.
+        </li>
+        <li>
+          Supported users with OS reinstallation, driver troubleshooting, and general technical
+          issues.
+        </li>
+      </ul>
+    </div>
+
+    <h2>PROJECTS</h2>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Simpul <span class="tagline">— AI · Operations coordination</span></span
+        ><span class="when">Live</span>
+      </div>
+      <p class="text">
+        Turns messages in busy group chats into action. AI labels each message, matches it to rules
+        a manager wrote, and routes it to the right role, or to that role's backup, straight to
+        their phone. Built with Express, TypeScript, PostgreSQL (Drizzle, pg-boss), Google Gemini
+        and React.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Mnemo <span class="tagline">— AI · Fullstack</span></span
+        ><span class="when">Live</span>
+      </div>
+      <p class="text">
+        A solo-built AI note-taking application with RAG-powered chat that cites your own notes,
+        semantic search with pgvector, and automatic event extraction. Built with FastAPI,
+        LangChain, Google Gemini, PostgreSQL with pgvector, React 18, TypeScript, TailwindCSS and
+        Docker.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org"
+          >Treecord <span class="tagline">— Blockchain · Tree survival evidence</span></span
+        >
+      </div>
+      <p class="text">
+        Pays tree planters only for trees that survive. Each tree gets six check-ins over 36 months,
+        each signed on a phone under the tree with GPS and time, and each pays the planter only if
+        the tree is alive, with 40% held until month 36. Built with Solidity (Foundry) on Base, a
+        TypeScript backend with PostgreSQL and an on-chain indexer and relayer, and React with viem
+        and Privy.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Agaro-Vote <span class="tagline">— Blockchain · Hackathon</span></span>
+      </div>
+      <p class="text">
+        A full-stack digital voting system combining centralized services with a private blockchain,
+        with weighted voting power through a synthetic staking reward mechanism. Responsible for
+        100% of the Solidity smart contract development, and built the Rust-based event listener
+        service that keeps on-chain events in sync with the backend.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">QSwap <span class="tagline">— DeFi</span></span
+        ><span class="when">Live</span>
+      </div>
+      <p class="text">
+        A personal DeFi platform for token swaps, Smart Order Routing (SOR) and liquidity pool
+        creation on Radix and Ethereum. It implements the ERC-20 standard and the Uniswap V2
+        constant product (x·y=k) AMM model for decentralized trading, deployed and live as an
+        independent project.
+      </p>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org"
+          >Systems Programming Toolchain <span class="tagline">— Rust · Compiler / VM</span></span
+        >
+      </div>
+      <p class="text">
+        A complete compiler toolchain built from scratch in Rust, with an assembler (assembly to
+        machine code), a VM translator (VM bytecode to assembly) and a high-level compiler (Jack
+        language to VM code). It covers lexical analysis, AST construction and code generation,
+        producing programs that compile and run correctly.
+      </p>
+    </div>
+
+    <h2>EDUCATION</h2>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Universitas Terbuka</span
+        ><span class="when">2026 – Present | Remote · Indonesia</span>
+      </div>
+      <div class="role">Bachelor of Mathematics</div>
+      <ul>
+        <li>
+          Studying mathematics with a focus on cryptography and computation, including linear and
+          discrete mathematics and the maths behind the systems.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">Harisenin.com</span
+        ><span class="when">Jun 2025 – Jul 2025 | Remote · Indonesia</span>
+      </div>
+      <div class="role">Full-Stack Developer Bootcamp</div>
+      <ul>
+        <li>
+          Graduated with a perfect technical score of 100/100 in Batch 16, completed in 2 months
+          against an expected 6-month timeline, the fastest graduation in the batch.
+        </li>
+        <li>
+          Promoted to Mentor Assistant upon graduation, supporting 200+ students in frontend and
+          backend missions.
+        </li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head">
+        <span class="org">SMK Bakti Ilham</span
+        ><span class="when">Jun 2015 – Jun 2018 | Bandung, Indonesia</span>
+      </div>
+      <div class="role">Computer Networking · 91/100</div>
+      <ul>
+        <li>
+          Achieved 98/100 on Ujikom (competency exam) covering Network Configuration and Server
+          Administration.
+        </li>
+        <li>
+          Placed 5th in the West Java MikroTik Olympiad for Vocational High Schools and was promoted
+          to teach the MikroTik MTCNA intro course.
+        </li>
+        <li>Served as Student Council Leader.</li>
+      </ul>
+    </div>
+
+    <h2>CERTIFICATIONS</h2>
+    <ul>
+      <li>Ethical Hacking and Penetration Testing (EHPT+) — Udemy [Ocsaly], 2025</li>
+      <li>Red Teaming: Exploit Development with Assembly and C (MSAC+) — Udemy [Ocsaly], 2025</li>
+      <li>Full-Stack Developer Bootcamp — Harisenin.com, 2025</li>
+      <li>C# .NET with MS SQL — Udemy [Dominic Tripodi], 2025</li>
+      <li>Scrypto 101 — Radix Foundation, 2024 (won a $200+ challenge with an Escrow blueprint)</li>
+      <li>
+        Build Responsive Real-World Websites with HTML and CSS — Udemy [Jonas Schmedtmann], 2022
+      </li>
+      <li>
+        Become an Algebra Master / Linear Algebra Master / Geometry Master / Master the Fundamentals
+        of Math — Udemy [Krista King], 2022
+      </li>
+      <li>Problem Solving (Basic) — HackerRank, 2022</li>
+      <li>MikroTik MTCNA — SMK Bakti Ilham, 2017 &amp; 2018</li>
+    </ul>
+
+    <h2>LANGUAGES</h2>
+    <p class="langs">
+      Indonesian (native) &nbsp;|&nbsp; English (intermediate) &nbsp;|&nbsp; Korean, EPS-TOPIK
+      (basic) &nbsp;|&nbsp; German, A2 (basic)
+    </p>
+
+    <h2>SKILLS</h2>
+    <div class="skills">
+      <b>Frontend</b><span>React, Next.js, HTML, CSS, TypeScript, JavaScript</span><b>Backend</b
+      ><span>Node.js, NestJS, Golang, PHP/Laravel 12, Python, FastAPI, REST API, WebSocket</span
+      ><b>AI / LLM</b
+      ><span>LangChain, RAG, Agentic AI Systems, AI-assisted development pipelines</span
+      ><b>Engineering practice</b
+      ><span
+        >Spec-driven development, Test-driven development (TDD), automated deployment, security
+        checks</span
+      ><b>Blockchain</b><span>Rust, Solidity, Scrypto, WASM, Smart Contract Development</span
+      ><b>Infra &amp; DevOps</b
+      ><span
+        >Docker, Kubernetes, AWS (ECR, ECS, EC2, S3), GCP (GCE, ALB, Cloud Armor), Azure DevOps,
+        CI/CD (GitHub Actions), Linux (Debian)</span
+      ><b>Databases</b><span>PostgreSQL, MySQL, MongoDB, Redis</span>
+    </div>
+  </body>
+</html>

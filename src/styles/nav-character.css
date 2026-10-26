@@ -1,0 +1,74 @@
+/* Shared: the nav character, centred in any section's navbar (the header is its positioned container). */
+.nav-prism {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px;
+  height: 56px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.nav-prism-art {
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin-top: -4px;
+  pointer-events: none;
+}
+.nav-prism-art svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.nav-prism:focus-visible {
+  outline: 2px solid #ffceb0;
+  outline-offset: 3px;
+}
+/* Its speech bubble: centred under it, with a tail; GSAP owns transform, so centring uses translate. */
+.nav-prism-bubble {
+  position: absolute;
+  z-index: 11;
+  left: 50%;
+  top: calc(50% + 34px);
+  translate: -50% 0;
+  padding: 7px 12px;
+  border-radius: 14px;
+  background: #ffceb0;
+  color: #262b88;
+  font:
+    700 12px/1.2 Manrope,
+    sans-serif;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0 8px 20px #12165d40;
+  transform-origin: 50% 0;
+}
+.nav-prism-bubble::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -5px;
+  width: 10px;
+  height: 10px;
+  margin-left: -5px;
+  border-radius: 2px;
+  background: inherit;
+  transform: rotate(45deg);
+}
+/* Phones: no nav character (its observer sees it hidden, so it also stops animating). */
+@media (max-width: 600px) {
+  .nav-prism,
+  .nav-prism-bubble {
+    display: none;
+  }
+}

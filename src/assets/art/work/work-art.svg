@@ -1,0 +1,85 @@
+<svg class="work-art" viewBox="0 0 640 520" aria-hidden="true" focusable="false">
+<defs><g id="w-check"><circle r="9" style="fill:var(--accent)"/><path d="M-4.5 .5l3 3 6-6.5" style="fill:none;stroke:var(--accent-ink)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+<linearGradient id="t-fade"><stop offset="0" style="stop-color:var(--line)" stop-opacity="0"/><stop offset=".18" style="stop-color:var(--line)"/><stop offset=".82" style="stop-color:var(--line)"/><stop offset="1" style="stop-color:var(--line)" stop-opacity="0"/></linearGradient></defs>
+
+<!-- Simpul: a knot of chat noise unties; the message is labelled, matched to a rule, routed, delivered. -->
+<g class="scene" data-scene="simpul"><g class="s-entry">
+<path class="s-guide" d="M20 300H548"/>
+<g class="chip" transform="translate(18 186) rotate(-8)"><g class="fall"><g class="react"><rect height="28" rx="14"/><text x="12" y="19">done?</text></g></g></g>
+<g class="chip" transform="translate(150 158) rotate(6)"><g class="fall"><g class="react"><rect height="28" rx="14"/><text x="12" y="19">done??</text></g></g></g>
+<g class="chip" transform="translate(4 392) rotate(-4)"><g class="fall"><g class="react"><rect height="28" rx="14"/><text x="12" y="19">what about yesterday’s?</text></g></g></g>
+<g class="chip" transform="translate(168 372) rotate(8)"><g class="fall"><g class="react"><rect height="28" rx="14"/><text x="12" y="19">shipped yet?</text></g></g></g>
+<g class="chip" transform="translate(0 246) rotate(-10)"><g class="fall"><g class="react"><rect height="28" rx="14"/><text x="12" y="19">status ORD-0088?</text></g></g></g>
+<g class="chip" transform="translate(178 226) rotate(5)"><g class="fall"><g class="react"><rect height="28" rx="14"/><text x="12" y="19">morning all</text></g></g></g>
+</g>
+<g class="s-stop"><circle cx="240" cy="300" r="5"/><text class="cap" x="240" y="334" text-anchor="middle">AI understands.</text></g>
+<g class="s-stop"><circle cx="360" cy="300" r="5"/><text class="cap" x="360" y="334" text-anchor="middle">You decide.</text></g>
+<g class="s-stop"><circle cx="480" cy="300" r="5"/><text class="cap" x="480" y="334" text-anchor="middle">Simpul routes.</text></g>
+<g class="s-card s-label"><path class="s-link" pathLength="1" d="M240 294V262"/><rect x="184" y="198" width="112" height="64" rx="10"/><text class="sm" x="196" y="217">Order</text><text class="sm" x="196" y="233">ready to ship</text><text class="st" x="196" y="253">ORD-0091</text><g class="s-spark" transform="translate(294 200)"><path d="M0-11C2-3 3-2 11 0 3 2 2 3 0 11-2 3-3 2-11 0-3-2-2-3 0-11Z"/></g></g>
+<g class="s-card s-rule"><path class="s-link" pathLength="1" d="M360 294V262"/><rect x="304" y="198" width="112" height="64" rx="10"/><text class="sm" x="316" y="225">Ready to ship,</text><text class="sm" x="316" y="243">notify sales</text>
+<g class="s-match"><rect x="304" y="198" width="112" height="64" rx="10"/><text class="sm" x="316" y="225">Ready to ship,</text><text class="sm" x="316" y="243">notify sales</text></g></g>
+<g class="s-card s-route"><path class="s-link" pathLength="1" d="M480 294V262"/><rect x="424" y="198" width="112" height="64" rx="10"/><text class="sm" x="436" y="217">Sales Admin</text>
+<g class="s-rina"><circle cx="447" cy="241" r="11"/><text class="ini" x="447" y="245" text-anchor="middle">RA</text><text class="sm" x="464" y="245">away</text></g>
+<g class="s-siti"><circle cx="447" cy="241" r="11"/><text class="ini" x="447" y="245" text-anchor="middle">SA</text><text class="sm" x="464" y="245">Siti, backup</text></g></g>
+<g class="s-phone"><rect class="body" x="548" y="160" width="84" height="180" rx="16"/><rect class="notch" x="576" y="168" width="28" height="5" rx="2.5"/><text class="time" x="590" y="204" text-anchor="middle">11:01</text>
+<g class="s-notice"><rect x="554" y="220" width="72" height="80" rx="9"/><image href="assets/simpul-mark.png" x="559" y="226" width="10" height="10"/><text class="n-app" x="572" y="234">simpul.</text><text class="n-t" x="559" y="252">ORD-0091</text><text class="n-s" x="559" y="263">Mrs. Sri</text><rect class="n-pill" x="559" y="272" width="62" height="18" rx="9"/><text class="n-p" x="590" y="284" text-anchor="middle">Already shipped</text><use class="s-check" href="#w-check" transform="translate(620 274) scale(.6)"/></g></g>
+<path class="s-thread"/>
+<g class="s-carrier"><circle class="s-bead" r="6"/><g class="s-bubble"><path d="M-96-20-104-6-80-20Z"/><rect x="-118" y="-80" width="236" height="62" rx="16"/><text class="b-who" x="-104" y="-60">Budi · 16:02</text><text class="b-l" x="-104" y="-42">Three cases for Mrs. Sri</text><text class="b-l" x="-104" y="-26">are ready to ship.</text></g></g>
+</g>
+
+<!-- Mnemo (example content): a question pulls the relevant notes forward; the answer cites them; a date becomes an event. -->
+<g class="scene" data-scene="mnemo">
+<g class="m-note" transform="translate(196 60) rotate(2)"><g class="mv"><g class="react"><rect width="160" height="100" rx="6"/><text class="m-title" x="14" y="26">Supplier call</text><rect class="m-line" x="14" y="42" width="120" height="6" rx="3"/><rect class="m-line hit" x="14" y="58" width="96" height="6" rx="3"/><rect class="m-line" x="14" y="74" width="110" height="6" rx="3"/></g></g></g>
+<g class="m-note" transform="translate(24 60) rotate(-2)"><g class="mv"><g class="react"><rect width="160" height="100" rx="6"/><text class="m-title" x="14" y="26">Q4 goals</text><rect class="m-line" x="14" y="42" width="118" height="6" rx="3"/><rect class="m-line" x="14" y="58" width="86" height="6" rx="3"/><rect class="m-line" x="14" y="74" width="104" height="6" rx="3"/></g></g></g>
+<g class="m-note" transform="translate(24 196) rotate(2)"><g class="mv"><g class="react"><rect width="160" height="100" rx="6"/><text class="m-title" x="14" y="26">Reading list</text><rect class="m-line" x="14" y="42" width="100" height="6" rx="3"/><rect class="m-line" x="14" y="58" width="124" height="6" rx="3"/><rect class="m-line" x="14" y="74" width="80" height="6" rx="3"/></g></g></g>
+<g class="m-note" transform="translate(196 196) rotate(-2)"><g class="mv"><g class="react"><rect width="160" height="100" rx="6"/><text class="m-title" x="14" y="26">Team sync</text><rect class="m-line" x="14" y="42" width="112" height="6" rx="3"/><rect class="m-line" x="14" y="58" width="96" height="6" rx="3"/><rect class="m-line hit" x="14" y="74" width="120" height="6" rx="3"/></g></g></g>
+<g class="m-note" transform="translate(110 332) rotate(2)"><g class="mv"><g class="react"><rect width="160" height="100" rx="6"/><text class="m-title" x="14" y="26">Trip ideas</text><rect class="m-line" x="14" y="42" width="120" height="6" rx="3"/><rect class="m-line" x="14" y="58" width="70" height="6" rx="3"/><rect class="m-line" x="14" y="74" width="100" height="6" rx="3"/></g></g></g>
+<g class="m-ask"><rect x="388" y="70" width="240" height="50" rx="18"/><text x="406" y="100">When do we meet the supplier?</text></g>
+<path class="m-cite" pathLength="1" d="M398 271C386 271 386 110 356 110"/><path class="m-cite" pathLength="1" d="M398 301C376 301 376 252 356 252"/>
+<g class="m-answer"><rect x="388" y="250" width="240" height="72" rx="18"/><text x="432" y="279">Thursday, 10:00,</text><text x="432" y="301">at their office.</text>
+<g class="m-chip"><rect x="398" y="262" width="22" height="18" rx="9"/><text x="409" y="275" text-anchor="middle">1</text></g><g class="m-chip"><rect x="398" y="292" width="22" height="18" rx="9"/><text x="409" y="305" text-anchor="middle">2</text></g></g>
+<g class="m-event"><rect x="388" y="352" width="240" height="64" rx="12"/><rect class="cal" x="404" y="366" width="36" height="36" rx="7"/><text class="cal-d" x="422" y="392" text-anchor="middle">THU</text><text class="ev-t" x="454" y="380">Supplier meeting</text><text class="ev-s" x="454" y="400">Thursday · 10:00 · extracted</text></g>
+</g>
+
+<!-- Treecord: six signed check-ins over 36 months; each pays only if the tree is alive; 40% waits for month 36. -->
+<g class="scene" data-scene="treecord">
+<path class="t-ground" d="M-60 394C120 370 260 372 360 386S580 404 700 390V440H-60Z"/>
+<g class="t-tree" transform="translate(160 388)"><g class="grow"><g class="react"><path class="t-trunk" d="M-8 0C-6-50-6-90-3-130H3C6-90 6-50 8 0Z"/><path class="t-branch" d="M-2-80C-20-95-34-100-46-112M2-96C18-110 30-118 44-124"/>
+<circle class="t-leaf a" cx="-44" cy="-122" r="38"/><circle class="t-leaf b" cx="44" cy="-128" r="40"/><circle class="t-leaf c" cx="0" cy="-160" r="54"/><circle class="t-leaf a" cx="-8" cy="-208" r="32"/></g></g></g>
+<g class="t-phone"><rect class="body" x="292" y="168" width="78" height="138" rx="14"/><rect class="screen" x="298" y="186" width="66" height="100" rx="6"/><path class="finder" d="M306 198v-6h8M356 198v-6h-8M306 274v6h8M356 274v6h-8"/>
+<rect class="t-flash" x="298" y="186" width="66" height="100" rx="6"/><g class="t-pin"><path d="M331 222c-7 0-12 5-12 11 0 8 12 19 12 19s12-11 12-19c0-6-5-11-12-11Z"/><circle cx="331" cy="233" r="4"/></g><text class="t-gps" x="331" y="272" text-anchor="middle">GPS · time</text><use class="t-ok" href="#w-check" transform="translate(360 180)"/></g>
+<text class="cap" x="331" y="330" text-anchor="middle">Signed under the tree</text>
+<g class="t-wallet"><text class="cap" x="500" y="150" text-anchor="middle">Planter</text><rect class="t-base" x="446" y="318" width="108" height="10" rx="0"/>
+<g class="t-coins"><ellipse class="t-coin" cx="500" cy="308" rx="14" ry="9"/><ellipse class="t-coin" cx="500" cy="296" rx="14" ry="9"/><ellipse class="t-coin" cx="500" cy="284" rx="14" ry="9"/><ellipse class="t-coin" cx="500" cy="272" rx="14" ry="9"/><ellipse class="t-coin" cx="500" cy="260" rx="14" ry="9"/><ellipse class="t-coin big" cx="500" cy="244" rx="20" ry="11"/><ellipse class="t-coin big" cx="500" cy="228" rx="20" ry="11"/></g>
+<text class="t-held" x="500" y="198" text-anchor="middle">40% · month 36</text><text class="cap" x="500" y="350" text-anchor="middle">Paid only if alive</text></g>
+<path class="t-track" d="M60 470H580"/>
+<g class="t-ticks"><circle cx="147" cy="470" r="6"/><circle cx="233" cy="470" r="6"/><circle cx="320" cy="470" r="6"/><circle cx="407" cy="470" r="6"/><circle cx="493" cy="470" r="6"/><circle cx="580" cy="470" r="6"/></g>
+<g class="t-months"><text x="60" y="496" text-anchor="middle">0</text><text x="147" y="496" text-anchor="middle">6</text><text x="233" y="496" text-anchor="middle">12</text><text x="320" y="496" text-anchor="middle">18</text><text x="407" y="496" text-anchor="middle">24</text><text x="493" y="496" text-anchor="middle">30</text><text x="580" y="496" text-anchor="middle">36 mo</text></g>
+<circle class="t-marker" cx="60" cy="470" r="8"/>
+</g>
+
+<!-- Agaro-Vote: commit tokens, one vote = one count (committed tokens tallied alongside), the poll hash rolls, rewards stream back. -->
+<g class="scene" data-scene="agaro">
+<g class="a-wallet"><text class="cap" x="96" y="80" text-anchor="middle">Commit tokens</text><rect class="a-base" x="46" y="300" width="100" height="10" rx="5"/>
+<g class="a-coins"><g class="react"><ellipse class="a-coin" cx="96" cy="290" rx="32" ry="9"/><ellipse class="a-coin" cx="96" cy="278" rx="32" ry="9"/><ellipse class="a-coin" cx="96" cy="266" rx="32" ry="9"/><ellipse class="a-coin go" cx="96" cy="254" rx="32" ry="9"/><ellipse class="a-coin go" cx="96" cy="242" rx="32" ry="9"/><ellipse class="a-coin go" cx="96" cy="230" rx="32" ry="9"/></g></g></g>
+<g class="a-poll"><rect class="card" x="196" y="96" width="280" height="210" rx="16"/><text class="cap" x="336" y="80" text-anchor="middle">One vote, one count</text>
+<text class="a-opt" x="218" y="140">Option A</text><text class="a-n" x="456" y="140" text-anchor="end">12</text><rect class="a-bar" x="218" y="150" width="96" height="8" rx="4"/>
+<g class="a-row b"><rect class="a-hl" x="206" y="168" width="260" height="56" rx="10"/><text class="a-opt" x="218" y="196">Option B</text><text class="a-n a-nb" x="456" y="196" text-anchor="end">12</text><rect class="a-bar a-bb" x="218" y="206" width="120" height="8" rx="4"/></g>
+<text class="a-opt" x="218" y="252">Option C</text><text class="a-n" x="456" y="252" text-anchor="end">9</text><rect class="a-bar" x="218" y="262" width="64" height="8" rx="4"/></g>
+<g class="a-chain"><rect x="147" y="352" width="84" height="34" rx="8"/><text x="189" y="374" text-anchor="middle">0x3f2a…</text><path d="M231 369h14"/><rect x="245" y="352" width="84" height="34" rx="8"/><text x="287" y="374" text-anchor="middle">0x91c0…</text><path d="M329 369h14"/><rect x="343" y="352" width="84" height="34" rx="8"/><text x="385" y="374" text-anchor="middle">0x7d4e…</text><g class="a-new"><path d="M427 369h14"/><rect x="441" y="352" width="84" height="34" rx="8"/><text x="483" y="374" text-anchor="middle">0xa5b1…</text></g><text class="cap" x="336" y="414" text-anchor="middle">Each vote rolls the poll’s hash</text></g>
+<g class="a-pool"><rect class="card" x="512" y="96" width="104" height="210" rx="16"/><text class="cap" x="564" y="80" text-anchor="middle">Rewards</text><circle class="a-src" cx="564" cy="200" r="24"/><text class="cap a-stream" x="564" y="284" text-anchor="middle">stream back</text></g>
+<g class="a-drops"><circle r="5"/><circle r="5"/><circle r="5"/><circle r="5"/><circle r="5"/></g>
+</g>
+
+<!-- QSwap: x · y = k. A token in raises one reserve, lowers the other; the dot slides along the curve. -->
+<g class="scene" data-scene="qswap">
+<g class="q-tank"><rect class="wall" x="50" y="140" width="110" height="260" rx="14"/><rect class="q-lx" x="56" y="280" width="98" height="114" rx="9"/><text class="q-name" x="105" y="128" text-anchor="middle">X</text></g>
+<g class="q-tank"><rect class="wall" x="190" y="140" width="110" height="260" rx="14"/><rect class="q-ly" x="196" y="280" width="98" height="114" rx="9"/><text class="q-name" x="245" y="128" text-anchor="middle">Y</text></g>
+<path class="q-pipe" d="M105 400V424H245V400"/><text class="cap" x="175" y="452" text-anchor="middle">One pool</text><text class="q-fee" x="175" y="472" text-anchor="middle">fee stays in the pool</text>
+<g class="q-in"><circle cx="105" cy="58" r="17"/><text x="105" y="64" text-anchor="middle">X</text></g>
+<g class="q-out"><circle cx="245" cy="424" r="17"/><text x="245" y="430" text-anchor="middle">Y</text></g><text class="q-you" x="380" y="470">to you</text>
+<path class="q-axis" d="M370 84V380H612"/><text class="q-ax" x="374" y="78">Y reserve</text><text class="q-ax" x="612" y="400" text-anchor="end">X reserve</text>
+<path class="q-curve"/><text class="q-k" x="520" y="160">x · y = k</text>
+<path class="q-guide"/><circle class="q-ghost" r="6"/><circle class="q-dot" r="8"/><text class="q-read" x="612" y="440" text-anchor="end"></text>
+</g>
+</svg>

@@ -1,13 +1,14 @@
 # ── Stage 1: Build ──────────────────────────────────────────
-FROM oven/bun:1 AS builder
+# Node 24 runs the TypeScript build scripts (scripts/prerender.ts) natively.
+FROM node:24-alpine AS builder
 
 WORKDIR /app
 
-COPY package.json bun.lockb* ./
-RUN bun install --frozen-lockfile
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY . .
-RUN bun run build
+RUN npm run build
 
 # ── Stage 2: Serve ──────────────────────────────────────────
 FROM nginx:alpine AS production

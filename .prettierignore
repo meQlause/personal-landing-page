@@ -1,0 +1,9 @@
+dist/
+coverage/
+.next/
+out/
+node_modules/
+pnpm-lock.yaml
+src/generated/
+tests/fidelity/baseline/
+.github/

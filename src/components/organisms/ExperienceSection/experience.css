@@ -1,0 +1,797 @@
+/* Paper & ink: the brand's colours swapped (off-white page, deep cobalt ink, peach highlights).
+   On the joined page the paper is swept across Work (shared/seams.js), so it arrives already in paper. */
+@property --xbg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f4f2ed;
+}
+@property --xfg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1d2270;
+}
+@property --xline {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #d6d4e6;
+}
+@property --xaccent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #353bc8;
+}
+.experience {
+  --xbg: #f4f2ed;
+  --xfg: #1d2270;
+  --xline: #d6d4e6;
+  --xaccent: #353bc8;
+  --xsoft: #ffceb0;
+  --xmuted: color-mix(in srgb, var(--xfg) 72%, var(--xbg));
+  --xfaint: color-mix(in srgb, var(--xfg) 9%, var(--xbg));
+  position: relative;
+  color: var(--xfg);
+  background: var(--xbg);
+  font:
+    500 14px/1.4 Manrope,
+    sans-serif;
+  transition:
+    --xbg 1.2s ease,
+    --xfg 1.2s ease,
+    --xline 1.2s ease,
+    --xaccent 1.2s ease;
+}
+.experience.is-paper {
+  --xbg: #f4f2ed;
+  --xfg: #1d2270;
+  --xline: #d6d4e6;
+  --xaccent: #353bc8;
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience {
+    transition: none;
+  }
+}
+.experience * {
+  box-sizing: border-box;
+}
+.experience ::selection {
+  background: var(--xsoft);
+  color: #1d2270;
+}
+.experience a {
+  color: inherit;
+  text-decoration: none;
+}
+.experience :is(a, button):focus-visible {
+  outline: 2px solid var(--xaccent);
+  outline-offset: 6px;
+}
+.experience .x-stage {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+/* Header: the same nav as the other sections, naming this one. */
+.experience .x-nav {
+  position: absolute;
+  z-index: 4;
+  inset: 25px 5vw auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.experience .x-brand {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  min-height: 44px;
+  color: var(--xfg);
+}
+.experience .x-brand svg {
+  width: 100px;
+  height: auto;
+  overflow: visible;
+}
+.experience .x-dot {
+  fill: var(--xsoft);
+}
+.experience .x-section-name {
+  position: absolute;
+  left: 125px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+.experience .x-nav nav {
+  display: flex;
+  gap: 32px;
+}
+.experience .x-nav nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.experience .x-nav nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.experience .x-nav nav svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+/* The rolling year: each digit is a strip of 0–9(0) moved by script, so years roll like an odometer. */
+.experience .x-year-roll {
+  position: absolute;
+  z-index: 0;
+  left: calc(4.5vw - 0.04em);
+  top: 10%;
+  display: flex;
+  font-size: clamp(110px, min(13vw, 22vh), 230px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--xfaint);
+  pointer-events: none;
+  user-select: none;
+}
+.experience .x-digit {
+  display: block;
+  height: 1em;
+  overflow: hidden;
+}
+.experience .x-strip {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+.experience .x-strip > span {
+  display: block;
+  height: 1em;
+}
+
+.experience .x-panel {
+  position: absolute;
+  z-index: 2;
+  left: 4.5vw;
+  top: 34%;
+  width: min(44vw, 640px);
+}
+.experience .x-panel[hidden] {
+  display: none;
+}
+.experience .x-period {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--xaccent);
+}
+.experience .x-headline {
+  position: relative;
+  z-index: 0;
+  margin: 0;
+  font-size: clamp(40px, min(5vw, 8.4vh), 84px);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+/* Headline: characters reveal on arrival; one phrase carries a mark drawn by scroll (a left-to-right clip wipe). */
+.experience .x-word,
+.experience .x-mark {
+  display: inline-block;
+  white-space: nowrap;
+}
+.experience .x-char {
+  display: inline-block;
+  will-change: transform, filter;
+}
+.experience .x-mark {
+  position: relative;
+}
+.experience .x-mark-art {
+  position: absolute;
+  left: -3%;
+  width: 106%;
+  overflow: visible;
+  pointer-events: none;
+  clip-path: inset(-50% 100% -50% 0);
+}
+.experience .x-mark-art path {
+  fill: none;
+  stroke: var(--xaccent);
+  stroke-width: 0.07em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.experience .mark-sweep .x-mark-art {
+  bottom: -0.06em;
+  height: 0.2em;
+}
+.experience .mark-marker .x-mark-art {
+  z-index: -1;
+  bottom: 0.08em;
+  height: 0.34em;
+}
+.experience .mark-marker .x-mark-art path {
+  stroke: var(--xsoft);
+  stroke-width: 0.34em;
+  stroke-linecap: butt;
+}
+.experience .mark-ring .x-mark-art {
+  left: -12%;
+  width: 124%;
+  top: -0.12em;
+  height: 1.3em;
+}
+.experience .mark-bracket .x-mark-art {
+  left: -7%;
+  width: 114%;
+  top: 0.02em;
+  height: 1em;
+}
+.experience.is-static .x-mark-art {
+  clip-path: none;
+}
+.experience .x-role {
+  margin: 20px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+.experience .x-org {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--xmuted);
+}
+.experience .x-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.experience .x-chips li {
+  padding: 8px 14px;
+  border: 1.5px solid var(--xline);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--xbg) 70%, #fff);
+}
+.experience .x-chips li:first-child {
+  border-color: var(--xsoft);
+  background: var(--xsoft);
+  color: #1d2270;
+}
+
+/* Scenes: line art in ink, peach fills where something becomes true. */
+.experience .x-art {
+  position: absolute;
+  z-index: 1;
+  left: 51%;
+  top: 13%;
+  width: 45%;
+  height: 56%;
+  overflow: visible;
+  pointer-events: none;
+}
+.experience .x-scene {
+  visibility: hidden;
+}
+/* Base line-art style at zero specificity (:where), so every scene rule below overrides it. */
+:where(.experience .x-art) :where(rect, circle, ellipse, path) {
+  fill: none;
+  stroke: var(--xfg);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+:where(.experience .x-art) :where(text) {
+  font-family: Manrope, sans-serif;
+  fill: var(--xfg);
+  stroke: none;
+  font-size: 15px;
+  font-weight: 700;
+}
+.experience .x-cap {
+  font-size: 13px;
+  font-weight: 700;
+  fill: var(--xmuted);
+}
+.experience .draw {
+  stroke-dasharray: 1;
+}
+.experience .x-pill rect {
+  fill: var(--xsoft);
+  stroke: none;
+}
+.experience .x-pill text {
+  fill: #1d2270;
+  font-size: 14px;
+}
+.experience .n-led,
+.experience .n-client {
+  fill: var(--xbg);
+}
+.experience .n-arcs path {
+  stroke: var(--xaccent);
+}
+.experience .k-track {
+  stroke: var(--xline);
+  stroke-width: 14;
+}
+.experience .k-arc {
+  stroke: var(--xaccent);
+  stroke-width: 14;
+}
+.experience .k-ticks path {
+  stroke: var(--xmuted);
+  stroke-width: 1.5;
+}
+.experience .k-hours {
+  font-size: 44px;
+  letter-spacing: -0.03em;
+}
+.experience .k-day rect {
+  fill: var(--xbg);
+}
+.experience .k-day text {
+  font-size: 11px;
+  fill: var(--xmuted);
+}
+.experience .k-day.off rect {
+  stroke-dasharray: 4 5;
+}
+.experience .k-after {
+  stroke: var(--xsoft);
+  stroke-width: 14;
+}
+.experience .k-legend circle {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .k-legend .k-legend-after {
+  fill: var(--xsoft);
+}
+.experience .k-card > rect {
+  fill: var(--xbg);
+  stroke: var(--xline);
+}
+.experience .k-year rect {
+  fill: var(--xsoft);
+  stroke: none;
+}
+.experience .k-year text {
+  font-size: 11px;
+  fill: #1d2270;
+}
+.experience .k-title {
+  font-size: 14px;
+}
+.experience .k-sub {
+  font-size: 12px;
+  font-weight: 500;
+  fill: var(--xmuted);
+}
+.experience .k-prize rect {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .k-prize text {
+  font-size: 13px;
+  fill: #fff;
+}
+.experience .k-strip,
+.experience .k-tick path {
+  stroke: var(--xline);
+}
+.experience .k-tick text {
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--xmuted);
+}
+.experience .k-now {
+  fill: var(--xsoft);
+  stroke: var(--xaccent);
+  stroke-width: 2.5;
+}
+.experience .g-maze {
+  stroke-width: 3;
+}
+.experience .g-gate {
+  stroke: var(--xsoft);
+  stroke-width: 6;
+}
+.experience .g-route {
+  stroke: var(--xline);
+  stroke-dasharray: 4 8;
+}
+.experience .g-token {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .g-proposal > rect:first-child {
+  fill: var(--xbg);
+}
+.experience .g-title {
+  font-size: 20px;
+  letter-spacing: -0.02em;
+}
+.experience .g-status rect {
+  fill: var(--xline);
+  stroke: none;
+}
+.experience .g-status text {
+  font-size: 12px;
+}
+.experience .g-passed {
+  fill: #fff;
+}
+.experience .g-yes-label,
+.experience .g-no-label {
+  font-size: 12px;
+  fill: var(--xmuted);
+}
+.experience .g-bar-track {
+  fill: var(--xline);
+  stroke: none;
+}
+.experience .g-bar {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .g-bar-no {
+  fill: var(--xmuted);
+  stroke: none;
+}
+.experience .g-voter circle {
+  fill: var(--xbg);
+}
+.experience .g-voter path {
+  stroke: var(--xbg);
+  stroke-width: 2.2;
+}
+.experience .g-exec path {
+  stroke: var(--xaccent);
+}
+.experience .m-dot {
+  fill: var(--xbg);
+  stroke: var(--xline);
+  stroke-width: 1.5;
+}
+.experience .m-count {
+  font-size: 64px;
+  letter-spacing: -0.05em;
+}
+.experience .t-track {
+  stroke: var(--xline);
+}
+.experience .t-bar {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .t-val {
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.experience .q-stage > rect:first-child {
+  fill: var(--xbg);
+}
+.experience .q-doc {
+  fill: var(--xbg);
+  stroke-width: 1.6;
+}
+.experience .q-line {
+  stroke: var(--xmuted);
+}
+.experience .q-tick {
+  stroke: var(--xaccent);
+  stroke-width: 2.4;
+}
+.experience .q-test {
+  fill: var(--xsoft);
+  stroke: none;
+}
+.experience .q-spark path {
+  fill: var(--xsoft);
+  stroke: none;
+}
+.experience .q-gen {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .q-shield {
+  fill: var(--xbg);
+}
+.experience .q-shield-ok {
+  stroke: var(--xaccent);
+  stroke-width: 3;
+}
+.experience .q-server {
+  fill: var(--xbg);
+}
+.experience .q-live rect {
+  fill: var(--xaccent);
+  stroke: none;
+}
+.experience .q-live text {
+  font-size: 11px;
+  fill: #fff;
+}
+.experience .q-team circle {
+  fill: var(--xbg);
+}
+.experience .q-team path {
+  stroke: var(--xbg);
+  stroke-width: 2.2;
+}
+.experience .q-division-cap {
+  font-size: 15px;
+  fill: var(--xfg);
+}
+.experience .q-flow {
+  stroke: var(--xline);
+  stroke-width: 2.5;
+}
+.experience .q-chev {
+  stroke: var(--xmuted);
+}
+.experience .q-token {
+  fill: var(--xaccent);
+  stroke: var(--xsoft);
+  stroke-width: 3;
+}
+.experience .i-window rect {
+  fill: var(--xbg);
+}
+.experience .i-window circle {
+  fill: var(--xline);
+  stroke: none;
+}
+.experience .i-mod rect {
+  fill: var(--xsoft);
+  stroke: none;
+}
+.experience .i-mod text {
+  fill: #1d2270;
+}
+.experience .i-rows rect {
+  fill: var(--xline);
+  stroke: none;
+}
+.experience .i-stage circle {
+  fill: var(--xbg);
+}
+.experience .i-runner {
+  fill: var(--xaccent);
+  stroke: none;
+}
+
+/* The ruler: a tape that slides under a fixed needle as time passes; each stop is a flag you can pick. */
+.experience .x-ruler {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 4%;
+  height: 20%;
+  min-height: 120px;
+}
+.experience .x-ruler::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+  height: 1.5px;
+  background: var(--xline);
+}
+.experience .x-tape {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: calc(var(--gap) * 7);
+  --gap: clamp(170px, 22vw, 300px);
+  will-change: transform;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--xline) 0 1.5px,
+      transparent 1.5px calc(var(--gap) / 6)
+    )
+    0 28px/100% 12px no-repeat;
+}
+.experience .x-stop {
+  position: absolute;
+  left: calc(var(--i) * var(--gap));
+  top: 0;
+  translate: -50% 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 6px 6px;
+  border: 0;
+  background: none;
+  color: var(--xmuted);
+  font:
+    500 13px/1.2 Manrope,
+    sans-serif;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.experience .x-flag {
+  display: block;
+  width: 2px;
+  height: 40px;
+  background: var(--xline);
+  transition:
+    background 0.3s,
+    height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.experience .x-years {
+  font-weight: 700;
+  color: var(--xfg);
+}
+.experience .x-name {
+  white-space: nowrap;
+}
+.experience .x-stop:hover {
+  color: var(--xfg);
+}
+.experience .x-stop[aria-selected='true'] {
+  color: var(--xfg);
+}
+.experience .x-stop[aria-selected='true'] .x-flag {
+  height: 52px;
+  background: var(--xaccent);
+}
+.experience .x-needle {
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--xsoft);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--xsoft) 35%, transparent);
+}
+
+.experience.is-static .x-stage {
+  height: auto;
+  min-height: 100svh;
+  padding-bottom: 180px;
+}
+/* Looping text: the active stop's tools scroll along the ruler; a doubled track loops seamlessly by moving −50%. */
+.experience .x-ticker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 4px;
+  height: 24px;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.45s;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+}
+.experience .x-ticker.is-active {
+  opacity: 1;
+}
+.experience .x-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: x-loop 26s linear infinite;
+  animation-play-state: paused;
+}
+.experience .x-ticker.is-active .x-ticker-track {
+  animation-play-state: running;
+}
+.experience .x-ticker-track span {
+  display: flex;
+}
+.experience .x-ticker i {
+  position: relative;
+  padding: 0 20px;
+  font-style: normal;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--xmuted);
+  white-space: nowrap;
+}
+.experience .x-ticker i::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--xsoft);
+}
+@keyframes x-loop {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .experience .x-ticker-track {
+    animation: none;
+  }
+}
+@media (max-width: 600px) {
+  .experience .x-nav {
+    inset: 17px 6vw auto;
+  }
+  .experience .x-brand,
+  .experience .x-brand svg {
+    width: 86px;
+  }
+  .experience .x-section-name {
+    left: 104px;
+    font-size: 12px;
+  }
+  .experience .x-nav nav {
+    gap: 23px;
+    font-size: 12px;
+  }
+  .experience .x-art {
+    left: 4vw;
+    top: 10%;
+    width: 92vw;
+    height: 30%;
+  }
+  .experience .x-year-roll {
+    top: 39%;
+    left: 5vw;
+    font-size: 30vw;
+  }
+  .experience .x-panel {
+    left: 6vw;
+    right: 6vw;
+    width: auto;
+    top: 41%;
+  }
+  .experience .x-headline {
+    font-size: clamp(32px, 10vw, 42px);
+  }
+  .experience .x-role {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+  .experience .x-org {
+    font-size: 13px;
+  }
+  .experience .x-chips {
+    margin-top: 14px;
+    gap: 6px;
+  }
+  .experience .x-chips li {
+    padding: 6px 11px;
+    font-size: 12px;
+  }
+  .experience .x-ruler {
+    bottom: 2%;
+    height: 16%;
+    min-height: 110px;
+  }
+  .experience .x-tape {
+    --gap: 150px;
+  }
+  .experience .x-stop {
+    font-size: 12px;
+  }
+}

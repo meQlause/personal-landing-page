@@ -1,0 +1,848 @@
+/* Theme: registered colours so a product change cross-fades the whole stage. The default is the shared cobalt world
+   (used while the section scrolls in from the hero); each product then takes its own palette, read from its source. */
+@property --bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #353bc8;
+}
+@property --fg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f4f2ed;
+}
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffceb0;
+}
+@property --accent-ink {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #262b88;
+}
+@property --line {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #5960d0;
+}
+@property --panel {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #2b31b0;
+}
+.work {
+  --bg: #353bc8;
+  --fg: #f4f2ed;
+  --accent: #ffceb0;
+  --accent-ink: #262b88;
+  --line: #5960d0;
+  --panel: #2b31b0;
+  --muted: color-mix(in srgb, var(--fg) 75%, var(--bg));
+  position: relative;
+  color: var(--fg);
+  font:
+    500 14px/1.4 Manrope,
+    sans-serif;
+  background: var(--bg);
+  transition:
+    --bg 1.2s ease,
+    --fg 1.2s ease,
+    --accent 1.2s ease,
+    --accent-ink 1.2s ease,
+    --line 1.2s ease,
+    --panel 1.2s ease;
+}
+/* Simpul — simpul-landing :root (canvas, green-dark, green, line, surface). */
+.work[data-product='simpul'] {
+  --bg: #f8f9f6;
+  --fg: #163f32;
+  --accent: #176448;
+  --accent-ink: #fff;
+  --line: #e6eae4;
+  --panel: #fff;
+}
+/* Treecord — treecord-frontend style.css (paper, ink, pine, line, white). */
+.work[data-product='treecord'] {
+  --bg: #f7f8f3;
+  --fg: #243e30;
+  --accent: #244f38;
+  --accent-ink: #fffefa;
+  --line: #dce2d6;
+  --panel: #fffefa;
+}
+/* Mnemo — "Paper & Ink" (paper, ink, ceramic accent, white surface). */
+.work[data-product='mnemo'] {
+  --bg: #faf9f7;
+  --fg: #0f0e0d;
+  --accent: #c9773a;
+  --accent-ink: #faf9f7;
+  --line: #e8e4dd;
+  --panel: #fff;
+}
+/* QSwap — its dark DeFi interface (#191b1f page, #212429 cards, #31353e borders, pink-500 primary). */
+.work[data-product='qswap'] {
+  --bg: #191b1f;
+  --fg: #fff;
+  --accent: #ec4899;
+  --accent-ink: #fff;
+  --line: #31353e;
+  --panel: #212429;
+}
+/* Agaro-Vote — AGARO-LANDING-PAGE-FE light theme (OKLCH tokens converted: background, foreground, primary, card). */
+.work[data-product='agaro'] {
+  --bg: #fdfdfd;
+  --fg: #0a0a0a;
+  --accent: #099fc1;
+  --accent-ink: #fff;
+  --line: #e7e7ee;
+  --panel: #f1f4fc;
+}
+@media (prefers-reduced-motion: reduce) {
+  .work {
+    transition: none;
+  }
+}
+
+.work * {
+  box-sizing: border-box;
+}
+.work ::selection {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.work a {
+  color: inherit;
+  text-decoration: none;
+}
+.work :is(a, button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+.work .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+/* Clip the sides only, so the arriving chat noise can fall in from the section above. */
+.work .work-stage {
+  position: relative;
+  height: 100svh;
+  min-height: 560px;
+  clip-path: inset(-100svh 0 0 0);
+}
+
+/* Header: matches the hero's nav, and names the section in the slot where the hero says "Software engineer". */
+.work .work-nav {
+  position: absolute;
+  z-index: 4;
+  inset: 25px 5vw auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.work .work-brand {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  min-height: 44px;
+  color: var(--fg);
+}
+.work .work-brand svg {
+  width: 100px;
+  height: auto;
+  overflow: visible;
+}
+.work .work-dot {
+  fill: var(--accent);
+}
+.work .work-section-name {
+  position: absolute;
+  left: 125px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--fg);
+}
+.work .work-nav nav {
+  display: flex;
+  gap: 32px;
+}
+.work .work-nav nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.work .work-nav nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.work .work-nav nav svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.work .work-tabs {
+  position: absolute;
+  z-index: 3;
+  left: 4.5vw;
+  top: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.work .work-tab {
+  position: relative;
+  min-height: 44px;
+  padding: 10px 0 10px 22px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font:
+    500 16px/1.2 Manrope,
+    sans-serif;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.work .work-tab::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.work .work-tab::after {
+  content: '';
+  position: absolute;
+  left: 22px;
+  right: 0;
+  bottom: 6px;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+.work .work-tab:hover {
+  color: var(--fg);
+}
+.work .work-tab[aria-selected='true'] {
+  color: var(--fg);
+  font-weight: 700;
+}
+.work .work-tab[aria-selected='true']::before {
+  background: var(--accent);
+  transform: scale(1.5);
+}
+.work .work-tab[aria-selected='true']::after {
+  transform: scaleX(var(--seg, 1));
+}
+
+.work .work-panel {
+  position: absolute;
+  z-index: 2;
+  left: 4.5vw;
+  top: 48%;
+  width: min(38vw, 560px);
+}
+.work .work-panel[hidden] {
+  display: none;
+}
+.work .work-headline {
+  margin: 0;
+  font-size: clamp(36px, min(4.4vw, 7.6vh), 76px);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+.work .work-kind {
+  margin: 18px 0 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+.work .work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 15px;
+}
+.work .work-link svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.8;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.work .work-link:hover svg {
+  transform: translate(3px, -3px);
+}
+
+.work .work-art {
+  position: absolute;
+  left: 44%;
+  top: 8%;
+  width: 53%;
+  height: 86%;
+  overflow: visible;
+  pointer-events: none;
+}
+.work .work-art text {
+  font-family: Manrope, sans-serif;
+}
+.work .scene {
+  visibility: hidden;
+}
+.work .cap {
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+
+/* Simpul */
+.work .s-guide {
+  fill: none;
+  stroke: none;
+}
+.work .s-thread {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.work .chip rect {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.work .chip text {
+  font-size: 13px;
+  fill: var(--fg);
+}
+.work .s-stop circle {
+  fill: var(--bg);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.work .s-card > rect {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+.work .s-link {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+}
+.work .sm {
+  font-size: 11.5px;
+  fill: var(--fg);
+}
+.work .st {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .s-match {
+  opacity: 0;
+}
+.work .s-match rect {
+  fill: var(--accent);
+}
+.work .s-match text {
+  fill: var(--accent-ink);
+}
+.work .s-spark path {
+  fill: #71a977;
+}
+.work .ini {
+  font-size: 9px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .s-rina circle {
+  fill: var(--line);
+}
+.work .s-siti circle {
+  fill: var(--accent);
+}
+.work .s-siti .ini {
+  fill: var(--accent-ink);
+}
+.work .s-phone .body {
+  fill: var(--fg);
+}
+.work .s-phone .notch {
+  fill: var(--muted);
+}
+.work .s-phone .time {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--bg);
+}
+.work .s-notice > rect:first-child {
+  fill: var(--panel);
+}
+.work .n-app {
+  font-size: 8px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .n-t {
+  font-size: 9px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .n-s {
+  font-size: 8px;
+  fill: var(--muted);
+}
+.work .n-pill {
+  fill: var(--accent);
+}
+.work .n-p {
+  font-size: 7px;
+  font-weight: 700;
+  fill: var(--accent-ink);
+}
+.work .s-bead {
+  fill: var(--accent);
+}
+.work .s-bubble rect,
+.work .s-bubble path {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.work .b-who {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--accent);
+}
+.work .b-l {
+  font-size: 14px;
+  fill: var(--fg);
+}
+
+/* Treecord */
+.work .t-ground {
+  fill: url(#t-fade);
+}
+.work .t-trunk {
+  fill: #9a7b58;
+}
+.work .t-branch {
+  fill: none;
+  stroke: #9a7b58;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.work .t-leaf {
+  fill: #6f9a58;
+}
+.work .t-leaf.a {
+  fill: #3f8549;
+}
+.work .t-leaf.b {
+  fill: #8fb874;
+}
+.work .t-phone .body {
+  fill: var(--accent);
+}
+.work .t-phone .screen {
+  fill: #173c29;
+}
+.work .t-phone .finder {
+  fill: none;
+  stroke: #fffefa;
+  stroke-width: 2;
+}
+.work .t-flash {
+  fill: #fff;
+  opacity: 0;
+}
+.work .t-pin path {
+  fill: #e6c46e;
+}
+.work .t-pin circle {
+  fill: #173c29;
+}
+.work .t-gps {
+  font-size: 10px;
+  fill: #d8e6bb;
+}
+.work .t-base {
+  fill: var(--line);
+}
+.work .t-coin {
+  fill: #e6c46e;
+  stroke: #c49a3e;
+  stroke-width: 1.5;
+}
+.work .t-held {
+  font-size: 12px;
+  font-weight: 700;
+  fill: #9a7c43;
+}
+.work .t-track {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.work .t-ticks circle {
+  fill: var(--bg);
+  stroke: #c3d1b5;
+  stroke-width: 2.5;
+}
+.work .t-months text {
+  font-size: 12px;
+  fill: var(--muted);
+}
+.work .t-marker {
+  fill: var(--accent);
+}
+
+/* Mnemo */
+.work .m-note rect:first-child {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.work .m-title {
+  font-size: 14px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .m-line {
+  fill: var(--fg);
+  opacity: 0.2;
+}
+.work .m-ask rect {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.work .m-ask text {
+  font-size: 14px;
+  fill: var(--fg);
+}
+.work .m-answer > rect {
+  fill: var(--fg);
+}
+.work .m-answer > text {
+  font-size: 16px;
+  font-weight: 700;
+  fill: var(--bg);
+}
+.work .m-chip rect {
+  fill: var(--accent);
+}
+.work .m-chip text {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--accent-ink);
+}
+.work .m-cite {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+}
+.work .m-event > rect:first-child {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.work .m-event .cal {
+  fill: var(--accent);
+}
+.work .cal-d {
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--accent-ink);
+}
+.work .ev-t {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .ev-s {
+  font-size: 11px;
+  fill: var(--muted);
+}
+
+/* QSwap: token X in its pink, token Y in its blue-500. */
+.work .q-tank .wall {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+.work .q-lx {
+  fill: #ec4899;
+}
+.work .q-ly {
+  fill: #3b82f6;
+}
+.work .q-name {
+  font-size: 18px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .q-pipe {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 6;
+  stroke-linejoin: round;
+}
+.work .q-fee {
+  font-size: 11px;
+  fill: var(--muted);
+}
+.work .q-in circle {
+  fill: #ec4899;
+}
+.work .q-out circle {
+  fill: #3b82f6;
+}
+.work .q-in text,
+.work .q-out text {
+  font-size: 15px;
+  font-weight: 700;
+  fill: #fff;
+}
+.work .q-you {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #60a5fa;
+}
+.work .q-axis {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.work .q-ax {
+  font-size: 11px;
+  fill: var(--muted);
+}
+.work .q-curve {
+  fill: none;
+  stroke: var(--fg);
+  stroke-width: 2.5;
+}
+.work .q-k {
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .q-dot {
+  fill: var(--accent);
+  stroke: var(--bg);
+  stroke-width: 3;
+}
+.work .q-ghost {
+  fill: none;
+  stroke: #60a5fa;
+  stroke-width: 2;
+  opacity: 0;
+}
+.work .q-guide {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+}
+.work .q-read {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #60a5fa;
+}
+
+/* Agaro-Vote: committed tokens and rewards in its primary cyan; the voted row in its accent blue. */
+.work .a-base {
+  fill: var(--line);
+}
+.work .a-coin {
+  fill: var(--accent);
+  stroke: color-mix(in srgb, var(--accent) 70%, #000);
+  stroke-width: 1.5;
+}
+.work .card {
+  fill: var(--panel);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+.work .a-opt {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .a-n {
+  font-size: 15px;
+  font-weight: 700;
+  fill: var(--fg);
+}
+.work .a-bar {
+  fill: var(--accent);
+}
+.work .a-hl {
+  fill: none;
+  stroke: #1e69dc;
+  stroke-width: 1.5;
+  opacity: 0;
+}
+.work .a-chain rect {
+  fill: var(--bg);
+  stroke: var(--line);
+  stroke-width: 1.2;
+}
+.work .a-chain text {
+  font-size: 12px;
+  fill: var(--muted);
+}
+.work .a-chain path {
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.work .a-new rect {
+  stroke: var(--accent);
+}
+.work .a-src {
+  fill: var(--accent);
+}
+.work .a-drops circle {
+  fill: var(--accent);
+  opacity: 0;
+}
+
+.work.is-static .work-stage {
+  clip-path: none;
+}
+@media (max-width: 600px) {
+  .work .work-nav {
+    inset: 17px 6vw auto;
+  }
+  .work .work-brand,
+  .work .work-brand svg {
+    width: 86px;
+  }
+  .work .work-section-name {
+    left: 104px;
+    font-size: 12px;
+  }
+  .work .work-nav nav {
+    gap: 23px;
+    font-size: 12px;
+  }
+  .work .work-tabs {
+    left: 0;
+    right: 0;
+    top: 10%;
+    flex-direction: row;
+    gap: 22px;
+    padding: 0 6vw;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .work .work-tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .work .work-tab {
+    flex: none;
+    padding: 12px 0;
+  }
+  .work .work-tab::before {
+    display: none;
+  }
+  .work .work-tab::after {
+    left: 0;
+  }
+  .work .work-art {
+    left: 2vw;
+    top: 17%;
+    width: 96vw;
+    height: 46%;
+  }
+  .work .work-panel {
+    left: 6vw;
+    right: 6vw;
+    width: auto;
+    top: 65%;
+  }
+  .work .work-headline {
+    font-size: clamp(30px, 9vw, 40px);
+  }
+  .work .work-kind {
+    margin-top: 10px;
+    font-size: 13px;
+  }
+  .work .work-link {
+    margin-top: 2px;
+  }
+}
+/* Headline marks: one key word per product, drawn in that product's accent as its scene lands (a left-to-right wipe). */
+.work .mark {
+  position: relative;
+  white-space: nowrap;
+}
+.work .mark-art {
+  position: absolute;
+  left: -3%;
+  width: 106%;
+  overflow: visible;
+  pointer-events: none;
+  clip-path: inset(-50% 100% -50% 0);
+}
+.work .mark-art path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 0.075em;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+/* Underlines sit just under the baseline, inside their own line, so they never touch the line below. */
+.work .mark-under .mark-art,
+.work .mark-double .mark-art,
+.work .mark-wave .mark-art {
+  bottom: -0.02em;
+  height: 0.2em;
+}
+.work .mark-circle .mark-art {
+  left: -12%;
+  width: 124%;
+  top: -0.18em;
+  height: 1.4em;
+}
+/* A marker covers the lower half of the letters, from the baseline up. */
+.work .mark-highlight .mark-art {
+  z-index: -1;
+  bottom: 0.28em;
+  height: 0.36em;
+}
+.work .mark-highlight .mark-art path {
+  stroke-width: 0.36em;
+  stroke-linecap: butt;
+  opacity: 0.32;
+}
+.work .work-headline {
+  position: relative;
+  z-index: 0;
+}
+.work.is-static .mark-art {
+  clip-path: none;
+}

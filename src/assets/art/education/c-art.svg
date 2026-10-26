@@ -1,0 +1,22 @@
+<svg class="c-art" viewBox="0 0 600 560" aria-hidden="true" focusable="false">
+<g class="c-seal" data-school="smk"><g class="c-turn">
+<circle class="c-ring-line" cx="300" cy="270" r="196"/><circle class="c-ring-line thin" cx="300" cy="270" r="222"/>
+<g class="c-spin"><text class="c-ring-text"><textPath href="#c-ring-0" startOffset="0" textLength="1313.2" lengthAdjust="spacing">SMK BAKTI ILHAM · COMPUTER NETWORKING · 2015–2018 · SMK BAKTI ILHAM · COMPUTER NETWORKING · 2015–2018 · </textPath></text></g>
+<path id="c-ring-0" fill="none" d="M300 270m-209 0a209 209 0 1 1 418 0a209 209 0 1 1-418 0"/></g>
+<circle class="c-disc" cx="300" cy="270" r="168"/><clipPath id="c-clip-0"><circle cx="300" cy="270" r="118"/></clipPath>
+<image href="assets/backgrounds-baktiilham.webp" x="182" y="152" width="236" height="236" clip-path="url(#c-clip-0)" preserveAspectRatio="xMidYMid meet"/>
+<g class="c-stamp"><rect x="404" y="384" width="204" height="74" rx="14"/><text x="506.0" y="434" text-anchor="middle">91/100</text></g></g>
+<g class="c-seal" data-school="rise"><g class="c-turn">
+<circle class="c-ring-line" cx="300" cy="270" r="196"/><circle class="c-ring-line thin" cx="300" cy="270" r="222"/>
+<g class="c-spin"><text class="c-ring-text"><textPath href="#c-ring-1" startOffset="0" textLength="1313.2" lengthAdjust="spacing">HARISENIN.COM · FULL-STACK BOOTCAMP · 2025 · HARISENIN.COM · FULL-STACK BOOTCAMP · 2025 · </textPath></text></g>
+<path id="c-ring-1" fill="none" d="M300 270m-209 0a209 209 0 1 1 418 0a209 209 0 1 1-418 0"/></g>
+<circle class="c-disc" cx="300" cy="270" r="168"/><clipPath id="c-clip-1"><circle cx="300" cy="270" r="118"/></clipPath>
+<image href="assets/backgrounds-harisenin.webp" x="182" y="152" width="236" height="236" clip-path="url(#c-clip-1)" preserveAspectRatio="xMidYMid meet"/>
+<g class="c-stamp"><rect x="404" y="384" width="140" height="74" rx="14"/><text x="474.0" y="434" text-anchor="middle">4.00</text></g></g>
+<g class="c-seal" data-school="ut"><g class="c-turn">
+<circle class="c-ring-line" cx="300" cy="270" r="196"/><circle class="c-ring-line thin" cx="300" cy="270" r="222"/>
+<g class="c-spin"><text class="c-ring-text"><textPath href="#c-ring-2" startOffset="0" textLength="1313.2" lengthAdjust="spacing">UNIVERSITAS TERBUKA · BACHELOR OF MATHEMATICS · OPEN UNIVERSITY · UNIVERSITAS TERBUKA · BACHELOR OF MATHEMATICS · OPEN UNIVERSITY · </textPath></text></g>
+<path id="c-ring-2" fill="none" d="M300 270m-209 0a209 209 0 1 1 418 0a209 209 0 1 1-418 0"/></g>
+<circle class="c-disc" cx="300" cy="270" r="168"/><clipPath id="c-clip-2"><circle cx="300" cy="270" r="118"/></clipPath>
+<image href="assets/backgrounds-ut.webp" x="182" y="152" width="236" height="236" clip-path="url(#c-clip-2)" preserveAspectRatio="xMidYMid meet"/></g>
+</svg>

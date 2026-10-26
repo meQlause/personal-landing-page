@@ -1,0 +1,63 @@
+// Every number of the Work section's motion, named. Ported from the mockup's 03-work/script.js; values are unchanged.
+
+export const WORK = {
+  knot: {
+    points: 90,
+    turns: 12,
+    radius: 14,
+    spread: 80,
+    ripple: 0.25,
+    rippleFreq: 23,
+    centreX: 115,
+    centreY: 290,
+    sway: 10,
+    swayFreq: 37,
+    squash: 0.8,
+    fallY: 8,
+    fallFreq: 29,
+    curve: 6,
+  },
+  // Each product's scrub: the scene plays over the first 80% of its fifth of the pin, then holds.
+  scrub: { segments: 5, playFor: 0.8, tween: 0.35, debounce: 320, pinnedFor: 1500, lead: 0.85 },
+  arrival: {
+    scrub: 0.35,
+    lift: 700,
+    spin: 40,
+    stagger: 0.05,
+    fade: 0.3,
+    carrierAt: 0.6,
+    duration: 0.3,
+    ease: 'power2.out',
+  },
+  chipPad: 24,
+  fillDecimals: 3,
+  pin: { heightDesktop: 6, heightMobile: 5, refresh: -1 },
+  drag: { reach: 60, reachPower: 2, pull: 1600, anchor: 90, damping: 10 },
+  thread: { untieLead: 0.6, untieSpan: 0.4, untieBlend: 3 },
+  spring: { reach: 150, power: 2, pull: 2400, anchor: 120, damping: 11, rotation: 0.01 },
+  qswap: {
+    base: 1,
+    slope: 0.6,
+    minX: 0.45,
+    maxX: 2.38,
+    scale: 100,
+    originX: 370,
+    originY: 380,
+    height: 114,
+    top: 394,
+    stepX: 0.04,
+    samples: 50,
+    startX: 0.42,
+  },
+  preview: { left: 380, right: 612, top: 80, bottom: 420 },
+  viewBox: { width: 640, height: 520 },
+  tick: { fallbackFrame: 16, msPerSecond: 1000, maxDelta: 0.035 },
+  count: 12,
+  tabStep: 24,
+  smallQuery: '(max-width:600px)',
+  reducedQuery: '(prefers-reduced-motion: reduce)',
+  fineQuery: '(hover:hover) and (pointer:fine)',
+} as const;
+
+// The tick marks of the treecord check-ins, along the timeline's x axis.
+export const TICKS: readonly number[] = '147 233 320 407 493 580'.split(' ').map(Number);

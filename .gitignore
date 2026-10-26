@@ -1,24 +1,17 @@
 # Dependencies
-node_modules/
+node_modules
 
 # Build output
-dist/
+dist
 
-# Bun
-bun.lockb
+# Playwright
+test-results
+playwright-report
 
 # Env
 .env
 .env.local
 .env.*.local
-
-# Editor
-.vscode/extensions.json
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
 
 # OS
 .DS_Store

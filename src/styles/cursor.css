@@ -1,0 +1,66 @@
+/* Shared: the page cursor outside the hero (the hero draws the same cursor inside its own frame loop). A dot and a ring that
+   trails it; the ring grows over anything clickable and tightens on press. It takes the colour of the text under it, so it
+   reads on cobalt, paper and night alike. Fine pointers with motion only. */
+.ardial-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2147483000;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+  transition: opacity 0.2s;
+}
+.ardial-cursor .ac-core {
+  position: absolute;
+  left: -2.5px;
+  top: -2.5px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.ardial-cursor .ac-ring {
+  position: absolute;
+  left: -14px;
+  top: -14px;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid color-mix(in srgb, currentColor 60%, transparent);
+  border-radius: 50%;
+  transform: translate(var(--ring-x, 0px), var(--ring-y, 0px));
+  transition:
+    width 0.2s,
+    height 0.2s,
+    left 0.2s,
+    top 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+html.has-ardial-cursor .ardial-cursor {
+  opacity: 1;
+}
+html.has-ardial-cursor,
+html.has-ardial-cursor :is(a, button, [role='tab']) {
+  cursor: none;
+}
+html.cursor-on-action .ardial-cursor .ac-ring {
+  left: -22px;
+  top: -22px;
+  width: 44px;
+  height: 44px;
+  border-color: currentColor;
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+html.cursor-pressed .ardial-cursor .ac-ring {
+  left: -9px;
+  top: -9px;
+  width: 18px;
+  height: 18px;
+  background: color-mix(in srgb, currentColor 18%, transparent);
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .ardial-cursor {
+    display: none;
+  }
+}

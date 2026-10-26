@@ -1,0 +1,1565 @@
+.ardial-hero {
+  --ground: #353bc8;
+  --ink: #f4f2ed;
+  --signal: #ffceb0;
+  position: relative;
+  isolation: isolate;
+  color: var(--ink);
+  font:
+    500 14px/1.4 Manrope,
+    sans-serif;
+  background: var(--ground);
+}
+.ardial-hero * {
+  box-sizing: border-box;
+}
+.ardial-hero ::selection {
+  background: var(--signal);
+  color: #262b88;
+}
+.ardial-hero a {
+  color: inherit;
+  text-decoration: none;
+}
+.ardial-hero button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.ardial-hero [hidden] {
+  display: none !important;
+}
+.ardial-hero :is(a, button):focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 6px;
+}
+.ardial-hero .hero-stage {
+  height: 100svh;
+  min-height: 500px;
+  position: relative;
+  overflow: hidden;
+  background: #353bc8;
+}
+.ardial-hero .hero-nav {
+  position: absolute;
+  inset: 25px 5vw auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+.ardial-hero .hero-brand {
+  font-size: 25px;
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+}
+.ardial-hero .brand-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+.ardial-hero .nav-role {
+  color: #e0e2ff;
+  font-size: 12px;
+}
+.ardial-hero nav {
+  display: flex;
+  gap: 32px;
+}
+.ardial-hero nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.ardial-hero nav a:hover,
+.ardial-hero .work-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.ardial-hero .hero-title {
+  position: absolute;
+  left: 7vw;
+  top: 23%;
+  font-size: clamp(70px, min(12.9vw, 21vh), 220px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  margin: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.ardial-hero .hero-title > .title-line {
+  display: block;
+}
+.ardial-hero .hero-title > .title-line + .title-line {
+  margin-left: 9vw;
+}
+.ardial-hero .system-world {
+  position: absolute;
+  width: 48vw;
+  height: 57vh;
+  max-height: 560px;
+  left: 44%;
+  top: 24%;
+  perspective: 1300px;
+  pointer-events: none;
+}
+.ardial-hero .system-tilt {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(9deg) rotateY(-17deg) rotateZ(-9deg);
+}
+.ardial-hero .system-plane {
+  position: absolute;
+  inset: 0;
+  border-radius: 5px;
+  padding: 28px;
+  box-shadow: 25px 35px 65px #12165d55;
+  overflow: hidden;
+  transform-origin: 50% 50%;
+}
+.ardial-hero .plane-back {
+  background: #1d236f;
+  transform: translate(-12%, -13%);
+  color: #d3d8ff;
+}
+.ardial-hero .plane-middle {
+  background: #8b99ef;
+  transform: translate(0, 0);
+  color: #242d7e;
+}
+.ardial-hero .plane-front {
+  background: #e4e8ff;
+  transform: translate(12%, 13%);
+  color: #323b9b;
+}
+.ardial-hero .plane-label {
+  font-size: clamp(20px, 2.7vw, 43px);
+  letter-spacing: -0.03em;
+}
+.ardial-hero .plane-mark {
+  position: absolute;
+  bottom: 24px;
+  left: 28px;
+  font-size: 12px;
+}
+.ardial-hero .rack {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 28%;
+  bottom: 20%;
+  display: flex;
+  gap: 12px;
+}
+.ardial-hero .rack i {
+  flex: 1;
+  background: #343e9d;
+  border-radius: 3px;
+  position: relative;
+}
+.ardial-hero .rack i:before {
+  content: '';
+  position: absolute;
+  top: 15%;
+  left: 28%;
+  width: 5px;
+  height: 5px;
+  background: #ffceb0;
+  border-radius: 50%;
+}
+.ardial-hero .rack i:after {
+  content: '';
+  position: absolute;
+  inset: 40% 28% 15%;
+  background: #5968be;
+}
+.ardial-hero .logic-node {
+  position: absolute;
+  width: 13%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: #e5eaff;
+  top: 43%;
+}
+.ardial-hero .node-one {
+  left: 12%;
+}
+.ardial-hero .node-two {
+  left: 43%;
+  top: 28%;
+}
+.ardial-hero .node-three {
+  left: 43%;
+  top: 60%;
+}
+.ardial-hero .node-four {
+  left: 75%;
+}
+.ardial-hero .logic-path {
+  position: absolute;
+  left: 18%;
+  width: 64%;
+  height: 32%;
+  top: 35%;
+  border: 2px solid #3c4b9f;
+  border-radius: 18px;
+}
+.ardial-hero .path-two {
+  left: 49%;
+  width: 0;
+  border-width: 0 0 0 2px;
+  border-radius: 0;
+}
+.ardial-hero .signal {
+  position: absolute;
+  top: 49%;
+  left: 18%;
+  width: 16px;
+  height: 16px;
+  background: #ffceb0;
+  border-radius: 50%;
+}
+.ardial-hero .interface-layout {
+  position: absolute;
+  inset: 30% 10% 24%;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 2fr;
+  gap: 16px;
+}
+.ardial-hero .interface-dot {
+  width: 40px;
+  height: 40px;
+  background: #353bc8;
+  border-radius: 50%;
+}
+.ardial-hero .interface-line {
+  height: 12px;
+  align-self: center;
+  background: #8c99df;
+  width: 75%;
+}
+.ardial-hero .interface-block {
+  background: #353bc8;
+  border-radius: 5px;
+}
+.ardial-hero .interface-slot {
+  background: #bbc5f5;
+  border-radius: 5px;
+  position: relative;
+}
+.ardial-hero .interface-slot:after {
+  content: '';
+  position: absolute;
+  inset: 24% 16%;
+  border-top: 5px solid #8290d4;
+  border-bottom: 5px solid #8290d4;
+}
+.ardial-hero .window-frost {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+  display: none;
+}
+.ardial-hero.is-enhanced .window-frost {
+  display: block;
+}
+.ardial-hero .glass-edge {
+  position: absolute;
+  inset: 13% 3vw 14%;
+  border: 1px solid #c5ccff30;
+  border-radius: 4px;
+  z-index: 4;
+  pointer-events: none;
+}
+.ardial-hero .reveal-invitation {
+  position: absolute;
+  left: 8vw;
+  top: 70%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  z-index: 6;
+  color: #e0e2ff;
+  font-size: 12px;
+  pointer-events: none;
+}
+.ardial-hero .touch-mark {
+  width: 24px;
+  height: 32px;
+  border: 1px solid #d9ddff;
+  border-radius: 15px;
+  transform: rotate(30deg);
+}
+.ardial-hero .closing-title {
+  position: absolute;
+  left: 7vw;
+  top: 26%;
+  margin: 0;
+  font-size: clamp(64px, min(10vw, 18vh), 160px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+  z-index: 5;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.ardial-hero .hero-actions {
+  position: absolute;
+  left: 8vw;
+  bottom: 20%;
+  z-index: 7;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.ardial-hero .open-system {
+  border: 1px solid #d5dbff88;
+  background: #353bc833;
+  min-height: 52px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  border-radius: 3px;
+  backdrop-filter: blur(8px);
+}
+.ardial-hero .open-system:hover {
+  background: #f4f2ed;
+  color: #353bc8;
+}
+.ardial-hero .button-symbol {
+  font-size: 24px;
+  line-height: 1;
+}
+.ardial-hero .work-link {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  min-height: 44px;
+}
+.ardial-hero.is-enhanced .work-link {
+  display: none;
+}
+.ardial-hero.is-open .work-link,
+.ardial-hero.is-static .work-link {
+  display: flex;
+}
+.ardial-hero .hero-bottom {
+  position: absolute;
+  inset: auto 5vw 23px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+  font-size: 12px;
+}
+.ardial-hero .bottom-note {
+  line-height: 1.6;
+  color: #e0e2ff;
+}
+.ardial-hero .scroll-cue {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.ardial-hero .scroll-cue span {
+  font-size: 22px;
+}
+.ardial-hero .motion-control {
+  background: none;
+  border: 0;
+  min-height: 44px;
+  padding: 0 0 0 16px;
+  font-size: 12px;
+}
+.ardial-hero .hero-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 12;
+}
+.ardial-hero:not(.is-enhanced) .system-world {
+  opacity: 0.25;
+}
+.ardial-hero:not(.is-enhanced) .reveal-invitation,
+.ardial-hero:not(.is-enhanced) .scroll-cue {
+  display: none;
+}
+.ardial-hero.is-static .window-frost,
+.ardial-hero.is-static .reveal-invitation,
+.ardial-hero.is-static .scroll-cue,
+.ardial-hero.is-static .open-system {
+  display: none;
+}
+.ardial-hero.is-static .system-world {
+  opacity: 0.22;
+}
+@media (max-width: 800px) {
+  .ardial-hero .nav-role {
+    display: none;
+  }
+  .ardial-hero .hero-title {
+    top: 26%;
+    font-size: min(13vw, 19vh);
+  }
+  .ardial-hero .system-world {
+    width: 65vw;
+    left: 28%;
+    top: 30%;
+    height: 46vh;
+  }
+  .ardial-hero .plane-label {
+    font-size: 26px;
+  }
+  .ardial-hero .system-plane {
+    padding: 20px;
+  }
+  .ardial-hero .closing-title {
+    font-size: 12vw;
+    top: 22%;
+  }
+  .ardial-hero .hero-actions {
+    gap: 14px;
+  }
+  .ardial-hero .work-link {
+    font-size: 12px;
+  }
+}
+@media (max-width: 600px) {
+  .ardial-hero .hero-stage {
+    min-height: 520px;
+  }
+  .ardial-hero .hero-nav {
+    inset: 17px 6vw auto;
+  }
+  .ardial-hero nav {
+    gap: 23px;
+    font-size: 12px;
+  }
+  .ardial-hero .hero-brand {
+    font-size: 22px;
+  }
+  .ardial-hero .hero-title {
+    left: 7vw;
+    top: 25%;
+    font-size: min(13.2vw, 17vh);
+    line-height: 1.13;
+  }
+  .ardial-hero .hero-title > .title-line + .title-line {
+    margin-left: 0;
+  }
+  .ardial-hero .system-world {
+    width: 72vw;
+    left: 16%;
+    top: 35%;
+    height: 32vh;
+  }
+  .ardial-hero .plane-label {
+    font-size: 22px;
+  }
+  .ardial-hero .plane-mark {
+    left: 20px;
+    bottom: 15px;
+    font-size: 10px;
+  }
+  .ardial-hero .system-plane {
+    padding: 18px;
+  }
+  .ardial-hero .rack {
+    gap: 7px;
+  }
+  .ardial-hero .interface-dot {
+    width: 24px;
+    height: 24px;
+  }
+  .ardial-hero .interface-layout {
+    gap: 9px;
+  }
+  .ardial-hero .logic-node {
+    border-radius: 6px;
+  }
+  .ardial-hero .signal {
+    width: 10px;
+    height: 10px;
+  }
+  .ardial-hero .reveal-invitation {
+    top: 58%;
+    left: 8vw;
+  }
+  .ardial-hero .hero-actions {
+    bottom: 23%;
+    left: 8vw;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .ardial-hero .open-system {
+    min-height: 48px;
+    padding: 0 16px;
+    font-size: 12px;
+    gap: 28px;
+  }
+  .ardial-hero .hero-bottom {
+    inset: auto 6vw 16px;
+  }
+  .ardial-hero .bottom-note {
+    display: none;
+  }
+  .ardial-hero .closing-title {
+    top: 18%;
+    left: 7vw;
+    font-size: 15vw;
+  }
+  .ardial-hero.is-open .hero-actions {
+    bottom: 15%;
+    flex-direction: row;
+    align-items: center;
+  }
+  .ardial-hero .glass-edge {
+    inset: 13% 3vw 12%;
+  }
+}
+@media (max-height: 650px) and (min-width: 601px) {
+  .ardial-hero .hero-nav {
+    top: 12px;
+  }
+  .ardial-hero .hero-title {
+    top: 23%;
+    font-size: 20vh;
+  }
+  .ardial-hero .reveal-invitation {
+    top: 69%;
+  }
+  .ardial-hero .hero-actions {
+    bottom: 17%;
+  }
+  .ardial-hero .hero-bottom {
+    bottom: 10px;
+  }
+  .ardial-hero .system-plane {
+    padding: 20px;
+  }
+  .ardial-hero .plane-mark {
+    bottom: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ardial-hero * {
+    scroll-behavior: auto !important;
+  }
+}
+
+.ardial-hero :is(nav, .work-link, .scroll-cue) svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  flex-shrink: 0;
+}
+
+/* Arrival and material refinement: one surface from readiness to interaction. */
+.ardial-hero .loading-surface {
+  display: none;
+  position: absolute;
+  inset: 0;
+  background: #4147cc;
+  z-index: 8;
+  pointer-events: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.hero-loading .ardial-hero .loading-surface {
+  display: flex;
+}
+.ardial-hero .loading-word {
+  font-size: clamp(42px, 6vw, 84px);
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: baseline;
+  gap: 7px;
+}
+.ardial-hero .loading-word > span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--signal);
+}
+.ardial-hero .loading-status {
+  font-size: 12px;
+  color: #e0e2ff;
+}
+.ardial-hero .hero-title {
+  font-size: clamp(64px, min(11.8vw, 20vh), 200px);
+  top: 25%;
+  left: 8vw;
+}
+.ardial-hero .hero-title > .title-line + .title-line {
+  margin-left: 6vw;
+}
+.ardial-hero .glass-edge {
+  border-color: #c5ccff22;
+}
+.ardial-hero .system-plane {
+  box-shadow: 18px 28px 50px #12165d33;
+}
+.ardial-hero .plane-front {
+  background: #cdd5f7;
+}
+.ardial-hero .interface-layout {
+  inset: 32% 10% 18%;
+  gap: 12px;
+}
+.ardial-hero .interface-slot {
+  background: #a6b5eb;
+}
+.ardial-hero .interface-block {
+  background: #505fc1;
+}
+.ardial-hero .plane-label {
+  font-size: clamp(24px, 3.5vw, 52px);
+}
+@media (max-width: 600px) {
+  .ardial-hero .hero-title {
+    top: 26%;
+    left: 7vw;
+    font-size: min(12.8vw, 17vh);
+  }
+  .ardial-hero .hero-title > .title-line + .title-line {
+    margin-left: 0;
+  }
+  .ardial-hero .plane-label {
+    font-size: 25px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-loading .ardial-hero .loading-surface {
+    display: none;
+  }
+}
+
+/* Typography-led edit: one statement, one invitation. */
+.ardial-hero .hero-title {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-size: clamp(62px, min(11.4vw, 20vh), 196px);
+  line-height: 0.99;
+  top: 27%;
+  left: 7vw;
+}
+.ardial-hero .hero-title > .title-line {
+  display: block;
+  overflow: hidden;
+  padding: 0 0.03em 0.12em;
+  perspective: 900px;
+}
+.ardial-hero .hero-title > .title-line + .title-line {
+  margin-left: 7vw;
+  margin-top: -0.03em;
+}
+.ardial-hero .hero-title .title-word {
+  display: block;
+  margin: 0;
+  backface-visibility: hidden;
+}
+.ardial-hero .closing-title {
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+.ardial-hero .plane-label {
+  font-weight: 500;
+  letter-spacing: -0.03em;
+}
+.ardial-hero .hero-nav {
+  inset: 25px 5vw auto;
+}
+.ardial-hero .hero-actions {
+  left: 8vw;
+  bottom: 19%;
+}
+.ardial-hero .open-system {
+  border: 0;
+  border-bottom: 1px solid #d5dbff88;
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+  padding: 0 0 8px;
+  min-height: 48px;
+  gap: 38px;
+  font-size: 14px;
+}
+.ardial-hero .open-system:hover {
+  background: none;
+  color: var(--signal);
+}
+.ardial-hero .hero-bottom {
+  justify-content: center;
+}
+.ardial-hero .motion-control {
+  position: absolute;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  padding: 12px;
+  border-radius: 50%;
+  opacity: 0.75;
+}
+.ardial-hero .motion-control:hover {
+  opacity: 1;
+  background: #ffffff12;
+}
+.ardial-hero .motion-control svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+.ardial-hero .scroll-cue {
+  opacity: 0.75;
+}
+.ardial-hero .glass-edge {
+  border-color: #c5ccff12;
+}
+.ardial-hero .loading-word {
+  font-weight: 700;
+}
+.ardial-hero .loading-status {
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .ardial-hero .hero-title {
+    font-size: min(12.4vw, 17vh);
+    top: 28%;
+    left: 6vw;
+    line-height: 1.06;
+  }
+  .ardial-hero .hero-title > .title-line + .title-line {
+    margin-left: 0;
+  }
+  .ardial-hero .hero-actions {
+    bottom: 24%;
+  }
+  .ardial-hero .hero-nav {
+    inset: 17px 6vw auto;
+  }
+  .ardial-hero .closing-title {
+    font-size: 14vw;
+  }
+}
+
+/* Approved copy and deliberately paced identity arrival. */
+.ardial-hero .loading-seam {
+  display: block;
+  width: 100px;
+  height: 1px;
+  background: #e3e5ff80;
+  transform-origin: center;
+}
+.ardial-hero .hero-title {
+  font-size: clamp(62px, min(11.1vw, 19vh), 190px);
+}
+.ardial-hero .hero-title > .title-line + .title-line {
+  margin-left: 5vw;
+}
+.ardial-hero .nav-role {
+  position: absolute;
+  left: 105px;
+  font-size: 11px;
+  color: #e0e2ff;
+}
+@media (max-width: 800px) {
+  .ardial-hero .nav-role {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .ardial-hero .hero-title {
+    font-size: min(12vw, 17vh);
+  }
+  .ardial-hero .hero-title > .title-line + .title-line {
+    margin-left: 0;
+  }
+}
+
+/* Loader wordmark: individually traced SVG letters, active only during loading. */
+.ardial-hero svg.loading-word {
+  display: block;
+  width: clamp(220px, 27vw, 380px);
+  height: auto;
+  overflow: visible;
+  color: var(--ink);
+}
+.hero-loading .ardial-hero .hero-nav {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.ardial-hero .wordmark-letter {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.hero-loading .ardial-hero .wordmark-letter {
+  animation: ardial-loader-trace 1.8s cubic-bezier(0.65, 0, 0.25, 1) infinite both;
+}
+.ardial-hero .wordmark-letter:nth-child(2) {
+  animation-delay: 0.07s;
+}
+.ardial-hero .wordmark-letter:nth-child(3) {
+  animation-delay: 0.14s;
+}
+.ardial-hero .wordmark-letter:nth-child(4) {
+  animation-delay: 0.21s;
+}
+.ardial-hero .wordmark-letter:nth-child(5) {
+  animation-delay: 0.28s;
+}
+.ardial-hero .wordmark-letter:nth-child(6) {
+  animation-delay: 0.35s;
+}
+.hero-loading .ardial-hero .wordmark-signal {
+  animation: ardial-loader-signal 1.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes ardial-loader-trace {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 0.35;
+    transform: translateY(3px);
+  }
+  38%,
+  66% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    stroke-dashoffset: -100;
+    opacity: 0.35;
+    transform: translateY(-2px);
+  }
+}
+@keyframes ardial-loader-signal {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.65);
+  }
+  45%,
+  65% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-loading .ardial-hero .wordmark-letter,
+  .hero-loading .ardial-hero .wordmark-signal {
+    animation: none;
+  }
+  .hero-loading .ardial-hero .hero-nav {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Fine particles share the hero's reactive frame loop; cursor is desktop-only. */
+.ardial-hero .hero-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+}
+.hero-loading .ardial-hero .hero-particles {
+  visibility: hidden;
+}
+.ardial-hero .hero-cursor {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform;
+}
+.ardial-hero .cursor-core {
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #ffceb0;
+}
+.ardial-hero .cursor-ring {
+  position: absolute;
+  left: -13px;
+  top: -13px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #f4f2ed99;
+  border-radius: 50%;
+  transform: translate(var(--ring-x, 0px), var(--ring-y, 0px));
+  transition:
+    width 0.2s,
+    height 0.2s,
+    left 0.2s,
+    top 0.2s,
+    border-color 0.2s,
+    background 0.2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .ardial-hero.has-cursor,
+  .ardial-hero.has-cursor :is(a, button) {
+    cursor: none;
+  }
+  .ardial-hero.has-cursor .hero-cursor {
+    opacity: 1;
+  }
+  .ardial-hero.cursor-action .cursor-ring {
+    left: -20px;
+    top: -20px;
+    width: 40px;
+    height: 40px;
+    border-color: #ffceb0;
+    background: #ffceb012;
+  }
+  .ardial-hero.cursor-down .cursor-ring {
+    left: -9px;
+    top: -9px;
+    width: 18px;
+    height: 18px;
+    background: #ffceb026;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ardial-hero .hero-cursor {
+    display: none;
+  }
+  .ardial-hero.has-cursor,
+  .ardial-hero.has-cursor :is(a, button) {
+    cursor: auto;
+  }
+}
+
+.ardial-hero:not(.is-enhanced) .hero-particles {
+  display: none;
+}
+
+/* The loading SVG lives in the brand link and lands in its actual navbar slot. */
+.ardial-hero .hero-brand {
+  width: 100px;
+  min-height: 44px;
+  position: relative;
+}
+.ardial-hero .hero-brand svg.loading-word {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  transform-origin: center;
+  overflow: visible;
+}
+.ardial-hero .nav-role {
+  left: 125px;
+}
+.hero-loading .ardial-hero .hero-nav {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: none;
+}
+.hero-loading .ardial-hero .hero-brand {
+  pointer-events: none;
+}
+.hero-loading .ardial-hero .hero-nav nav,
+.hero-loading .ardial-hero .nav-role {
+  visibility: hidden;
+}
+.hero-loading .ardial-hero.wordmark-travelling .wordmark-letter,
+.hero-loading .ardial-hero.wordmark-travelling .wordmark-signal {
+  animation: none;
+  stroke-dashoffset: 0;
+  opacity: 1;
+  transform: none;
+}
+.ardial-hero .loading-seam {
+  position: absolute;
+  left: calc(50% - 50px);
+  top: calc(50% + 75px);
+}
+@media (max-width: 600px) {
+  .ardial-hero .hero-brand {
+    width: 86px;
+  }
+  .ardial-hero .hero-brand svg.loading-word {
+    width: 86px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-loading .ardial-hero .hero-nav {
+    pointer-events: auto;
+  }
+  .hero-loading .ardial-hero .hero-brand {
+    pointer-events: auto;
+  }
+  .hero-loading .ardial-hero .hero-nav nav,
+  .hero-loading .ardial-hero .nav-role {
+    visibility: visible;
+  }
+}
+
+/* Character masks and a temporary SVG signal join the wordmark to the headline. */
+.ardial-hero .title-word {
+  white-space: nowrap;
+}
+.ardial-hero .hero-title .char-mask {
+  display: inline-block;
+  overflow: clip;
+  vertical-align: top;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  perspective: 600px;
+}
+.ardial-hero .hero-title .title-char {
+  display: inline-block;
+  backface-visibility: hidden;
+}
+.ardial-hero .hero-title .char-space {
+  display: inline-block;
+  width: 0.26em;
+}
+.ardial-hero .headline-signal {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  overflow: visible;
+}
+.ardial-hero .headline-trace {
+  opacity: 0.45;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ardial-hero .headline-signal {
+    display: none;
+  }
+}
+
+/* Headline-specific folded surface: type is uncovered by the same moving edge. */
+.ardial-hero .hero-title .title-word {
+  display: inline-block;
+  white-space: nowrap;
+  vertical-align: top;
+}
+.ardial-hero .hero-title > .title-line {
+  width: max-content;
+  max-width: 100%;
+  overflow: visible;
+  padding-bottom: 0.12em;
+}
+.ardial-hero .hero-title .reveal-word {
+  display: inline-block;
+}
+.ardial-hero .headline-folds {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 6;
+  overflow: visible;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+}
+.ardial-hero .fold-edge {
+  vector-effect: non-scaling-stroke;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ardial-hero .headline-folds {
+    display: none;
+  }
+}
+
+/* Hero continuation: horizontal system traversal into the particle portrait. */
+.ardial-hero .layer-art {
+  position: absolute;
+  inset: 27% 6% 10%;
+  width: 88%;
+  height: 63%;
+  overflow: visible;
+}
+.ardial-hero .depth-line {
+  display: block;
+  width: max-content;
+}
+.ardial-hero .closing-folds {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 7;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  overflow: visible;
+}
+.ardial-hero .portrait-scene {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.ardial-hero .portrait-view {
+  position: absolute;
+  left: 6%;
+  top: 10%;
+  width: 49%;
+  height: 83%;
+  pointer-events: auto;
+  touch-action: pan-y;
+  cursor: grab;
+  outline-offset: -5px;
+}
+.ardial-hero .portrait-view:active {
+  cursor: grabbing;
+}
+.ardial-hero .portrait-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.ardial-hero .portrait-fallback {
+  position: absolute;
+  inset: 10%;
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  opacity: 0;
+}
+.ardial-hero .portrait-error .portrait-fallback {
+  opacity: 1;
+  filter: grayscale(1);
+  mix-blend-mode: luminosity;
+}
+
+.ardial-hero.is-portrait .hero-actions,
+.ardial-hero.is-portrait .scroll-cue {
+  visibility: hidden !important;
+  pointer-events: none;
+}
+.ardial-hero.is-static .portrait-scene {
+  position: relative;
+  height: 90svh;
+  min-height: 540px;
+  visibility: visible;
+  opacity: 1;
+}
+.ardial-hero.is-static .hero-stage {
+  height: auto;
+  min-height: 100svh;
+  padding-top: 100svh;
+}
+.ardial-hero.is-static .hero-title {
+  top: 25svh;
+}
+.ardial-hero.is-static .portrait-view {
+  top: 0;
+}
+@media (max-width: 600px) {
+  .ardial-hero .portrait-view {
+    left: 4%;
+    top: 5%;
+    width: 92%;
+    height: 65%;
+  }
+  .ardial-hero .system-plane .plane-label {
+    font-size: 24px;
+  }
+  .ardial-hero .portrait-view {
+    touch-action: pan-y;
+  }
+}
+
+.ardial-hero .portrait-view:not(.portrait-interactive) {
+  cursor: default;
+}
+.ardial-hero.is-portrait .portrait-view {
+  cursor: grab;
+}
+.ardial-hero.is-portrait .portrait-view:active {
+  cursor: grabbing;
+}
+
+/* Full-stage particle transport, with no image rectangle or photo-color fallback. */
+.ardial-hero .portrait-view {
+  left: 0;
+  top: 6%;
+  width: 100%;
+  height: 90%;
+  background: none;
+  border: 0;
+}
+.ardial-hero .portrait-fallback,
+.ardial-hero .portrait-error .portrait-fallback {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .ardial-hero .portrait-view {
+    left: 0;
+    top: 3%;
+    width: 100%;
+    height: 65%;
+  }
+}
+
+.ardial-hero .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Infrastructure dissolves left to right as its particles leave for the portrait (--dissolve set by portrait.js). */
+.ardial-hero .plane-back {
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent calc(var(--dissolve, 0) * 115% - 15%),
+    #000 calc(var(--dissolve, 0) * 115%)
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent calc(var(--dissolve, 0) * 115% - 15%),
+    #000 calc(var(--dissolve, 0) * 115%)
+  );
+}
+.ardial-hero .plane-anchor {
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 0;
+  left: 0;
+}
+.ardial-hero .plane-anchor:nth-child(2) {
+  left: 100%;
+}
+.ardial-hero .plane-anchor:nth-child(3) {
+  left: 100%;
+  top: 100%;
+}
+.ardial-hero .plane-anchor:nth-child(4) {
+  top: 100%;
+}
+.ardial-hero .portrait-canvas {
+  position: absolute;
+  pointer-events: none;
+}
+/* Build journey: the app assembled phase by phase beside the portrait; script.js scrubs it and sets the active phase. */
+.ardial-hero .build-journey {
+  position: absolute;
+  left: 55%;
+  right: 4.5vw;
+  top: 17%;
+  bottom: 6%;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  gap: 14px;
+  visibility: hidden;
+  pointer-events: none;
+}
+.ardial-hero.is-static .build-journey {
+  display: none;
+}
+.ardial-hero .journey-rail {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin: 0;
+  padding: 18px 0 0;
+  list-style: none;
+  font-size: 12px;
+  font-weight: 500;
+  color: #a8b0e6;
+}
+.ardial-hero .journey-rail::before,
+.ardial-hero .journey-rail::after {
+  content: '';
+  position: absolute;
+  left: calc(100% / 12);
+  right: calc(100% / 12);
+  top: 3.25px;
+  height: 1.5px;
+  background: #5960d0;
+}
+.ardial-hero .journey-rail::after {
+  background: var(--signal);
+  transform-origin: 0 50%;
+  transform: scaleX(var(--journey, 0));
+}
+.ardial-hero .journey-rail li {
+  position: relative;
+  text-align: center;
+  white-space: nowrap;
+  transition: color 0.4s;
+}
+.ardial-hero .journey-rail li::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #5960d0;
+  transform: translateX(-50%) scale(var(--dot, 1));
+  transition:
+    background 0.4s,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.ardial-hero .journey-rail li.is-done,
+.ardial-hero .journey-rail li.is-active {
+  color: var(--ink);
+}
+.ardial-hero .journey-rail li.is-done::before,
+.ardial-hero .journey-rail li.is-active::before {
+  background: var(--signal);
+}
+.ardial-hero .journey-rail li.is-active::before {
+  --dot: 1.6;
+}
+.ardial-hero .journey-art {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.ardial-hero .journey-title {
+  display: grid;
+  margin: 0;
+  font-size: clamp(30px, min(4.2vw, 6.5vh), 60px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+}
+.ardial-hero .journey-title span {
+  grid-area: 1/1;
+  opacity: 0;
+  transform: translateY(0.35em);
+  clip-path: inset(0 0 100% 0);
+  transition:
+    opacity 0.35s,
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    clip-path 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.ardial-hero .journey-title span.is-active {
+  opacity: 1;
+  transform: none;
+  clip-path: inset(-10% -5% -20% -5%);
+}
+.ardial-hero .journey-cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  min-height: 44px;
+  font-size: 14px;
+  pointer-events: auto;
+  justify-self: start;
+}
+.ardial-hero .journey-cta svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.ardial-hero .journey-cta:hover svg {
+  transform: translate(4px, -4px);
+}
+.ardial-hero .j-link {
+  fill: none;
+  stroke: #8796df;
+  stroke-width: 1.5;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+}
+.ardial-hero .j-node {
+  fill: #d0d5ff;
+  stroke: #353bc8;
+  stroke-width: 3;
+}
+.ardial-hero .j-hub {
+  fill: var(--ink);
+}
+.ardial-hero .j-packet,
+.ardial-hero .j-spark,
+.ardial-hero .j-hash,
+.ardial-hero .j-data,
+.ardial-hero .j-ai-out,
+.ardial-hero .j-live rect {
+  fill: var(--signal);
+}
+.ardial-hero .j-frame-body rect {
+  fill: #2b31b0;
+}
+.ardial-hero .j-frame-body .j-notch {
+  fill: #7f86d6;
+}
+.ardial-hero .j-frame-line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 2;
+  stroke-dasharray: 1;
+}
+.ardial-hero .j-wire * {
+  fill: none;
+  stroke: #d0d5ff;
+  stroke-width: 1.2;
+  stroke-dasharray: 4 4;
+  opacity: 0.8;
+}
+.ardial-hero .j-bar {
+  fill: #353bc8;
+}
+.ardial-hero .j-ai-link {
+  fill: none;
+  stroke: #353bc8;
+  stroke-width: 1.2;
+  stroke-dasharray: 1;
+}
+.ardial-hero .j-ai-node {
+  fill: #353bc8;
+}
+.ardial-hero .j-select {
+  fill: none;
+  stroke: var(--signal);
+  stroke-width: 1.5;
+}
+.ardial-hero .j-bubble path,
+.ardial-hero .j-bubble > rect:not(.j-bubble-line) {
+  fill: var(--ink);
+}
+.ardial-hero .j-bubble-line {
+  fill: #a6b5eb;
+}
+.ardial-hero .j-live circle {
+  fill: #353bc8;
+}
+.ardial-hero .j-live text {
+  font-size: 12px;
+  font-weight: 700;
+  fill: #353bc8;
+}
+.ardial-hero .j-chain-link {
+  fill: none;
+  stroke: #a1a9ee;
+  stroke-width: 2;
+}
+.ardial-hero .j-ring {
+  fill: none;
+  stroke: var(--signal);
+  stroke-width: 1.5;
+  opacity: 0.35;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes journey-ring {
+  from {
+    transform: scale(0.92);
+    opacity: 0.5;
+  }
+  to {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ardial-hero.is-live .j-ring {
+    animation: journey-ring 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+  .ardial-hero.is-live .j-ring + .j-ring {
+    animation-delay: 1.2s;
+  }
+}
+@media (max-width: 600px) {
+  .ardial-hero .build-journey {
+    left: 6%;
+    right: 6%;
+    top: 11%;
+    bottom: 4%;
+    gap: 10px;
+  }
+  .ardial-hero .journey-rail {
+    font-size: 11px;
+  }
+  .ardial-hero .journey-title {
+    font-size: 30px;
+  }
+}
+
+/* The nav character's generic styles live in shared/nav-prism.css; the hero keeps only its own tweaks. */
+.ardial-hero .nav-prism {
+  color: var(--ink, #f4f2ed);
+}
+.ardial-hero .nav-prism-bubble {
+  background: var(--signal, #ffceb0);
+}
+.hero-loading .ardial-hero .nav-prism {
+  visibility: hidden;
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .ardial-hero nav {
+    gap: 16px;
+  }
+}
+@media (max-width: 360px) {
+  .ardial-hero nav {
+    gap: 10px;
+  }
+  .ardial-hero .hero-brand,
+  .ardial-hero .hero-brand svg.loading-word {
+    width: 74px;
+  }
+}
+
+/* Before the scroll story is built (on the journey it waits for the visitor's first input), the hero holds the story's
+   opening state: the layer labels and the build journey are hidden and the closing title is clipped away. */
+.ardial-hero.is-enhanced:not(.has-story) .plane-label,
+.ardial-hero.is-enhanced:not(.has-story) .build-journey {
+  opacity: 0;
+}
+.ardial-hero.is-enhanced:not(.has-story) .closing-title {
+  clip-path: inset(0 100% 0 0);
+}

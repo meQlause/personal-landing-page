@@ -1,0 +1,705 @@
+/* Midnight study: a deep night-cobalt stage where paper certificates glow. On the joined page the night opens over
+   Experience as a growing circle (shared/seams.js), so it arrives already in night. */
+@property --cbg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #121641;
+}
+@property --cfg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f4f2ed;
+}
+@property --cline {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #2d3375;
+}
+@property --cpanel {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #1b2060;
+}
+.credentials {
+  --cbg: #121641;
+  --cfg: #f4f2ed;
+  --cline: #2d3375;
+  --cpanel: #1b2060;
+  --csoft: #ffceb0;
+  --cpaper: #f4f2ed;
+  --cmuted: color-mix(in srgb, var(--cfg) 74%, var(--cbg));
+  position: relative;
+  color: var(--cfg);
+  background: var(--cbg);
+  font:
+    500 14px/1.4 Manrope,
+    sans-serif;
+  transition:
+    --cbg 1.2s ease,
+    --cfg 1.2s ease,
+    --cline 1.2s ease,
+    --cpanel 1.2s ease;
+}
+.credentials.is-night {
+  --cbg: #121641;
+  --cfg: #f4f2ed;
+  --cline: #2d3375;
+  --cpanel: #1b2060;
+}
+@media (prefers-reduced-motion: reduce) {
+  .credentials {
+    transition: none;
+  }
+}
+.credentials * {
+  box-sizing: border-box;
+}
+.credentials ::selection {
+  background: var(--csoft);
+  color: #1d2270;
+}
+.credentials a {
+  color: inherit;
+  text-decoration: none;
+}
+.credentials :is(a, button):focus-visible {
+  outline: 2px solid var(--csoft);
+  outline-offset: 4px;
+}
+.credentials .c-stage {
+  position: relative;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+/* Header: the same nav as the other sections, naming this one. */
+.credentials .c-nav {
+  position: absolute;
+  z-index: 4;
+  inset: 25px 5vw auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.credentials .c-brand {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  min-height: 44px;
+  color: var(--cfg);
+}
+.credentials .c-brand svg {
+  width: 100px;
+  height: auto;
+  overflow: visible;
+}
+.credentials .c-dot {
+  fill: var(--csoft);
+}
+.credentials .c-section-name {
+  position: absolute;
+  left: 125px;
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+}
+.credentials .c-nav nav {
+  display: flex;
+  gap: 32px;
+}
+.credentials .c-nav nav a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+}
+.credentials .c-nav nav a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+.credentials .c-nav nav svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+/* Picker: a segmented pill bar. */
+.credentials .c-tabs {
+  position: absolute;
+  z-index: 3;
+  left: 4.5vw;
+  top: 14%;
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1.5px solid var(--cline);
+  border-radius: 999px;
+  max-width: calc(100% - 9vw);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.credentials .c-tabs::-webkit-scrollbar {
+  display: none;
+}
+.credentials .c-tab {
+  flex: none;
+  min-height: 40px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: none;
+  color: var(--cmuted);
+  font:
+    700 13px/1 Manrope,
+    sans-serif;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+.credentials .c-tab:hover {
+  color: var(--cfg);
+}
+.credentials .c-tab[aria-selected='true'] {
+  background: var(--csoft);
+  color: #1d2270;
+}
+
+.credentials .c-panel {
+  position: absolute;
+  z-index: 2;
+  left: 4.5vw;
+  top: 28%;
+  width: min(42vw, 620px);
+}
+.credentials .c-panel[hidden] {
+  display: none;
+}
+.credentials .c-period {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--csoft);
+}
+.credentials .c-headline {
+  margin: 0;
+  font-size: clamp(40px, min(5vw, 8.4vh), 84px);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+/* Headline: words flip in like cards; the key word carries a pen-drawn mark and rolls through its alternates on a loop. */
+.credentials .c-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+.credentials .c-key {
+  position: relative;
+}
+/* The key word: a stack of alternates in one cell of a window that clips at its sides, so a word swipes in and out of
+   view sideways. Selected like text in an editor: a peach box swept across it by scroll (--sel 0 to 1), holding an ink
+   copy of the same stack, so the wipe is crisp and every letter stays inside the box. Same system as Contact. */
+.credentials .c-roll {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 1.06em;
+  clip-path: inset(-0.14em 0 -0.26em 0);
+}
+.credentials .c-roll-in {
+  display: grid;
+}
+.credentials .c-alt {
+  grid-area: 1/1;
+  width: max-content;
+}
+.credentials:not(.is-enhanced) .c-alt + .c-alt {
+  display: none;
+}
+.credentials .c-sel {
+  --sel: 0;
+  position: absolute;
+  left: -0.1em;
+  right: -0.1em;
+  top: -0.04em;
+  bottom: -0.12em;
+  padding: 0.04em 0.1em 0;
+  border-radius: 0.1em;
+  background: var(--csoft);
+  color: #1d2270;
+  clip-path: inset(0 calc((1 - var(--sel)) * 100%) 0 0 round 0.1em);
+}
+.credentials .c-sel .c-roll {
+  display: block;
+}
+.credentials.is-static .c-sel {
+  --sel: 1;
+}
+.credentials .c-degree {
+  margin: 20px 0 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+.credentials .c-inst {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--cmuted);
+}
+/* Achievements as stamps: slightly tilted, inked in peach. */
+.credentials .c-stamps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.credentials .c-stamps li {
+  padding: 8px 14px;
+  border: 2px solid var(--csoft);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--csoft);
+  rotate: -1.5deg;
+}
+.credentials .c-stamps li:nth-child(even) {
+  rotate: 1.2deg;
+}
+.credentials .c-caption {
+  margin: 18px 0 0;
+  font-size: 15px;
+  min-height: 3em;
+  color: var(--cmuted);
+}
+.credentials .c-caption b {
+  display: block;
+  color: var(--cfg);
+  font-size: 16px;
+}
+
+/* The seal: the school's real emblem on a paper disc, a looping text ring, a stamped score. */
+.credentials .c-art {
+  position: absolute;
+  z-index: 1;
+  left: 52%;
+  top: 13%;
+  width: 44%;
+  height: 76%;
+  overflow: visible;
+  pointer-events: none;
+}
+.credentials .c-seal {
+  visibility: hidden;
+}
+.credentials .c-ring-line {
+  fill: none;
+  stroke: var(--cline);
+  stroke-width: 2;
+}
+.credentials .c-ring-line.thin {
+  stroke-width: 1;
+  stroke-dasharray: 2 8;
+}
+.credentials .c-spin {
+  transform-box: view-box;
+  transform-origin: 300px 270px;
+  animation: c-spin 36s linear infinite;
+}
+@keyframes c-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.credentials .c-ring-text {
+  font:
+    700 15px Manrope,
+    sans-serif;
+  letter-spacing: 0.32em;
+  fill: var(--csoft);
+}
+.credentials .c-disc {
+  fill: var(--cpaper);
+  filter: drop-shadow(0 18px 40px #0a0c2a66);
+}
+.credentials .c-stamp rect {
+  fill: var(--csoft);
+}
+.credentials .c-stamp text {
+  font:
+    700 40px Manrope,
+    sans-serif;
+  letter-spacing: -0.03em;
+  fill: #1d2270;
+}
+@media (prefers-reduced-motion: reduce) {
+  .credentials .c-spin {
+    animation: none;
+  }
+}
+
+/* The certificate wall: dealt from a deck by scroll; hover lifts a card; click opens it. */
+.credentials .c-deck {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 18%;
+  width: 46%;
+  height: 66%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-content: center;
+  gap: 14px;
+  visibility: hidden;
+  perspective: 900px;
+}
+.credentials .c-card {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  aspect-ratio: 4/3;
+}
+.credentials .c-face {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--cpaper);
+  box-shadow: 0 10px 26px #05071f80;
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1.2),
+    box-shadow 0.45s;
+}
+.credentials .c-face img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.credentials .c-card:hover .c-face,
+.credentials .c-card:focus-visible .c-face {
+  transform: translateY(-8px) scale(1.08) rotateX(6deg);
+  box-shadow: 0 22px 40px #05071fa0;
+}
+/* The pinboard: all twelve at once, each pinned at a slight tilt. Hover or focus straightens and lifts a card; a subject
+   filter brings its cards forward and dims the rest. The board leans a little toward the pointer (script). Nothing here
+   is tied to scroll after the cards land, so the visitor explores at their own pace. */
+.credentials .c-deck {
+  left: 47%;
+  width: 49%;
+  gap: 22px 18px;
+  transform-style: preserve-3d;
+}
+/* Tilt, dim and scale live on the face: GSAP owns the card itself (its landing resets rotate/scale and sets opacity). */
+.credentials .c-face {
+  rotate: var(--tilt, 0deg);
+  transition:
+    transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1.2),
+    box-shadow 0.45s,
+    rotate 0.45s cubic-bezier(0.3, 1.5, 0.5, 1),
+    opacity 0.35s,
+    filter 0.35s,
+    scale 0.35s;
+}
+.credentials .c-card:is(:hover, :focus-visible, .is-picked) {
+  z-index: 2;
+}
+.credentials .c-card:is(:hover, :focus-visible, .is-picked) .c-face {
+  rotate: 0deg;
+}
+.credentials .c-card.is-picked .c-face {
+  box-shadow:
+    0 0 0 2px var(--csoft),
+    0 22px 44px #05071fb0;
+}
+.credentials .c-card.is-dim .c-face {
+  opacity: 0.22;
+  filter: grayscale(0.8);
+  scale: 0.94;
+}
+.credentials .c-card.is-dim:is(:hover, :focus-visible) .c-face {
+  opacity: 0.7;
+}
+
+/* Subject filters: a light row of text, each with its count; the active one is peach and underlined. */
+.credentials .c-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 11px;
+  margin-top: 22px;
+}
+.credentials .c-filter {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  min-height: 36px;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--cmuted);
+  font:
+    700 12.5px/1 Manrope,
+    sans-serif;
+  cursor: pointer;
+  text-decoration: underline 2px transparent;
+  text-underline-offset: 8px;
+  transition:
+    color 0.25s,
+    text-decoration-color 0.25s;
+}
+.credentials .c-filter span {
+  font-size: 11px;
+  opacity: 0.8;
+}
+.credentials .c-filter:hover {
+  color: var(--cfg);
+}
+.credentials .c-filter[aria-pressed='true'] {
+  color: var(--csoft);
+  text-decoration-color: var(--csoft);
+}
+
+/* The card in focus, kept short: title, issuer, then open it (with where it sits in the twelve). */
+.credentials .c-front {
+  margin-top: 26px;
+  max-width: 30rem;
+}
+.credentials .c-front-title {
+  margin: 0;
+  font-size: clamp(20px, 1.8vw, 28px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.credentials .c-front-issuer {
+  margin: 6px 0 0;
+  font-size: 15px;
+  color: var(--cmuted);
+}
+.credentials .c-front-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 22px;
+}
+.credentials .c-open {
+  min-height: 46px;
+  padding: 0 22px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--csoft);
+  color: #1d2270;
+  font:
+    700 14px/1 Manrope,
+    sans-serif;
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.credentials .c-open:hover {
+  transform: translateY(-2px);
+}
+.credentials .c-count {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--cmuted);
+}
+.credentials .c-count b {
+  color: var(--cfg);
+}
+.credentials .c-front.is-swapping :is(.c-front-title, .c-front-issuer) {
+  animation: c-swap 0.35s ease-out;
+}
+@keyframes c-swap {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .credentials .c-front.is-swapping * {
+    animation: none;
+  }
+}
+.credentials .c-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  translate: -50% 0;
+  margin: 0;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cmuted);
+}
+
+/* Full-size certificate. */
+.credentials .c-dialog {
+  width: min(92vw, 980px);
+  max-height: 92svh;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background: #f4f2ed;
+  color: #1d2270;
+  overflow: auto;
+}
+.credentials .c-dialog::backdrop {
+  background: #0a0c2acc;
+  backdrop-filter: blur(4px);
+}
+.credentials .c-dialog-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+.credentials .c-dialog-meta {
+  padding: 20px 24px 26px;
+}
+.credentials .c-dialog-meta h4 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+}
+.credentials .c-dialog-issuer {
+  margin: 6px 0 0;
+  color: #4a4f86;
+  font-weight: 700;
+}
+.credentials .c-dialog-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.credentials .c-dialog-skills li {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e6e4f2;
+  font-size: 13px;
+  font-weight: 700;
+}
+.credentials .c-close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: #1d2270;
+  color: #fff;
+  font:
+    700 24px/1 Manrope,
+    sans-serif;
+  cursor: pointer;
+}
+
+.credentials.is-static .c-stage {
+  height: auto;
+  min-height: 100svh;
+  padding-bottom: 60px;
+}
+@media (max-width: 600px) {
+  .credentials .c-nav {
+    inset: 17px 6vw auto;
+  }
+  .credentials .c-brand,
+  .credentials .c-brand svg {
+    width: 86px;
+  }
+  .credentials .c-section-name {
+    left: 104px;
+    font-size: 12px;
+  }
+  .credentials .c-nav nav {
+    gap: 23px;
+    font-size: 12px;
+  }
+  .credentials .c-tabs {
+    left: 6vw;
+    top: 10%;
+  }
+  .credentials .c-art {
+    left: 12vw;
+    top: 16%;
+    width: 76vw;
+    height: 32%;
+  }
+  .credentials .c-panel {
+    left: 6vw;
+    right: 6vw;
+    width: auto;
+    top: 50%;
+  }
+  .credentials .c-headline {
+    font-size: clamp(32px, 10vw, 42px);
+  }
+  .credentials .c-degree {
+    margin-top: 12px;
+    font-size: 15px;
+  }
+  .credentials .c-inst {
+    font-size: 13px;
+  }
+  .credentials .c-stamps {
+    margin-top: 14px;
+    gap: 6px;
+  }
+  .credentials .c-stamps li {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+  .credentials .c-deck {
+    left: 6vw;
+    width: 88vw;
+    top: 17%;
+    height: 44%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+  .credentials .c-panel.is-cert {
+    top: 44%;
+  }
+  .credentials .c-front {
+    margin-top: 12px;
+  }
+  .credentials .c-front-title {
+    font-size: 17px;
+  }
+  .credentials .c-front-row {
+    margin-top: 12px;
+  }
+  /* Phones: the filters scroll sideways in one row. */
+  .credentials .c-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 18px;
+    margin: 12px -6vw 0;
+    padding: 0 6vw;
+    scrollbar-width: none;
+  }
+  .credentials .c-filters::-webkit-scrollbar {
+    display: none;
+  }
+  .credentials .c-filter {
+    flex: none;
+  }
+  .credentials .c-deck {
+    top: 17%;
+    height: auto;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    align-content: start;
+  }
+}

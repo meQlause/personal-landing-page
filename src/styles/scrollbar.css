@@ -1,0 +1,63 @@
+/* Shared layer: the page scrollbar. Slim, rounded, inset into its track; the accent shows on hover.
+   Sections set --sb-track / --sb-thumb (the Work section switches them per product via html[data-palette]). */
+html {
+  --sb-track: #353bc8;
+  --sb-thumb: #ffceb0;
+}
+html[data-palette='simpul'] {
+  --sb-track: #f8f9f6;
+  --sb-thumb: #176448;
+}
+html[data-palette='mnemo'] {
+  --sb-track: #faf9f7;
+  --sb-thumb: #c9773a;
+}
+html[data-palette='treecord'] {
+  --sb-track: #f7f8f3;
+  --sb-thumb: #244f38;
+}
+html[data-palette='agaro'] {
+  --sb-track: #fdfdfd;
+  --sb-thumb: #099fc1;
+}
+html[data-palette='qswap'] {
+  --sb-track: #191b1f;
+  --sb-thumb: #ec4899;
+}
+/* Chrome and Safari: once scrollbar-color is set Chrome ignores these, so the standard properties are for Firefox only. */
+html::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+html::-webkit-scrollbar-track {
+  background: var(--sb-track);
+}
+html::-webkit-scrollbar-thumb {
+  min-height: 48px;
+  border: 4px solid var(--sb-track);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--sb-thumb) 55%, var(--sb-track));
+}
+html::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:active {
+  border-width: 3px;
+  background: var(--sb-thumb);
+}
+@supports not selector(::-webkit-scrollbar) {
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--sb-thumb) 70%, var(--sb-track)) var(--sb-track);
+  }
+}
+html[data-palette='experience'] {
+  --sb-track: #f4f2ed;
+  --sb-thumb: #353bc8;
+}
+html[data-palette='credentials'] {
+  --sb-track: #121641;
+  --sb-thumb: #ffceb0;
+}
+html[data-palette='contact'] {
+  --sb-track: #3036e6;
+  --sb-thumb: #ffceb0;
+}

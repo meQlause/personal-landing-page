@@ -1,0 +1,16 @@
+# Ardial
+
+> Ardial is a software engineer who builds products end to end, from networks and backends to blockchain and AI. This site is one scrolling page: selected work, experience, education and contact.
+
+## Portfolio
+
+- [Selected work](https://ardial.my.id/#work): Simpul, Mnemo, Treecord, Agaro-Vote and QSwap
+- [Experience](https://ardial.my.id/#experience): from network engineering to full-stack and blockchain roles
+- [Education](https://ardial.my.id/#education): schools and twelve certificates
+- [Contact](https://ardial.my.id/#contact): email, GitHub, LinkedIn, WhatsApp and the CV
+
+## Elsewhere
+
+- [GitHub](https://github.com/meQlause)
+- [LinkedIn](https://www.linkedin.com/in/ardial)
+- [Email](mailto:contact@ardial.my.id)

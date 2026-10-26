@@ -1,7 +1,0 @@
-[install]
-# Use exact versions from lockfile
-frozen = false
-
-[install.cache]
-disable = false
-disableManifest = false
