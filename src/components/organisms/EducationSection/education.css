@@ -68,7 +68,7 @@
 }
 .credentials .c-stage {
   position: relative;
-  height: 100svh;
+  height: 100lvh;
   min-height: 600px;
   overflow: hidden;
 }

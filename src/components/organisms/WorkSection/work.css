@@ -129,9 +129,9 @@
 /* Clip the sides only, so the arriving chat noise can fall in from the section above. */
 .work .work-stage {
   position: relative;
-  height: 100svh;
+  height: 100lvh;
   min-height: 560px;
-  clip-path: inset(-100svh 0 0 0);
+  clip-path: inset(-100lvh 0 0 0);
 }
 
 /* Header: matches the hero's nav, and names the section in the slot where the hero says "Software engineer". */

@@ -30,5 +30,5 @@ body {
    the screen (their motion waits too, see motion/gate.ts). The attribute is removed on wake, before any pin is measured. */
 #journey[data-asleep] > section:not(:first-child) {
   content-visibility: auto;
-  contain-intrinsic-size: auto 100svh;
+  contain-intrinsic-size: auto 100lvh;
 }
