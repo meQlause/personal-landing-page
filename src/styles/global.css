@@ -26,8 +26,8 @@ body {
   display: contents;
 }
 
-/* The journey before the visitor's first input: the sections below the hero skip their rendering until they come near
-   the screen (their motion waits too, see motion/gate.ts). The attribute is removed on wake, before any pin is measured. */
+/* The prerendered journey before the script runs: the sections below the hero skip their rendering for the first paint.
+   The attribute is removed when the journey mounts, before any pin is measured (see motion/gate.ts). */
 #journey[data-asleep] > section:not(:first-child) {
   content-visibility: auto;
   contain-intrinsic-size: auto 100lvh;

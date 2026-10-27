@@ -38,9 +38,9 @@ The build is tuned for a fast first paint (Lighthouse 100 in every category, mob
 
 1. `npm run build` prerenders the journey into `dist/index.html` (`src/entry-server.tsx`, `scripts/prerender.ts`), so the page paints from its HTML and CSS before any JavaScript runs. The fonts are subset `.woff2` files, preloaded.
 2. The app's script is requested once that first paint is on screen (the `load-after-paint` plugin in `vite.config.ts`), and React hydrates the prerendered HTML.
-3. Only the hero starts at load. Its scroll story, and the motion of every section below it, wait for the visitor's first scroll, touch, pointer move or key (`src/motion/gate.ts`). Until then those sections skip their rendering (`content-visibility`), and the seams are built after them.
+3. The loading screen is real work: while it shows, the page does not scroll and every section builds its motion, one task at a time, then the seams join them (`src/motion/gate.ts`). The hero's intro holds before its unfold until the seams report `journey:ready` (at most `ROUTE.buildLimit`), so the first scroll never waits on a build.
 
-The dev server skips steps 1 and 2 (it renders in the browser and loads the script at once). The `?section=` preview pages also skip step 3: their one section starts at load.
+The dev server skips steps 1 and 2 (it renders in the browser and loads the script at once). The `?section=` preview pages have no gate: their one section starts at load.
 
 ## Tests
 

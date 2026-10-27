@@ -1,43 +1,41 @@
 import { createContext } from 'react';
+import { ScrollTrigger } from './gsap';
 
-// The sections below the hero wait for the visitor's first scroll, touch or key before they build their motion: at load
-// only the hero is on screen, so their pins and timelines would cost the first seconds for nothing. They then mount one
-// task at a time, in page order, so no single task holds the page.
+// The sections below the hero build their motion at load, behind the hero's loading surface, so the visitor's first scroll
+// never pays for it. They mount one task at a time, in page order, so no single task holds the page.
 
 type Start = () => void;
-
-// Runs a callback when the visitor first stirs (at once if they already have). Returns a cancel.
-export type WhenAwake = (callback: () => void) => () => void;
 
 export interface MotionGate {
   // Queues a section's start. Returns a cancel for a start that has not run yet.
   readonly queue: (start: Start) => () => void;
-  // Listens for the first sign of the visitor; onWake runs at that moment, before any section starts. Returns the clean-up.
-  readonly arm: (onWake: () => void) => () => void;
-  // For the opening section, which starts at load but leaves its scroll-only parts for the visitor's first input.
-  readonly whenAwake: WhenAwake;
+  // Starts every queued section, in order; anything queued after runs at once.
+  readonly wake: () => void;
   // Settles once every queued start has run.
   readonly ready: Promise<void>;
 }
 
-const WAKE_EVENTS = [
-  'scroll',
-  'wheel',
-  'touchstart',
-  'pointermove',
-  'pointerdown',
-  'keydown',
-] as const;
+// Each section refreshes every pin on the page when it builds (it has to when it rebuilds alone). While the journey builds,
+// those refreshes are skipped: the seams refresh once after the last section, and a full re-measure per section froze the
+// page for half a second. The sections build on fonts.ready, so the hold lasts until then.
+function holdRefresh(until: Promise<void>): void {
+  const { refresh } = ScrollTrigger;
+  ScrollTrigger.refresh = () => undefined;
+  void until
+    .then(() => document.fonts.ready)
+    .then(() => {
+      ScrollTrigger.refresh = refresh;
+    });
+}
 
 export function createMotionGate(): MotionGate {
   const pending: Start[] = [];
-  const wakers: Start[] = [];
   let awake = false;
   let settle: () => void = () => undefined;
   const ready = new Promise<void>((resolve) => {
     settle = resolve;
   });
-  // One start per task: the browser can paint and answer input between sections.
+  // One start per task: the browser can paint the loading surface between sections.
   const drain = (): void => {
     const next = pending.shift();
     if (next) {
@@ -45,17 +43,6 @@ export function createMotionGate(): MotionGate {
       window.setTimeout(drain, 0);
     } else {
       settle();
-    }
-  };
-  const wake = (onWake: () => void): void => {
-    if (!awake) {
-      awake = true;
-      onWake();
-      // The opening section first, at once, so its pin exists before any section below measures its own.
-      wakers.splice(0).forEach((waker) => {
-        waker();
-      });
-      window.setTimeout(drain, 0);
     }
   };
   return {
@@ -72,36 +59,12 @@ export function createMotionGate(): MotionGate {
         }
       };
     },
-    arm: (onWake) => {
-      // A deep link or a restored scroll position already shows a section below the hero.
-      if (window.location.hash || window.scrollY > 0) {
-        wake(onWake);
-        return () => undefined;
+    wake: () => {
+      if (!awake) {
+        awake = true;
+        holdRefresh(ready);
+        window.setTimeout(drain, 0);
       }
-      const abort = new AbortController();
-      const onInput = (): void => {
-        abort.abort();
-        wake(onWake);
-      };
-      for (const type of WAKE_EVENTS) {
-        window.addEventListener(type, onInput, { passive: true, signal: abort.signal });
-      }
-      return () => {
-        abort.abort();
-      };
-    },
-    whenAwake: (callback) => {
-      if (awake) {
-        callback();
-        return () => undefined;
-      }
-      wakers.push(callback);
-      return () => {
-        const index = wakers.indexOf(callback);
-        if (index >= 0) {
-          wakers.splice(index, 1);
-        }
-      };
     },
     ready,
   };
@@ -109,5 +72,3 @@ export function createMotionGate(): MotionGate {
 
 // Present only on the journey: the preview page has no gate, so its single section mounts at once.
 export const MotionGateContext = createContext<MotionGate | null>(null);
-// The journey's wake signal for the opening section (absent on the preview page, where everything starts at once).
-export const WakeContext = createContext<WhenAwake | null>(null);

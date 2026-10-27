@@ -1,6 +1,5 @@
-import { useCallback, useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { HERO } from '../../../content/hero';
-import { WakeContext } from '../../../motion/gate';
 import { mountHero } from '../../../motion/hero/mount';
 import { useSectionMotion } from '../../../motion/useSectionMotion';
 import { Icon } from '../../atoms/Icon';
@@ -14,9 +13,7 @@ import { infraArt, interfaceArt, logicArt } from '../../../assets/art';
 // The opening section: the layered system, the portrait and the headlines, with the scroll story pinned to it.
 export function HeroSection() {
   const ref = useRef<HTMLElement>(null);
-  const whenAwake = useContext(WakeContext);
-  const mount = useCallback((root: HTMLElement) => mountHero(root, whenAwake), [whenAwake]);
-  useSectionMotion(ref, mount, 'hero');
+  useSectionMotion(ref, mountHero, 'hero');
   return (
     <section ref={ref} className="ardial-hero" id="hero" aria-label={HERO.label}>
       <div className="hero-stage">

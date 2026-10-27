@@ -57,6 +57,7 @@ const SEAMS: readonly Seam[] = [
   },
 ];
 
+export const JOURNEY_READY = 'journey:ready';
 const HELD_CLASS = 'seam-held';
 // !important beats the offset a finished pin leaves inline on its stage.
 const HELD_STYLE = `.${HELD_CLASS}{position:fixed!important;top:0!important;left:0!important;right:0;transform:none!important;z-index:1}`;
@@ -231,8 +232,9 @@ function build(root: HTMLElement): () => void {
   ScrollTrigger.addEventListener('refreshInit', refreshInit);
   ScrollTrigger.addEventListener('refresh', refreshed);
   ScrollTrigger.refresh();
-  // Marks the journey as joined, for anything that has to wait for the seams (the e2e specs do).
+  // Marks the journey as joined, for anything that has to wait for the seams (the hero's loader and the e2e specs do).
   root.dataset.seams = 'ready';
+  root.dispatchEvent(new Event(JOURNEY_READY));
   return () => {
     delete root.dataset.seams;
     ScrollTrigger.removeEventListener('refreshInit', refreshInit);

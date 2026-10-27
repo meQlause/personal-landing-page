@@ -1,5 +1,4 @@
 import { need } from '../dom';
-import type { WhenAwake } from '../gate';
 import { mountNavCharacter } from '../nav-character/mount';
 import type { SectionApi } from '../types';
 import { FROST, ROUTE } from './constants';
@@ -9,6 +8,7 @@ import { resize } from './particles';
 import { mountPortrait } from './portrait';
 import type { HeroRuntime } from './runtime';
 import { setup } from './setup';
+import { JOURNEY_READY } from '../seams/seams';
 
 // Mounts the hero's motion on its section. React calls the returned destroy() on unmount.
 
@@ -16,11 +16,7 @@ const SMALL_QUERY = '(max-width:600px)';
 const REDUCED_QUERY = '(prefers-reduced-motion: reduce)';
 const FINE_QUERY = '(hover:hover) and (pointer:fine)';
 
-function createRuntime(
-  root: HTMLElement,
-  abort: AbortController,
-  whenAwake: WhenAwake | null,
-): HeroRuntime {
+function createRuntime(root: HTMLElement, abort: AbortController): HeroRuntime {
   const canvas = need<HTMLCanvasElement>(root, '.window-frost');
   const base = document.createElement('canvas');
   const ctx = canvas.getContext('2d');
@@ -60,6 +56,7 @@ function createRuntime(
     h: 0,
     motion: !reduced.matches,
     ready: false,
+    built: false,
     destroyed: false,
     visible: true,
     frame: 0,
@@ -70,8 +67,6 @@ function createRuntime(
     particleIn: 0,
     context: null,
     story: null,
-    whenAwake,
-    cancelStory: () => undefined,
     arrival: null,
     timer: undefined,
   };
@@ -121,12 +116,34 @@ function observeHero(runtime: HeroRuntime): { disconnect(): void } {
   };
 }
 
-// Mounts the hero on its section. Returns the section API that React calls on unmount. On the journey, whenAwake defers the
-// scroll story to the visitor's first input.
-export function mountHero(root: HTMLElement, whenAwake: WhenAwake | null = null): SectionApi {
+// Marks the journey built when the seams report it (or after ROUTE.buildLimit, so a failed section cannot hold the loader),
+// and plays an arrival that was waiting for it.
+function awaitJourney(runtime: HeroRuntime, signal: AbortSignal): void {
+  const journey = runtime.root.closest<HTMLElement>('#journey');
+  const done = (): void => {
+    clearTimeout(limit);
+    runtime.built = true;
+    if (runtime.arrival?.paused()) {
+      runtime.arrival.play();
+    }
+  };
+  const limit = setTimeout(done, ROUTE.buildLimit);
+  signal.addEventListener('abort', () => {
+    clearTimeout(limit);
+  });
+  if (!journey || journey.dataset.seams === 'ready') {
+    done();
+    return;
+  }
+  journey.addEventListener(JOURNEY_READY, done, { once: true, signal });
+}
+
+// Mounts the hero on its section. Returns the section API that React calls on unmount.
+export function mountHero(root: HTMLElement): SectionApi {
   const abort = new AbortController();
-  const runtime = createRuntime(root, abort, whenAwake);
+  const runtime = createRuntime(root, abort);
   attachInput(runtime, abort.signal);
+  awaitJourney(runtime, abort.signal);
   const observers = observeHero(runtime);
   startWhenReady(runtime);
   return {
@@ -146,7 +163,7 @@ export function mountHero(root: HTMLElement, whenAwake: WhenAwake | null = null)
       dispose(runtime);
       abort.abort();
       observers.disconnect();
-      document.documentElement.classList.remove('hero-loading');
+      // The loading state is left to the next mount's intro (StrictMode remounts at once), or to index.html's fallback.
       root.classList.remove('is-enhanced', 'is-static', 'is-open');
       need<HTMLButtonElement>(root, '.open-system').hidden = true;
       need<HTMLButtonElement>(root, '.motion-control').hidden = true;

@@ -204,4 +204,6 @@ export const ROUTE = {
   lowSpeed: 0.1,
   centre: 0.5,
   loadingFallback: 800,
+  // The longest the loader waits for the journey to build (ms) before it reveals the page anyway.
+  buildLimit: 6000,
 } as const;

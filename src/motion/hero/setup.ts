@@ -1,4 +1,4 @@
-import { gsap, ScrollTrigger } from '../gsap';
+import { gsap } from '../gsap';
 import { need } from '../dom';
 import { buildArrival, measureFolds } from './arrival';
 import { ROUTE } from './constants';
@@ -8,8 +8,6 @@ import type { HeroRuntime } from './runtime';
 
 const OPEN_SELECTOR = '.open-system';
 const LOADING_CLASS = 'hero-loading';
-// Set once the story is built; until then the hero's CSS holds the story's opening state.
-const STORY_CLASS = 'has-story';
 import { buildStory } from './story';
 
 // Builds the hero's motion for the current viewport and motion setting, and the actions that drive it.
@@ -51,30 +49,13 @@ function startIntro(runtime: HeroRuntime): void {
   });
 }
 
-// The scroll story and its pin. On the journey they wait for the visitor's first input, because at load only the intro
-// plays; built later they join the hero's context, and every pin is measured again in page order.
+// The scroll story and its pin, built at load: the visitor's first scroll must already land on the pinned stage, or the
+// page scrolls natively while the pin is still being built and the hero slides away.
 function addStory(runtime: HeroRuntime): void {
-  const build = (): void => {
-    runtime.story = buildStory(runtime, () => {
-      update(runtime);
-    });
-    runtime.root.classList.add(STORY_CLASS);
+  runtime.story = buildStory(runtime, () => {
     update(runtime);
-  };
-  const { whenAwake } = runtime;
-  if (!whenAwake) {
-    build();
-    return;
-  }
-  runtime.cancelStory = whenAwake(() => {
-    if (runtime.context) {
-      runtime.context.add(build);
-    } else {
-      build();
-    }
-    ScrollTrigger.sort();
-    ScrollTrigger.refresh();
   });
+  update(runtime);
 }
 
 function setupMotion(runtime: HeroRuntime, intro: boolean): void {

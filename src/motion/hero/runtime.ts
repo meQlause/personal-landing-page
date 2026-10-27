@@ -1,5 +1,4 @@
 import type { gsap } from '../gsap';
-import type { WhenAwake } from '../gate';
 import type { NavCharacterApi } from '../nav-character/mount';
 import type { PortraitApi } from './portrait';
 
@@ -64,6 +63,8 @@ export interface HeroRuntime {
   h: number;
   motion: boolean;
   ready: boolean;
+  // The journey below has built (always true off the journey); until then the loader holds.
+  built: boolean;
   destroyed: boolean;
   visible: boolean;
   frame: number;
@@ -74,9 +75,6 @@ export interface HeroRuntime {
   particleIn: number;
   context: gsap.Context | null;
   story: gsap.core.Timeline | null;
-  // On the journey the story waits for the visitor's first input (see motion/gate.ts); null elsewhere.
-  readonly whenAwake: WhenAwake | null;
-  cancelStory: () => void;
   arrival: gsap.core.Timeline | null;
   timer: ReturnType<typeof setTimeout> | undefined;
 }

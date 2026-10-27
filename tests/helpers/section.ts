@@ -9,8 +9,6 @@ export async function openSection(page: Page, id?: string): Promise<void> {
   await page.goto(id ? `/?section=${id}` : '/');
   await expect(page.locator('html')).not.toHaveClass(/hero-loading/, { timeout: LOADING_LIMIT_MS });
   if (!id) {
-    // The journey builds the sections below the hero on the visitor's first input: a key press wakes it without scrolling.
-    await page.keyboard.press('Shift');
     await expect(page.locator('#journey')).toHaveAttribute('data-seams', 'ready');
   }
 }

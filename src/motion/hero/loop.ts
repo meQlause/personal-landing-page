@@ -155,8 +155,12 @@ export function update(runtime: HeroRuntime): void {
   dispatchHandoff(runtime);
 }
 
-// Ends the intro early: the wordmark completes its travel and the loading state is released.
+// Ends the intro early: the wordmark completes its travel and the loading state is released. Never while the journey is
+// still building behind the loading surface.
 export function finishIntro(runtime: HeroRuntime): void {
+  if (!runtime.built) {
+    return;
+  }
   runtime.arrival?.progress(1);
   runtime.root.classList.remove('wordmark-travelling');
   document.documentElement.classList.remove('hero-loading');
@@ -191,15 +195,12 @@ function clearHover(runtime: HeroRuntime): void {
 }
 
 // Undoes everything the motion set up, so setup() can run again with a new viewport or motion setting.
-// Drops the built motion: a story still waiting for the visitor, and everything the context recorded.
+// Drops the built motion: everything the context recorded.
 function dropMotion(runtime: HeroRuntime): void {
-  runtime.cancelStory();
-  runtime.cancelStory = () => undefined;
   runtime.context?.revert();
   runtime.context = null;
   runtime.story = null;
   runtime.arrival = null;
-  runtime.root.classList.remove('has-story');
 }
 
 export function dispose(runtime: HeroRuntime): void {

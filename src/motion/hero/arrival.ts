@@ -17,7 +17,7 @@ const FOLD = {
 };
 const LOGO = { min: 220, max: 380, ratio: 0.27 };
 const LABEL = { unfold: 'unfold', headline: 'headline' };
-const ARRIVAL = { seam: 0.3, unfold: 2.4 };
+const ARRIVAL = { seam: 0.3, hold: 2.35, unfold: 2.4 };
 
 interface Box {
   readonly x: number;
@@ -124,6 +124,16 @@ export function buildArrival(
       { scaleX: 0 },
       { scaleX: 1, duration: 0.8, ease: EASE.power3InOut },
       ARRIVAL.seam,
+    )
+    // The loader is real work: the unfold waits here until the journey below has built, and never when it already has.
+    .call(
+      () => {
+        if (!runtime.built) {
+          timeline.pause();
+        }
+      },
+      [],
+      ARRIVAL.hold,
     )
     .addLabel(LABEL.unfold, ARRIVAL.unfold)
     .call(
