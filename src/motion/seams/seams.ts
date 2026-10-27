@@ -66,6 +66,7 @@ const FONT_WAIT_MS = 800;
 const SETTLE_MS = 60;
 const START = 0;
 const REDUCED_MOTION = '(prefers-reduced-motion: reduce)';
+const UNCLIPPED = 'inset(0% 0% 0% 0%)';
 
 // The clips and filters each kind scrubs over its gap. The incoming stage opens, the outgoing one recedes.
 const MOTION: Record<Kind, (pair: Pair, timeline: gsap.core.Timeline) => void> = {
@@ -74,7 +75,7 @@ const MOTION: Record<Kind, (pair: Pair, timeline: gsap.core.Timeline) => void> =
       .fromTo(
         incomingStage,
         { clipPath: 'inset(0% 100% 0% 0%)' },
-        { clipPath: 'inset(0% 0% 0% 0%)', ease: 'power2.inOut' },
+        { clipPath: UNCLIPPED, ease: 'power2.inOut' },
         START,
       )
       .fromTo(
@@ -96,10 +97,11 @@ const MOTION: Record<Kind, (pair: Pair, timeline: gsap.core.Timeline) => void> =
         { clipPath: 'circle(150% at 50% 84%)', ease: 'power2.in' },
         START,
       )
+      // The clip keeps the blur inside the stage: it spilled into the scrollbar's gutter beside the incoming stage.
       .fromTo(
         outgoingStage,
-        { filter: 'blur(0px) brightness(1)' },
-        { filter: 'blur(8px) brightness(.7)', ease: 'power1.in' },
+        { filter: 'blur(0px) brightness(1)', clipPath: UNCLIPPED },
+        { filter: 'blur(8px) brightness(.7)', clipPath: UNCLIPPED, ease: 'power1.in' },
         START,
       );
   },
@@ -147,7 +149,7 @@ function pinOf(element: HTMLElement): ScrollTrigger | undefined {
   return ScrollTrigger.getAll().find((trigger) => trigger.pin && trigger.trigger === element);
 }
 
-// One live seam: its trigger, and the hold that a reset never strips while another seam still holds a stage.
+// One live seam: the trigger of its hold, and the hold that a reset never strips while another seam still holds a stage.
 interface Live {
   readonly trigger: ScrollTrigger;
   readonly timeline: gsap.core.Timeline;
@@ -159,21 +161,30 @@ type Reset = () => void;
 // Builds one seam: a scrubbed timeline over its gap that holds both stages while it plays.
 function buildSeam(pair: Pair, live: Live[], resets: Reset[]): gsap.core.Timeline {
   const { seam, outgoing, outgoingStage, incoming, incomingStage } = pair;
+  const clearBackdrop = (): void => {
+    gsap.set([outgoing, incoming], { clearProps: 'backgroundColor' });
+  };
   const reset: Reset = () => {
     outgoingStage.classList.remove(HELD_CLASS);
     incomingStage.classList.remove(HELD_CLASS);
-    gsap.set([outgoing, incoming], { clearProps: 'backgroundColor' });
+    clearBackdrop();
     gsap.set([outgoingStage, incomingStage], { clearProps: 'clipPath,filter,backgroundColor' });
   };
-  // Each held stage carries its section's live palette, so nothing else shows around a receding card.
+  // Each held stage carries its section's live palette, so nothing else shows around a receding card. The sections behind
+  // take the backdrop only inside the gap: held early, it showed through the scrollbar's gutter beside a pinned stage.
   const hold = (): void => {
     outgoingStage.style.backgroundColor = seam.fromBg;
     incomingStage.style.backgroundColor = seam.toBg;
-    const backdrop = seam.kind === 'dive' ? getComputedStyle(outgoing).backgroundColor : BACKDROP;
-    outgoing.style.backgroundColor = backdrop;
-    incoming.style.backgroundColor = backdrop;
+    if (timeline.scrollTrigger?.isActive) {
+      const backdrop = seam.kind === 'dive' ? getComputedStyle(outgoing).backgroundColor : BACKDROP;
+      outgoing.style.backgroundColor = backdrop;
+      incoming.style.backgroundColor = backdrop;
+    }
     outgoingStage.classList.add(HELD_CLASS);
     incomingStage.classList.add(HELD_CLASS);
+    // A reset cleared the clips, and a scrub that has not moved does not redraw them: before the gap that left the
+    // incoming stage held open over the outgoing one.
+    timeline.render(timeline.time(), true, true);
   };
   const timeline = gsap.timeline({
     defaults: { ease: 'none' },
@@ -186,7 +197,7 @@ function buildSeam(pair: Pair, live: Live[], resets: Reset[]): gsap.core.Timelin
       refreshPriority: -10,
       onToggle: (self) => {
         if (!self.isActive) {
-          reset();
+          clearBackdrop();
         }
         live.forEach((entry) => {
           if (entry.trigger.isActive) {
@@ -197,9 +208,34 @@ function buildSeam(pair: Pair, live: Live[], resets: Reset[]): gsap.core.Timelin
     },
   });
   MOTION[seam.kind](pair, timeline);
-  if (timeline.scrollTrigger) {
-    live.push({ trigger: timeline.scrollTrigger, timeline, hold });
-  }
+  // The stages are held from a screen before the gap to a screen after it, but never outside the two pins, where each
+  // stage is fixed at the top anyway: before the gap the incoming stage is held clipped shut, after it the incoming stage
+  // covers the outgoing one. A scroll that runs ahead of the script (a phone's flick, a trackpad) so reaches the gap with
+  // both stages already in place. Held only from the gap's edge, the next section slid in unclipped until the hold landed.
+  const holding = ScrollTrigger.create({
+    trigger: incoming,
+    start: () => {
+      const pin = pinOf(outgoing);
+      return Math.max(pin?.start ?? START, (pin?.end ?? START) - innerHeight);
+    },
+    end: () => {
+      const pin = pinOf(incoming);
+      return Math.min(pin?.end ?? START, (pin?.start ?? START) + innerHeight);
+    },
+    invalidateOnRefresh: true,
+    refreshPriority: -10,
+    onToggle: (self) => {
+      if (!self.isActive) {
+        reset();
+      }
+      live.forEach((entry) => {
+        if (entry.trigger.isActive) {
+          entry.hold();
+        }
+      });
+    },
+  });
+  live.push({ trigger: holding, timeline, hold });
   resets.push(reset);
   return timeline;
 }
@@ -238,7 +274,6 @@ function build(root: HTMLElement): () => void {
     live.forEach((entry) => {
       if (entry.trigger.isActive) {
         entry.hold();
-        entry.timeline.render(entry.timeline.time(), true, true);
       }
     });
   };
@@ -253,6 +288,9 @@ function build(root: HTMLElement): () => void {
     delete root.dataset.seams;
     ScrollTrigger.removeEventListener('refreshInit', refreshInit);
     ScrollTrigger.removeEventListener('refresh', refreshed);
+    live.forEach((entry) => {
+      entry.trigger.kill();
+    });
     timelines.forEach((timeline) => {
       timeline.scrollTrigger?.kill();
       timeline.kill();

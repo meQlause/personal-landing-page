@@ -26,6 +26,9 @@ const SEAMS = [
   },
 ];
 const GAP_FRACTIONS = [0.25, 0.5, 0.75];
+// A seam holds both stages from a screen before its gap to a screen after it (seams.ts). Just past that screen the
+// incoming pin is on its own: every pin is long enough (1.6 screens or more) that the next seam's hold has not begun.
+const PAST_HOLD_SCREENS = 1.1;
 const INTO_PIN_FRACTION = 0.1;
 const PIN_TOLERANCE_PX = 1;
 
@@ -123,18 +126,36 @@ for (const seam of SEAMS) {
         .toEqual({ outgoingFixed: true, incomingFixed: true, clipShape: seam.shape });
     }
 
-    await scrollPin(page, seam.to, INTO_PIN_FRACTION);
-    const after = await page.evaluate((stage) => {
-      const incoming = document.querySelector<HTMLElement>(stage);
-      return {
-        leftover: document.querySelectorAll('.seam-held').length,
-        inline: incoming?.getAttribute('style') ?? '',
-        top: incoming?.getBoundingClientRect().top ?? NaN,
-      };
-    }, seam.toStage);
-    expect(after.leftover).toBe(0);
-    expect(after.inline).not.toMatch(/clip-path/);
-    expect(Math.abs(after.top)).toBeLessThanOrEqual(PIN_TOLERANCE_PX);
+    await page.evaluate(
+      ({ to, screens }) => {
+        // The pin starts at the section's top (its stage is what is pinned).
+        const root = document.querySelector<HTMLElement>(to);
+        if (!root) {
+          throw new Error(`Missing ${to}`);
+        }
+        window.scrollTo(
+          0,
+          root.getBoundingClientRect().top + window.scrollY + window.innerHeight * screens,
+        );
+      },
+      { to: seam.to, screens: PAST_HOLD_SCREENS },
+    );
+    // Past the hold: nothing is held, the incoming stage keeps no clip and its own pin holds it at the top.
+    await expect
+      .poll(() =>
+        page.evaluate(
+          ({ stage, tolerance }) => {
+            const incoming = document.querySelector<HTMLElement>(stage);
+            return {
+              leftover: document.querySelectorAll('.seam-held').length,
+              clipped: /clip-path/.test(incoming?.getAttribute('style') ?? ''),
+              atTop: Math.abs(incoming?.getBoundingClientRect().top ?? NaN) <= tolerance,
+            };
+          },
+          { stage: seam.toStage, tolerance: PIN_TOLERANCE_PX },
+        ),
+      )
+      .toEqual({ leftover: 0, clipped: false, atTop: true });
     expect(errors).toEqual([]);
   });
 }

@@ -2,11 +2,12 @@ import { gsap } from '../gsap';
 import { need } from '../dom';
 import { buildArrival, measureFolds } from './arrival';
 import { ROUTE } from './constants';
-import { dispose, finishIntro, releaseLoading, TEXT, update } from './loop';
+import { dispose, finishIntro, TEXT, update } from './loop';
 import { resize } from './particles';
 import type { HeroRuntime } from './runtime';
 
 const OPEN_SELECTOR = '.open-system';
+const LOADING_CLASS = 'hero-loading';
 import { buildStory } from './story';
 
 // Builds the hero's motion for the current viewport and motion setting, and the actions that drive it.
@@ -34,7 +35,7 @@ function setupStatic(runtime: HeroRuntime): void {
   runtime.portrait.set(1, false);
   need(root, '.portrait-scene').setAttribute('aria-hidden', 'false');
   resize(runtime);
-  releaseLoading();
+  document.documentElement.classList.remove(LOADING_CLASS);
   need(root, OPEN_SELECTOR).setAttribute('aria-expanded', 'false');
 }
 
@@ -44,7 +45,7 @@ function startIntro(runtime: HeroRuntime): void {
   const folds = measureFolds(runtime);
   runtime.arrival = buildArrival(runtime, logo, folds, () => {
     runtime.root.classList.remove('wordmark-travelling');
-    releaseLoading();
+    document.documentElement.classList.remove(LOADING_CLASS);
   });
 }
 
@@ -60,17 +61,14 @@ function addStory(runtime: HeroRuntime): void {
 function setupMotion(runtime: HeroRuntime, intro: boolean): void {
   setControls(runtime, true);
   resize(runtime);
-  const playIntro = intro && window.scrollY < ROUTE.introLimit;
   runtime.context = gsap.context(() => {
     addStory(runtime);
-    if (playIntro) {
+    if (intro && window.scrollY < ROUTE.introLimit) {
       startIntro(runtime);
+    } else {
+      document.documentElement.classList.remove(LOADING_CLASS);
     }
   }, runtime.root);
-  // Outside the context: its revert would otherwise take the page's scroll normalizer with it (motion/gsap.ts).
-  if (!playIntro) {
-    releaseLoading();
-  }
   update(runtime);
 }
 
