@@ -1,4 +1,5 @@
 import { need } from '../dom';
+import { normalizeTouchScroll } from '../gsap';
 import { CURSOR, ROUTE, TILT } from './constants';
 import { drawCursor } from './cursor';
 import { draw, drawParticles } from './particles';
@@ -163,7 +164,13 @@ export function finishIntro(runtime: HeroRuntime): void {
   }
   runtime.arrival?.progress(1);
   runtime.root.classList.remove('wordmark-travelling');
+  releaseLoading();
+}
+
+// Ends the loading state: the page scrolls again.
+export function releaseLoading(): void {
   document.documentElement.classList.remove('hero-loading');
+  normalizeTouchScroll();
 }
 
 function resetPose(runtime: HeroRuntime): void {
