@@ -381,9 +381,9 @@ function paintPoint(portrait: Portrait, scene: Scene, paint: Paint): void {
       1,
       dot.alpha * twinkle + paint.band * PORTRAIT.scan.glow + paint.heat * PORTRAIT.heatGlow,
     ) * Math.min(1, paint.progress * PORTRAIT.fadeIn);
-  ctx.beginPath();
-  ctx.arc(paint.x, paint.y, radiusOf(scene, paint), 0, Math.PI * 2);
-  ctx.fill();
+  // A square of the circle's area: at one or two pixels it looks the same, and costs a fraction of a path fill.
+  const side = radiusOf(scene, paint) * Math.sqrt(Math.PI);
+  ctx.fillRect(paint.x - side / 2, paint.y - side / 2, side, side);
 }
 
 // Draws every dot that has started to arrive. Dots that are moving fast glow warm.

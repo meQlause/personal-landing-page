@@ -19,8 +19,11 @@
         scrollTo(0, 0);
       }
       document.documentElement.classList.add('hero-loading');
+      // Only when the script never took over: once it runs, the hero's loader releases itself.
       setTimeout(function () {
-        document.documentElement.classList.remove('hero-loading');
+        if (!document.querySelector('.ardial-hero.is-enhanced')) {
+          document.documentElement.classList.remove('hero-loading');
+        }
       }, 7500);
     </script>
   </head>

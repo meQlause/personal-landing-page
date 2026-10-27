@@ -21,6 +21,7 @@ function createReactors(root: HTMLElement): Reactor[] {
     oy: 0,
     vx: 0,
     vy: 0,
+    transform: '',
   }));
 }
 

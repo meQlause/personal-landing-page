@@ -342,8 +342,11 @@ function setPortrait(live: Live, progress: number, enabled: boolean): void {
   if (!live.active) {
     stopFrame(live);
   }
-  drawPortrait(live);
   wake(live);
+  // A scheduled frame draws the new progress; drawing here too painted every dot twice per scroll frame.
+  if (!live.frame) {
+    drawPortrait(live);
+  }
 }
 
 // Mounts the portrait on its host. `source` is the Infrastructure plane the dots start from.

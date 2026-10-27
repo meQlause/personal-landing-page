@@ -212,33 +212,55 @@ export function previewSwap(runtime: WorkRuntime): void {
 
 // Every reacting element in the active scene moves toward the cursor on a damped spring, and turns with its speed.
 export function springs(runtime: WorkRuntime, delta: number): void {
+  const scene = runtime.scenes[runtime.active];
+  const active = runtime.reactors.filter((reactor) => reactor.scene === scene);
+  // No pointer and nothing moving (always, on a touch screen): no box is read and nothing is written.
+  if (!isPulling(runtime) && active.every(isAtRest)) {
+    return;
+  }
   const bounds = runtime.art.getBoundingClientRect();
   const unit =
     Math.min(bounds.width / WORK.viewBox.width, bounds.height / WORK.viewBox.height) || 1;
-  const scene = runtime.scenes[runtime.active];
-  for (const reactor of runtime.reactors) {
-    if (reactor.scene !== scene) {
-      continue;
-    }
-    if (delta > 0) {
+  // Every box is read before any transform is written: a write between two reads forced a layout per reactor.
+  if (delta > 0) {
+    active.forEach((reactor) => {
       stepReactor(runtime, reactor, delta);
+    });
+  }
+  // An unchanged transform is not written again, so a resting scene leaves the layout clean for the scroll.
+  for (const reactor of active) {
+    const transform = `translate(${(reactor.ox / unit).toFixed(1)} ${(reactor.oy / unit).toFixed(1)}) rotate(${(reactor.vx * SPRING.rotation).toFixed(2)})`;
+    if (transform !== reactor.transform) {
+      reactor.transform = transform;
+      reactor.el.setAttribute('transform', transform);
     }
-    reactor.el.setAttribute(
-      'transform',
-      `translate(${(reactor.ox / unit).toFixed(1)} ${(reactor.oy / unit).toFixed(1)}) rotate(${(reactor.vx * SPRING.rotation).toFixed(2)})`,
-    );
   }
 }
 
+function isPulling(runtime: WorkRuntime): boolean {
+  return runtime.pointer.inside && runtime.motion;
+}
+
+function isAtRest(reactor: Reactor): boolean {
+  return (
+    Math.abs(reactor.ox) + Math.abs(reactor.oy) + Math.abs(reactor.vx) + Math.abs(reactor.vy) <
+    SPRING.rest
+  );
+}
+
 function stepReactor(runtime: WorkRuntime, reactor: Reactor, delta: number): void {
-  const bounds = reactor.el.getBoundingClientRect();
-  const offsetX = bounds.left + bounds.width / 2 - runtime.pointer.cx;
-  const offsetY = bounds.top + bounds.height / 2 - runtime.pointer.cy;
-  const dist = Math.max(Math.hypot(offsetX, offsetY), 1);
-  const force =
-    runtime.pointer.inside && runtime.motion
-      ? Math.max(0, 1 - dist / SPRING.reach) ** SPRING.power
-      : 0;
+  // The pointer's pull: the reactor's box is only read while a pointer is there to pull it.
+  let offsetX = 0;
+  let offsetY = 0;
+  let dist = 1;
+  let force = 0;
+  if (isPulling(runtime)) {
+    const bounds = reactor.el.getBoundingClientRect();
+    offsetX = bounds.left + bounds.width / 2 - runtime.pointer.cx;
+    offsetY = bounds.top + bounds.height / 2 - runtime.pointer.cy;
+    dist = Math.max(Math.hypot(offsetX, offsetY), 1);
+    force = Math.max(0, 1 - dist / SPRING.reach) ** SPRING.power;
+  }
   reactor.vx +=
     ((offsetX / dist) * force * SPRING.pull -
       SPRING.anchor * reactor.ox -

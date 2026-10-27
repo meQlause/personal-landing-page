@@ -204,6 +204,19 @@ function buildSeam(pair: Pair, live: Live[], resets: Reset[]): gsap.core.Timelin
   return timeline;
 }
 
+// A scrubbed tween reads its start values (computed styles, transforms) the first time the scroll reaches it, in the middle of
+// the visitor's gesture. Each scroll timeline is rendered to its end and back once here, behind the loading surface, so they
+// are read now. Events are suppressed, so nothing reacts to the round trip.
+function warm(): void {
+  ScrollTrigger.getAll().forEach((trigger) => {
+    const animation = trigger.animation;
+    if (animation) {
+      const progress = animation.progress();
+      animation.progress(1, true).progress(progress, true);
+    }
+  });
+}
+
 // Mounts every seam on the journey. Returns the cleanup, which removes the style and every seam's trigger.
 function build(root: HTMLElement): () => void {
   const style = document.createElement('style');
@@ -232,6 +245,7 @@ function build(root: HTMLElement): () => void {
   ScrollTrigger.addEventListener('refreshInit', refreshInit);
   ScrollTrigger.addEventListener('refresh', refreshed);
   ScrollTrigger.refresh();
+  warm();
   // Marks the journey as joined, for anything that has to wait for the seams (the hero's loader and the e2e specs do).
   root.dataset.seams = 'ready';
   root.dispatchEvent(new Event(JOURNEY_READY));

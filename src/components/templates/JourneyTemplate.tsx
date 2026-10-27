@@ -23,6 +23,19 @@ export function JourneyTemplate({ lead, children }: JourneyTemplateProps) {
     let teardown = (): void => undefined;
     // The sections render normally again before any of them measures its pin.
     delete root.dataset.asleep;
+    // A section more than a screen away pauses its CSS animations (global.css): an endless one there still restyled, and in
+    // SVG re-laid out, every frame of the page.
+    const distance = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          (entry.target as HTMLElement).toggleAttribute('data-offscreen', !entry.isIntersecting);
+        });
+      },
+      { rootMargin: '100% 0px' },
+    );
+    root.querySelectorAll(':scope > section').forEach((section) => {
+      distance.observe(section);
+    });
     gate.wake();
     void gate.ready.then(() => {
       if (!cancelled) {
@@ -31,6 +44,7 @@ export function JourneyTemplate({ lead, children }: JourneyTemplateProps) {
     });
     return () => {
       cancelled = true;
+      distance.disconnect();
       teardown();
     };
   }, [gate]);

@@ -261,6 +261,7 @@ function resetReactors(runtime: WorkRuntime): void {
     reactor.oy = 0;
     reactor.vx = 0;
     reactor.vy = 0;
+    reactor.transform = '';
     reactor.el.removeAttribute('transform');
   }
 }

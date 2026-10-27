@@ -32,3 +32,10 @@ body {
   content-visibility: auto;
   contain-intrinsic-size: auto 100lvh;
 }
+
+/* Sections more than a screen away (JourneyTemplate marks them) hold their CSS animations still. */
+#journey > section[data-offscreen] *,
+#journey > section[data-offscreen] *::before,
+#journey > section[data-offscreen] *::after {
+  animation-play-state: paused !important;
+}

@@ -16,6 +16,8 @@ export interface Reactor {
   oy: number;
   vx: number;
   vy: number;
+  // The transform last written, so an unchanged one is not written again.
+  transform: string;
 }
 
 // The Simpul thread: how far it has untied, and how far the message (bead) has travelled along the route.

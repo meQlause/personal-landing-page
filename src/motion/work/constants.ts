@@ -34,7 +34,16 @@ export const WORK = {
   pin: { heightDesktop: 6, heightMobile: 5, refresh: -1 },
   drag: { reach: 60, reachPower: 2, pull: 1600, anchor: 90, damping: 10 },
   thread: { untieLead: 0.6, untieSpan: 0.4, untieBlend: 3 },
-  spring: { reach: 150, power: 2, pull: 2400, anchor: 120, damping: 11, rotation: 0.01 },
+  // rest: below this sum of offset and speed a reactor has settled and is no longer drawn.
+  spring: {
+    reach: 150,
+    power: 2,
+    pull: 2400,
+    anchor: 120,
+    damping: 11,
+    rotation: 0.01,
+    rest: 0.01,
+  },
   qswap: {
     base: 1,
     slope: 0.6,
